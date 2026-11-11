@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n24-a1-iq3-128k",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "other",
+ "status": "ok",
+ "title": "n24-a1-iq3-128k",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-i1-GGUF",
+  "repo": "mradermacher/Agents-A1-i1-GGUF",
+  "file": "Agents-A1.i1-IQ3_XXS.gguf",
+  "quant": "IQ3_XXS",
+  "size_gb": 13.6
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "131072",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "-b",
+   "2048",
+   "-ub",
+   "1024"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "pietro-duro+agente+lungo",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 37.2,
+  "load_s": 18.6
+ },
+ "notes": "A1 IQ3 a 128K: il 35B che entra in RAM regge il contesto lungo? prefill/decode/aghi",
+ "tags": [],
+ "summary": "37.2 t/s a un flusso."
+}

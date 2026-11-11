@@ -21,3 +21,4 @@
 {"label": "n20-qwen9b-128k", "target": 128000, "prompt_tok": 128092, "richiamo": "3/3", "prefill_tps": 888.8, "prefill_nuovi": 65089, "decode_tps": 25.2, "s": 74.0, "risposta": "girasole-7319\nilaria fontebasso\n37"}
 {"label": "n20b-arex-64k", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 1886.7, "prefill_nuovi": 64031, "decode_tps": 42.0, "s": 34.4, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
 {"label": "n20c-e4b-64k", "target": 64000, "prompt_tok": 64030, "richiamo": "2/2", "prefill_tps": 2551.2, "prefill_nuovi": 64029, "decode_tps": 29.1, "s": 25.8, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
+{"label": "n24b-a1-iq3-64k", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 816.1, "prefill_nuovi": 64031, "decode_tps": 26.6, "s": 79.2, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}

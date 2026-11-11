@@ -1,0 +1,50 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n22-arex-omp3",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "n22-arex-omp3",
+ "reference": false,
+ "model": {
+  "name": "BAAI_AREX-Turbo-GGUF",
+  "repo": "bartowski/BAAI_AREX-Turbo-GGUF",
+  "file": "BAAI_AREX-Turbo-Q4_K_M.gguf",
+  "quant": "Q4_K_M",
+  "size_gb": 2.9
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "built with Clang 20.1.8 for Windows x86_64",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "65536",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "--cache-ram",
+   "512",
+   "--cache-reuse",
+   "256"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "tiny-fabbrica",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {},
+ "notes": "terza corsa omp su AREX 4B (tenuto su disco per il router)",
+ "tags": [],
+ "summary": "Test fallito o non valido: spazio insufficiente (9 GB liberi)."
+}

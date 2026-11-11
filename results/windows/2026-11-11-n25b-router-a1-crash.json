@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n25b-router-a1-crash",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "n25b-router-a1-crash",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-i1-GGUF",
+  "repo": "mradermacher/Agents-A1-i1-GGUF",
+  "file": "Agents-A1.i1-IQ3_XXS.gguf",
+  "quant": "IQ3_XXS",
+  "size_gb": 12.69
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "llama.cpp b12141",
+  "args": [
+   "-c",
+   "65536",
+   "--cache-ram",
+   "512",
+   "--cache-reuse",
+   "256"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "tiny-fabbrica",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {},
+ "notes": "",
+ "tags": [],
+ "summary": "Test fallito o non valido: CUDA error: illegal memory access (ggml_backend_cuda_synchronize) alla 3a attivita omp, dopo 5m45s; server morto e harness in timeout.."
+}

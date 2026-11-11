@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n25c-router-arex",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "harness",
+ "status": "ok",
+ "title": "n25c-router-arex",
+ "reference": false,
+ "model": {
+  "name": "BAAI_AREX-Turbo-GGUF",
+  "repo": "bartowski/BAAI_AREX-Turbo-GGUF",
+  "file": "BAAI_AREX-Turbo-Q4_K_M.gguf",
+  "quant": "Q4_K_M",
+  "size_gb": 2.9
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "65536",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "--cache-ram",
+   "512",
+   "--cache-reuse",
+   "256"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "agente-mini-harness-reali",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 71.4,
+  "decode_tps_4": 70.1,
+  "prompt_tps": 1299.6,
+  "mmlu": 0.0,
+  "arc": 60.0,
+  "gsm": 81.2,
+  "code12": 25.0,
+  "q_medio": 41.5,
+  "invented_words_pct": 1.0,
+  "load_s": 4.0,
+  "harness_omp_pieno_pct": 33.3,
+  "harness_omp_parziale_pct": 44.4
+ },
+ "notes": "ROUTER per tipo: AREX sui compiti veloci/dati (bug, rinomina, dati_ordini). Con A1 su config/paginazione/rapporto (3/3) = 6/6?",
+ "tags": [],
+ "summary": "Qualita tiny 41.5, 71.4 t/s a un flusso."
+}

@@ -1,0 +1,43 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n27-freetoken-a1-iq3",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "n27-freetoken-a1-iq3",
+ "reference": false,
+ "model": {
+  "name": "FreeToken",
+  "repo": "FlashML-org/FreeToken",
+  "file": "Agents-A1.i1-IQ3_XXS.gguf",
+  "quant": "IQ3_XXS",
+  "size_gb": 12.69
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "FreeToken 0.2.2+cu130 Windows (wheel)",
+  "args": [
+   "serve",
+   "--moe-strategy",
+   "auto",
+   "--max-seq-len-override",
+   "65536"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "tiny-fabbrica",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {},
+ "notes": "",
+ "tags": [],
+ "summary": "Test fallito o non valido: HostOutOfMemoryError: host out of memory (RAM + swap/page file): WinError 1455. I bank degli esperti (11,7 GB) non stanno nei 16 GB di RAM insieme a Windows/desktop; il build seriale chiede il doppio (buffer shard intero).."
+}

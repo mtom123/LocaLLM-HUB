@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n25b-router-a1",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "harness",
+ "status": "ok",
+ "title": "n25b-router-a1",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-i1-GGUF",
+  "repo": "mradermacher/Agents-A1-i1-GGUF",
+  "file": "Agents-A1.i1-IQ3_XXS.gguf",
+  "quant": "IQ3_XXS",
+  "size_gb": 13.6
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "32768",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "-b",
+   "1024",
+   "-ub",
+   "256",
+   "--flash-attn",
+   "on",
+   "--chat-template-file",
+   "<PATH>/a1-chat_template-fixed.jinja",
+   "--reasoning",
+   "off",
+   "--dry-multiplier",
+   "0.5",
+   "--dry-allowed-length",
+   "8"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "agente-mini-harness-reali",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 40.8,
+  "decode_tps_4": 40.4,
+  "prompt_tps": 207.0,
+  "mmlu": 90.5,
+  "arc": 95.2,
+  "gsm": 100.0,
+  "code12": 83.3,
+  "q_medio": 92.2,
+  "invented_words_pct": 0.55,
+  "load_s": 18.6,
+  "harness_omp_pieno_pct": 100.0,
+  "harness_omp_parziale_pct": 100.0
+ },
+ "notes": "ROUTER A1 su config/paginazione/rapporto, retry con flash-attn on e senza prompt-cache (crash CUDA alla 3a attivita)",
+ "tags": [],
+ "summary": "Qualita tiny 92.2, 40.8 t/s a un flusso."
+}
