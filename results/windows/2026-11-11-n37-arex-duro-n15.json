@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n37-arex-duro-n15",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "other",
+ "status": "ok",
+ "title": "n37-arex-duro-n15",
+ "reference": false,
+ "model": {
+  "name": "BAAI_AREX-Turbo-GGUF",
+  "repo": "bartowski/BAAI_AREX-Turbo-GGUF",
+  "file": "BAAI_AREX-Turbo-Q4_K_M.gguf",
+  "quant": "Q4_K_M",
+  "size_gb": 2.9
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "65536",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "pietro-duro+agente+lungo",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 70.9,
+  "load_s": 6.6,
+  "duro_pct": 69.5,
+  "agente_pct": 91.7
+ },
+ "notes": "AREX 4B con n=15: stesso campione del Mac e di E4B, per un confronto onesto a parita di domande",
+ "tags": [],
+ "summary": "Duro 69.5%, agente 91.7%, 70.9 t/s a un flusso."
+}

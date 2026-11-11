@@ -1,0 +1,65 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n34-e4b-omp",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "harness",
+ "status": "ok",
+ "title": "n34-e4b-omp",
+ "reference": false,
+ "model": {
+  "name": "NVIDIA-Nemotron-3.5-Bolt-E4B-GGUF",
+  "repo": "unsloth/NVIDIA-Nemotron-3.5-Bolt-E4B-GGUF",
+  "file": "NVIDIA-Nemotron-3.5-Bolt-E4B-UD-IQ3_XXS.gguf",
+  "quant": "UD-IQ3_XXS",
+  "size_gb": 3.7
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "32768",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "-b",
+   "1024",
+   "-ub",
+   "512",
+   "-fa",
+   "on"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "agente-mini-harness-reali",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 63.5,
+  "decode_tps_4": 61.6,
+  "prompt_tps": 1755.5,
+  "mmlu": 69.0,
+  "arc": 88.0,
+  "gsm": 100.0,
+  "code12": 66.7,
+  "q_medio": 80.9,
+  "invented_words_pct": 0.68,
+  "load_s": 3.5,
+  "harness_omp_pieno_pct": 16.7,
+  "harness_omp_parziale_pct": 34.6
+ },
+ "notes": "E4B harness omp (32K, flash-attn): la volta scorsa 2/6, ma era senza FA e con args diversi. Serve per decidere il modello di tutti i giorni",
+ "tags": [],
+ "summary": "Qualita tiny 80.9, 63.5 t/s a un flusso."
+}

@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n36-a1-iq3-duro-n15",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "other",
+ "status": "ok",
+ "title": "n36-a1-iq3-duro-n15",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-i1-GGUF",
+  "repo": "mradermacher/Agents-A1-i1-GGUF",
+  "file": "Agents-A1.i1-IQ3_XXS.gguf",
+  "quant": "IQ3_XXS",
+  "size_gb": 13.6
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "65536",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "pietro-duro+agente+lungo",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 39.6,
+  "load_s": 21.7,
+  "duro_pct": 64.4,
+  "agente_pct": 91.7
+ },
+ "notes": "A1 IQ3 con n=15, come il Mac: il 76,3 era su 38 domande e va verificato su un campione piu grande",
+ "tags": [],
+ "summary": "Duro 64.4%, agente 91.7%, 39.6 t/s a un flusso."
+}
