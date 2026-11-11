@@ -46,16 +46,17 @@ sposterebbe il problema sul disco. Record `n27-freetoken-a1-iq3` (failed, nascos
 
 FreeToken risolve il caso "GPU piccola, RAM grande"; noi abbiamo il vincolo opposto.
 
-## 5. Distillazione verificata (in corso)
+## 5. Distillazione verificata: primo ciclo completo, nessun guadagno misurabile
 
-Pipeline pronta in `llm/fabbrica/training/`:
-`gen_tasks.py` (compiti sintetici con test nascosti) -> `distill_run.py` (teacher A1 IQ3) ->
-`gen_traces.py` (tiene solo le soluzioni che passano) -> `qlora_train.py` (4-bit nf4 + LoRA) ->
-`eval_adapter.py` (A/B base vs adapter su holdout separato per seed).
+Pipeline pronta in `llm/fabbrica/training/` (`gen_tasks.py` -> `distill_run.py` -> `gen_traces.py` ->
+`qlora_train.py` -> `eval_ab.py`). 196 tracce verificate dal teacher A1 IQ3, QLoRA 4-bit su AREX-Turbo
+(21,2M parametri, 147 step, 22 min, loss 1,02 -> 0,15).
+
+**A/B su 20 compiti di holdout separati per seed: base 6/20 (30%), LoRA 7/20 (35%).** Cinque compiti
+migliorati e quattro peggiorati: +1 su 20 e' dentro il rumore, quindi **nessun guadagno dichiarato**.
+Dettagli e next step in [`TRAINING-2026-11-11-DISTILLAZIONE-AREX.md`](TRAINING-2026-11-11-DISTILLAZIONE-AREX.md).
+
 Pesi HF di AREX-Turbo (8,5 GB) su `L:\hf` per non riempire C:.
-
-Split pulito: train seed 7 (240 compiti), holdout seed 99 (40). Nessun compito viene da
-MBPP/HumanEval, quindi `duro --sets=code,mbpp` resta uncontaminato.
 
 ## 6. Spazio e igiene
 
