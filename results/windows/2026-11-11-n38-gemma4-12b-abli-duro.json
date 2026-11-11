@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "2026-11-11-n38-gemma4-12b-abli-duro",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-11",
+ "category": "other",
+ "status": "ok",
+ "title": "n38-gemma4-12b-abli-duro",
+ "reference": false,
+ "model": {
+  "name": "Huihui-gemma-4-12B-it-qat-q4_0-unquantized-abliterated-GGUF",
+  "repo": "newtonxm/Huihui-gemma-4-12B-it-qat-q4_0-unquantized-abliterated-GGUF",
+  "file": "Huihui-gemma-4-12B-it-qat-q4_0-unquantized-abliterated-Q4_K.gguf",
+  "quant": "Q4_0",
+  "size_gb": 7.4
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b10955?",
+  "args": [
+   "-np",
+   "1",
+   "-c",
+   "65536",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "pietro-duro+agente+lungo",
+  "harness": "fabbrica-runner"
+ },
+ "metrics": {
+  "decode_tps_1": 33.6,
+  "load_s": 6.6,
+  "duro_pct": 69.5,
+  "agente_pct": 91.7
+ },
+ "notes": "PRIMO ABLITERATED: gemma-4-12B QAT Q4_K abliterated (6,9 GB). L abliteration toglie i rifiuti ma puo costare ragionamento: duro n=15 dice se e utilizzabile e quanto vale per GB",
+ "tags": [],
+ "summary": "Duro 69.5%, agente 91.7%, 33.6 t/s a un flusso."
+}

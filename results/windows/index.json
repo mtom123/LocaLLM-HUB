@@ -1,8 +1,32 @@
 {
  "platform": "windows",
- "count": 110,
+ "count": 111,
  "hidden_failed": 37,
  "experiments": [
+  {
+   "id": "2026-11-11-n38-gemma4-12b-abli-duro",
+   "file": "results/windows/2026-11-11-n38-gemma4-12b-abli-duro.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-11",
+   "category": "other",
+   "status": "ok",
+   "title": "n38-gemma4-12b-abli-duro",
+   "summary": "Duro 69.5%, agente 91.7%, 33.6 t/s a un flusso.",
+   "model": "Huihui-gemma-4-12B-it-qat-q4_0-unquantized-abliterated-GGUF",
+   "repo": "newtonxm/Huihui-gemma-4-12B-it-qat-q4_0-unquantized-abliterated-GGUF",
+   "quant": "Q4_0",
+   "size_gb": 7.4,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 33.6,
+    "duro_pct": 69.5,
+    "agente_pct": 91.7
+   },
+   "ctx": 65536,
+   "tags": []
+  },
   {
    "id": "2026-11-11-n37-arex-duro-n15",
    "file": "results/windows/2026-11-11-n37-arex-duro-n15.json",
