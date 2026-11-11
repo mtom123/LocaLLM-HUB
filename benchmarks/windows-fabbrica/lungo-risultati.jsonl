@@ -22,3 +22,8 @@
 {"label": "n20b-arex-64k", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 1886.7, "prefill_nuovi": 64031, "decode_tps": 42.0, "s": 34.4, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
 {"label": "n20c-e4b-64k", "target": 64000, "prompt_tok": 64030, "richiamo": "2/2", "prefill_tps": 2551.2, "prefill_nuovi": 64029, "decode_tps": 29.1, "s": 25.8, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
 {"label": "n24b-a1-iq3-64k", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 816.1, "prefill_nuovi": 64031, "decode_tps": 26.6, "s": 79.2, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
+{"label": "cmoe-iq3-64k", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 309.5, "prefill_nuovi": 64031, "decode_tps": 14.5, "s": 208.2, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
+{"label": "q4-64k-ub2048", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 129.6, "prefill_nuovi": 64031, "decode_tps": 2.8, "s": 500.8, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
+{"label": "iq3-64k-ub2048", "target": 64000, "prompt_tok": 64031, "richiamo": "2/2", "prefill_tps": 945.5, "prefill_nuovi": 64031, "decode_tps": 22.5, "s": 68.6, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
+{"label": "n33-e4b-256k", "target": 64000, "prompt_tok": 64030, "richiamo": "2/2", "prefill_tps": 2525.9, "prefill_nuovi": 64029, "decode_tps": 28.7, "s": 26.0, "risposta": "1. girasole-7319\n2. ilaria fontebasso"}
+{"label": "n33-e4b-256k", "target": 128000, "prompt_tok": 128090, "richiamo": "3/3", "prefill_tps": 1411.0, "prefill_nuovi": 64098, "decode_tps": 18.8, "s": 46.8, "risposta": "1. girasole-7319\n2. ilaria fontebasso\n3. 37"}
