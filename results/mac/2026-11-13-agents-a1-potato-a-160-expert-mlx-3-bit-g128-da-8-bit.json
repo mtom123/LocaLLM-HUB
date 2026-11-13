@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-agents-a1-potato-a-160-expert-mlx-3-bit-g128-da-8-bit",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "Agents-A1 potato a 160 expert, MLX 3-bit g128 (da 8-bit)",
+ "reference": false,
+ "model": {
+  "name": "A1-P160-r3g128",
+  "repo": null,
+  "quant": "MLX 3-bit g128 expert, 4-bit resto",
+  "size_gb": 0.0
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server",
+   "(bench/mlx_serve.py)"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 42.5,
+  "tps_media": 42.6,
+  "tps_by_type": {
+   "codice": 43.0,
+   "storia": 42.7,
+   "ragionamento": 42.3,
+   "json": 42.4
+  },
+  "tps_method": "wallclock"
+ },
+ "notes": "mlx_onyx.py --keep=160 --piano=r3g128: expert scelti con l'imatrix di ONYX. t/s a orologio (mlx-lm non restituisce timings).",
+ "tags": [],
+ "summary": "42.6 t/s medi su 4 tipi di prompt (core-speed v1), 42.5 t/s mediana."
+}

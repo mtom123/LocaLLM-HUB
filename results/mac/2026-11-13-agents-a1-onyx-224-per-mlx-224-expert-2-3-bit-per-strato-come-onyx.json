@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-agents-a1-onyx-224-per-mlx-224-expert-2-3-bit-per-strato-come-onyx",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "Agents-A1 ONYX-224 per MLX (224 expert, 2/3 bit per strato come ONYX)",
+ "reference": false,
+ "model": {
+  "name": "A1-ONYX224-mlx",
+  "repo": null,
+  "quant": "MLX mix 2-bit g128 / 3-bit g64 expert, 4-bit resto",
+  "size_gb": 11.4
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server",
+   "(bench/mlx_serve.py)"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 35.6,
+  "tps_media": 35.8,
+  "tps_by_type": {
+   "codice": 35.5,
+   "storia": 36.5,
+   "ragionamento": 35.5,
+   "json": 35.6
+  },
+  "tps_method": "wallclock"
+ },
+ "notes": "Costruito con mlx_onyx.py --piano=onyx da mlx-community/Agents-A1-8bit, expert scelti con l'imatrix di ONYX-224r, ricerca del range di optiq a 2-3 bit. t/s a orologio (mlx-lm non restituisce timings).",
+ "tags": [],
+ "summary": "35.8 t/s medi su 4 tipi di prompt (core-speed v1), 35.6 t/s mediana."
+}

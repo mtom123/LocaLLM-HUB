@@ -1,0 +1,52 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-arex-turbo-4b-mlx-4-bit-mlx-lm-0.32.2",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "AREX-Turbo 4B MLX 4-bit (mlx-lm 0.32.2)",
+ "reference": false,
+ "model": {
+  "name": "AREX-Turbo",
+  "repo": "mlx-community/AREX-Turbo-4bit",
+  "quant": "MLX 4-bit",
+  "size_gb": 3.06
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server",
+   "(wrapper",
+   "bench/mlx_serve.py),",
+   "temp",
+   "0"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 30.8,
+  "tps_media": 30.9,
+  "tps_by_type": {
+   "codice": 30.6,
+   "storia": 30.6,
+   "ragionamento": 31.5,
+   "json": 30.9
+  },
+  "tps_method": "wallclock"
+ },
+ "notes": "Primo test MLX sul Mac. t/s a orologio (mlx-lm non restituisce timings): include la lettura del prompt, breve.",
+ "tags": [],
+ "summary": "30.9 t/s medi su 4 tipi di prompt (core-speed v1), 30.8 t/s mediana."
+}

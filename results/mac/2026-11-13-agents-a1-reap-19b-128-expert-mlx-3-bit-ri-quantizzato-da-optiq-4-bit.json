@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-agents-a1-reap-19b-128-expert-mlx-3-bit-ri-quantizzato-da-optiq-4-bit",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "Agents-A1 REAP-19B (128 expert) MLX 3-bit, ri-quantizzato da OptiQ 4-bit",
+ "reference": false,
+ "model": {
+  "name": "A1-REAP19-r3",
+  "repo": null,
+  "quant": "MLX 3-bit g64 expert, 4-bit resto",
+  "size_gb": 8.59
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server",
+   "(bench/mlx_serve.py)"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 38.7,
+  "tps_media": 38.5,
+  "tps_by_type": {
+   "codice": 37.7,
+   "storia": 38.4,
+   "ragionamento": 38.7,
+   "json": 39.1
+  },
+  "tps_method": "wallclock"
+ },
+ "notes": "REAP 128/256 expert di mlx-community + ri-quantizzazione 3 bit con ricerca del range (mlx_onyx.py --piano=r3). t/s a orologio (mlx-lm non restituisce timings).",
+ "tags": [],
+ "summary": "38.5 t/s medi su 4 tipi di prompt (core-speed v1), 38.7 t/s mediana."
+}

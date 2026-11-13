@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-nemotron-3.5-bolt-74b-a9b-ud-iq2_xxs-cmoe-dflash-22-gb-su-16-gb",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speculative",
+ "status": "ok",
+ "title": "Nemotron 3.5 Bolt 74B-A9B UD-IQ2_XXS, cmoe-dflash (22 GB su 16 GB)",
+ "reference": false,
+ "model": {
+  "name": "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-UD-IQ2_XXS",
+  "repo": null,
+  "quant": "UD-IQ2_XXS",
+  "size_gb": 22.02
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "-cmoe",
+   "-c",
+   "8192",
+   "--spec-type",
+   "draft-dflash",
+   "-md",
+   "<PATH>/strata-models/nemotron74/dflash-NVIDIA-Nemotron-3.5-Bolt-74B-A9B-NVFP4.gguf",
+   "-ngld",
+   "99"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 2.0,
+  "tps_media": 1.9,
+  "tps_by_type": {
+   "codice": 2.1,
+   "storia": 1.7,
+   "ragionamento": 2.0,
+   "json": 2.0
+  },
+  "tps_method": "timings",
+  "draft_acceptance_pct": 73.2
+ },
+ "notes": "Il file non entra in memoria: gli esperti vengono letti dal disco interno via mmap. -cmoe -c 8192 --spec-type draft-dflash -md <PATH>/strata-models/nemotron74/dflash-NVIDIA-Nemotron-3.5-Bolt-74B-A9B-NVFP4.gguf -ngld 99",
+ "tags": [],
+ "summary": "1.9 t/s medi su 4 tipi di prompt (core-speed v1), 2.0 t/s mediana. Accettazione drafter 73.2%."
+}

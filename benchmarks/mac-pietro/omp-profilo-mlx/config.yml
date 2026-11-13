@@ -1,0 +1,29 @@
+modelRoles:
+  default: mlx/agents-a1
+  smol: mlx/agents-a1
+  slow: mlx/agents-a1
+  plan: mlx/agents-a1
+  task: mlx/agents-a1
+  commit: mlx/agents-a1
+  local: mlx/agents-a1
+tools:
+  artifactHeadBytes: 4
+  artifactTailBytes: 4
+  artifactTailLines: 120
+  approval:
+    eval: deny
+compaction:
+  thresholdPercent: 50
+  keepRecentTokens: 12000
+task:
+  maxConcurrency: 1
+bash:
+  gitGuard: true
+secrets:
+  enabled: true
+symbolPreset: unicode
+composer:
+  shape: band
+theme:
+  light: light
+setupVersion: 2

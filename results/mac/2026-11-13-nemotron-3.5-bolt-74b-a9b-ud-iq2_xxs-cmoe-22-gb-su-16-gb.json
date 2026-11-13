@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-nemotron-3.5-bolt-74b-a9b-ud-iq2_xxs-cmoe-22-gb-su-16-gb",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "Nemotron 3.5 Bolt 74B-A9B UD-IQ2_XXS, cmoe (22 GB su 16 GB)",
+ "reference": false,
+ "model": {
+  "name": "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-UD-IQ2_XXS",
+  "repo": null,
+  "quant": "UD-IQ2_XXS",
+  "size_gb": 22.02
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "-cmoe",
+   "-c",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 2.5,
+  "tps_media": 2.5,
+  "tps_by_type": {
+   "codice": 2.4,
+   "storia": 2.5,
+   "ragionamento": 2.5,
+   "json": 2.4
+  },
+  "tps_method": "timings"
+ },
+ "notes": "Il file non entra in memoria: gli esperti vengono letti dal disco interno via mmap. -cmoe -c 8192",
+ "tags": [],
+ "summary": "2.5 t/s medi su 4 tipi di prompt (core-speed v1), 2.5 t/s mediana."
+}

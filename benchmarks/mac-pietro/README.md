@@ -19,6 +19,8 @@ Ogni script scrive `<nome>-risultati.jsonl` accanto a se (ignorato da git): una 
 | `omp_agente.py` | OMP vero (non simulato) sui 6 compiti di `windows-fabbrica/agente_mini.py`: successo, secondi, passi, token, caratteri di pensiero, modelli non locali usati | 6 | 10-25 min | G1-G11 |
 | `esplora_mini.py` | 3 compiti di esplorazione di una cartella grande (registro da 24.000 righe, 80 config, 120 moduli): pesa la lettura, non la scrittura; `omp_agente.py --tasks=esplora` | 3 | 4-15 min | E1-E11 |
 | `regole-locale.md` | non e un test: le regole del profilo `omp-locale` (comandi mirati, output corti, dati con Python, verifica prima di finire) | - | - | G8-G11, E8-E11 |
+| `mlx_onyx.py` | non e un test: costruisce un Agents-A1 per MLX potato (profilo REAP di `optiq prune-experts --profile-only`, o conteggi imatrix) e ri-quantizzato per tensore (3 bit con `quantize_best` di optiq) | - | - | REAP-144/160 (M10) |
+| `mlx_serve.py`, `omp-profilo-mlx/` | non e un test: `mlx_lm.server` che accetta qualunque nome di modello, e il profilo OMP (`~/.omp/profiles/mlx/agent/`) con provider OpenAI chat completions: il provider `llama.cpp` di OMP chiama `/props` e `/v1/responses`, che mlx-lm non ha | - | - | M10-M11, G12/E12-13 |
 | `prune_experts.py`, `prune_imatrix.py` | potatura degli expert stile REAP da conteggi imatrix, e ritaglio dell'imatrix | - | - | ONYX-224r, 192r, 176r |
 
 ## Dataset di `duro.py` (non nel repo)

@@ -1,0 +1,52 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-qwen3.5-35b-a3b-mlx-2bit-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "other",
+ "status": "failed",
+ "title": "Qwen3.5-35B-A3B MLX 2 bit stock: qualita (duro n=15, agente)",
+ "reference": false,
+ "model": {
+  "name": "Qwen3.5-35B-A3B",
+  "repo": null,
+  "quant": "MLX 2 bit affine",
+  "size_gb": 10.87
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server (bench/mlx_serve.py)",
+   "--max-tokens",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 1.7,
+  "math": 6.7,
+  "humaneval": 0.0,
+  "mbpp": 0.0,
+  "mmlu": 0.0,
+  "n": 59,
+  "secondi_domanda": 24.8,
+  "troncate_pct": 88.1
+ },
+ "summary": "Qwen3.5-35B-A3B MLX 2 bit stock: duro n=15 1.7 (1/59: math 6.7, HumanEval+ 0.0, MBPP+ 0.0, MMLU-Pro 0.0).",
+ "notes": "BOCCIATO: il 2 bit affine standard di MLX distrugge il modello (88% troncate in cicli).",
+ "tags": [
+  "n15",
+  "replica-windows"
+ ]
+}

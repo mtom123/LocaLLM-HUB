@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-agents-a1-4b-q4_k_m-n15-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "other",
+ "status": "ok",
+ "title": "Agents-A1-4B Q4_K_M, duro n=15: qualita (duro n=15, agente)",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-4B",
+  "repo": null,
+  "quant": "Q4_K_M",
+  "size_gb": 2.71
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "--jinja"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 67.8,
+  "math": 73.3,
+  "humaneval": 93.3,
+  "mbpp": 53.3,
+  "mmlu": 50.0,
+  "n": 59,
+  "secondi_domanda": 26.7,
+  "troncate_pct": 16.9
+ },
+ "summary": "Agents-A1-4B Q4_K_M, duro n=15: duro n=15 67.8 (40/59: math 73.3, HumanEval+ 93.3, MBPP+ 53.3, MMLU-Pro 50.0).",
+ "notes": "Stessi punteggi per categoria di M2 per coincidenza (token e tempi diversi).",
+ "tags": [
+  "n15",
+  "replica-windows"
+ ]
+}

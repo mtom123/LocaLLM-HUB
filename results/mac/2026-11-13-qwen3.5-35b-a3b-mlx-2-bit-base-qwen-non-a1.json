@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-qwen3.5-35b-a3b-mlx-2-bit-base-qwen-non-a1",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "Qwen3.5-35B-A3B MLX 2-bit (base Qwen, non A1)",
+ "reference": false,
+ "model": {
+  "name": "Qwen3.5-35B-A3B-2bit",
+  "repo": null,
+  "quant": "MLX 2-bit",
+  "size_gb": 10.87
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server",
+   "(bench/mlx_serve.py)"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 55.5,
+  "tps_media": 55.3,
+  "tps_by_type": {
+   "codice": 55.8,
+   "storia": 55.6,
+   "ragionamento": 54.5,
+   "json": 55.2
+  },
+  "tps_method": "wallclock"
+ },
+ "notes": "MercuriusDream/Qwen3.5-35B-A3B-MLX-2bit: il 35B-A3B intero a 2 bit. t/s a orologio (mlx-lm non restituisce timings).",
+ "tags": [],
+ "summary": "55.3 t/s medi su 4 tipi di prompt (core-speed v1), 55.5 t/s mediana."
+}

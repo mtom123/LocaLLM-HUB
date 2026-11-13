@@ -1,0 +1,12 @@
+# Profilo di prova: Agents-A1 servito da mlx-lm (bench/mlx_serve.py) su 127.0.0.1:8080, API chat completions. Nessun segreto.
+providers:
+  mlx:
+    baseUrl: http://127.0.0.1:8080/v1
+    api: openai-completions
+    apiKey: locale
+    models:
+      - id: agents-a1
+        name: Agents-A1 MLX
+        contextWindow: 65536
+        maxTokens: 8192
+        reasoning: false

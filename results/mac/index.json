@@ -1,8 +1,480 @@
 {
  "platform": "mac",
- "count": 56,
- "hidden_failed": 3,
+ "count": 75,
+ "hidden_failed": 5,
  "experiments": [
+  {
+   "id": "2026-11-13-qwen3.5-35b-a3b-mlx-2-bit-base-qwen-non-a1",
+   "file": "results/mac/2026-11-13-qwen3.5-35b-a3b-mlx-2-bit-base-qwen-non-a1.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.5-35B-A3B MLX 2-bit (base Qwen, non A1)",
+   "summary": "55.3 t/s medi su 4 tipi di prompt (core-speed v1), 55.5 t/s mediana.",
+   "model": "Qwen3.5-35B-A3B-2bit",
+   "repo": null,
+   "quant": "MLX 2-bit",
+   "size_gb": 10.87,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 55.5,
+    "tps_media": 55.3
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-onyx-224r-veloce-n15-qualita",
+   "file": "results/mac/2026-11-13-onyx-224r-veloce-n15-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "ONYX-224r llama.cpp profilo veloce (DFlash+ngram), n=15: qualita (duro n=15, agente)",
+   "summary": "ONYX-224r llama.cpp profilo veloce (DFlash+ngram), n=15: duro n=15 55.9 (33/59: math 46.7, HumanEval+ 86.7, MBPP+ 33.3, MMLU-Pro 57.1); agente 12/12.",
+   "model": "Agents-A1-ONYX-224r",
+   "repo": null,
+   "quant": "IQ2_XXS/IQ3_XXS",
+   "size_gb": 10.21,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 55.9,
+    "agente_pct": 100.0,
+    "humaneval": 86.7
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-nemotron-3.5-bolt-74b-a9b-ud-iq2_xxs-cmoe-dflash-22-gb-su-16-gb",
+   "file": "results/mac/2026-11-13-nemotron-3.5-bolt-74b-a9b-ud-iq2_xxs-cmoe-dflash-22-gb-su-16-gb.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speculative",
+   "status": "ok",
+   "title": "Nemotron 3.5 Bolt 74B-A9B UD-IQ2_XXS, cmoe-dflash (22 GB su 16 GB)",
+   "summary": "1.9 t/s medi su 4 tipi di prompt (core-speed v1), 2.0 t/s mediana. Accettazione drafter 73.2%.",
+   "model": "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-UD-IQ2_XXS",
+   "repo": null,
+   "quant": "UD-IQ2_XXS",
+   "size_gb": 22.02,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 2.0,
+    "tps_media": 1.9,
+    "draft_acceptance_pct": 73.2
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-nemotron-3.5-bolt-74b-a9b-ud-iq2_xxs-cmoe-22-gb-su-16-gb",
+   "file": "results/mac/2026-11-13-nemotron-3.5-bolt-74b-a9b-ud-iq2_xxs-cmoe-22-gb-su-16-gb.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Nemotron 3.5 Bolt 74B-A9B UD-IQ2_XXS, cmoe (22 GB su 16 GB)",
+   "summary": "2.5 t/s medi su 4 tipi di prompt (core-speed v1), 2.5 t/s mediana.",
+   "model": "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-UD-IQ2_XXS",
+   "repo": null,
+   "quant": "UD-IQ2_XXS",
+   "size_gb": 22.02,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 2.5,
+    "tps_media": 2.5
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-gemma-e4b-iq3_xxs-llama.cpp-qualita",
+   "file": "results/mac/2026-11-13-gemma-e4b-iq3_xxs-llama.cpp-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "E4B IQ3_XXS (llama.cpp): qualita (duro n=15, agente)",
+   "summary": "E4B IQ3_XXS (llama.cpp): duro n=15 66.1 (39/59: math 60.0, HumanEval+ 93.3, MBPP+ 46.7, MMLU-Pro 64.3); agente 6/12.",
+   "model": "E4B",
+   "repo": null,
+   "quant": "IQ3_XXS",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 66.1,
+    "agente_pct": 50.0,
+    "humaneval": 93.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-arex-turbo-4b-q4_k_m-llama.cpp-qualita",
+   "file": "results/mac/2026-11-13-arex-turbo-4b-q4_k_m-llama.cpp-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "AREX-Turbo-4B Q4_K_M (llama.cpp): qualita (duro n=15, agente)",
+   "summary": "AREX-Turbo-4B Q4_K_M (llama.cpp): duro n=15 64.4 (38/59: math 53.3, HumanEval+ 93.3, MBPP+ 53.3, MMLU-Pro 57.1); agente 11/12; lungo 62K 2/2 in 373.9 s.",
+   "model": "AREX-Turbo-4B",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": 2.9,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 64.4,
+    "agente_pct": 91.7,
+    "humaneval": 93.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-arex-turbo-4b-q4_k_m-llama.cpp-b12038-confronto-con-mlx",
+   "file": "results/mac/2026-11-13-arex-turbo-4b-q4_k_m-llama.cpp-b12038-confronto-con-mlx.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "AREX-Turbo 4B Q4_K_M llama.cpp b12038 (confronto con MLX)",
+   "summary": "26.6 t/s medi su 4 tipi di prompt (core-speed v1), 26.7 t/s mediana.",
+   "model": "BAAI_AREX-Turbo-Q4_K_M",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": 2.9,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 26.7,
+    "tps_media": 26.6
+   },
+   "ctx": 65536,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-arex-turbo-4b-mlx-4bit-qualita",
+   "file": "results/mac/2026-11-13-arex-turbo-4b-mlx-4bit-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "AREX-Turbo-4B MLX 4 bit: qualita (duro n=15, agente)",
+   "summary": "AREX-Turbo-4B MLX 4 bit: duro n=15 67.8 (40/59: math 73.3, HumanEval+ 93.3, MBPP+ 53.3, MMLU-Pro 50.0); agente 9/12.",
+   "model": "AREX-Turbo-4B",
+   "repo": null,
+   "quant": "MLX 4 bit",
+   "size_gb": 3.06,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "duro_pct": 67.8,
+    "agente_pct": 75.0,
+    "humaneval": 93.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-arex-turbo-4b-mlx-4-bit-mlx-lm-0.32.2",
+   "file": "results/mac/2026-11-13-arex-turbo-4b-mlx-4-bit-mlx-lm-0.32.2.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "AREX-Turbo 4B MLX 4-bit (mlx-lm 0.32.2)",
+   "summary": "30.9 t/s medi su 4 tipi di prompt (core-speed v1), 30.8 t/s mediana.",
+   "model": "AREX-Turbo",
+   "repo": "mlx-community/AREX-Turbo-4bit",
+   "quant": "MLX 4-bit",
+   "size_gb": 3.06,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 30.8,
+    "tps_media": 30.9
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-agents-a1-reap-19b-128-expert-mlx-3-bit-ri-quantizzato-da-optiq-4-bit",
+   "file": "results/mac/2026-11-13-agents-a1-reap-19b-128-expert-mlx-3-bit-ri-quantizzato-da-optiq-4-bit.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Agents-A1 REAP-19B (128 expert) MLX 3-bit, ri-quantizzato da OptiQ 4-bit",
+   "summary": "38.5 t/s medi su 4 tipi di prompt (core-speed v1), 38.7 t/s mediana.",
+   "model": "A1-REAP19-r3",
+   "repo": null,
+   "quant": "MLX 3-bit g64 expert, 4-bit resto",
+   "size_gb": 8.59,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 38.7,
+    "tps_media": 38.5
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-agents-a1-reap-160-profilo-optiq-calibrazione-ricca-mlx-r3g128",
+   "file": "results/mac/2026-11-13-agents-a1-reap-160-profilo-optiq-calibrazione-ricca-mlx-r3g128.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Agents-A1 REAP-160 (profilo optiq, calibrazione ricca), MLX r3g128",
+   "summary": "35.1 t/s medi su 4 tipi di prompt (core-speed v1), 35.0 t/s mediana.",
+   "model": "A1-R160-r3g128",
+   "repo": null,
+   "quant": "MLX r3g128 expert, 4-bit resto",
+   "size_gb": 10.58,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 35.0,
+    "tps_media": 35.1
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-agents-a1-reap-160-mlx-r3g128-qualita",
+   "file": "results/mac/2026-11-13-agents-a1-reap-160-mlx-r3g128-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "Agents-A1 REAP-160 (profilo optiq) MLX 3 bit g128: qualita (duro n=15, agente)",
+   "summary": "Agents-A1 REAP-160 (profilo optiq) MLX 3 bit g128: duro n=15 62.7 (37/59: math 66.7, HumanEval+ 73.3, MBPP+ 60.0, MMLU-Pro 50.0); agente 11/12.",
+   "model": "Agents-A1",
+   "repo": null,
+   "quant": "MLX 3 bit g128 expert, 4 bit resto",
+   "size_gb": 10.58,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "duro_pct": 62.7,
+    "agente_pct": 91.7,
+    "humaneval": 73.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-agents-a1-reap-144-profilo-optiq-calibrazione-ricca-mlx-r3",
+   "file": "results/mac/2026-11-13-agents-a1-reap-144-profilo-optiq-calibrazione-ricca-mlx-r3.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Agents-A1 REAP-144 (profilo optiq, calibrazione ricca), MLX r3",
+   "summary": "39.2 t/s medi su 4 tipi di prompt (core-speed v1), 39.2 t/s mediana.",
+   "model": "A1-R144-r3",
+   "repo": null,
+   "quant": "MLX r3 expert, 4-bit resto",
+   "size_gb": 10.33,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 39.2,
+    "tps_media": 39.2
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-agents-a1-reap-144-mlx-r3-qualita",
+   "file": "results/mac/2026-11-13-agents-a1-reap-144-mlx-r3-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "Agents-A1 REAP-144 (profilo optiq) MLX 3 bit g64: qualita (duro n=15, agente)",
+   "summary": "Agents-A1 REAP-144 (profilo optiq) MLX 3 bit g64: duro n=15 67.8 (40/59: math 60.0, HumanEval+ 100.0, MBPP+ 53.3, MMLU-Pro 57.1); agente 12/12; OMP agente-mini (spento) 66.7% pieni in 1723 s; OMP esplora (spento) 66.7% pieni in 908 s; OMP esplora (ragionamento acceso) 66.7% pieni in 770 s.",
+   "model": "Agents-A1",
+   "repo": null,
+   "quant": "MLX 3 bit g64 expert, 4 bit resto",
+   "size_gb": 10.33,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "duro_pct": 67.8,
+    "agente_pct": 100.0,
+    "humaneval": 100.0
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-agents-a1-reap-128-mlx-r3-qualita",
+   "file": "results/mac/2026-11-13-agents-a1-reap-128-mlx-r3-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "Agents-A1 REAP-128 (19B) MLX 3 bit: qualita (duro n=15, agente)",
+   "summary": "Agents-A1 REAP-128 (19B) MLX 3 bit: duro n=15 64.4 (38/59: math 66.7, HumanEval+ 93.3, MBPP+ 60.0, MMLU-Pro 35.7); agente 9/12.",
+   "model": "Agents-A1-REAP-19B",
+   "repo": null,
+   "quant": "MLX 3 bit expert",
+   "size_gb": 8.59,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "duro_pct": 64.4,
+    "agente_pct": 75.0,
+    "humaneval": 93.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-agents-a1-potato-a-160-expert-mlx-3-bit-g128-da-8-bit",
+   "file": "results/mac/2026-11-13-agents-a1-potato-a-160-expert-mlx-3-bit-g128-da-8-bit.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Agents-A1 potato a 160 expert, MLX 3-bit g128 (da 8-bit)",
+   "summary": "42.6 t/s medi su 4 tipi di prompt (core-speed v1), 42.5 t/s mediana.",
+   "model": "A1-P160-r3g128",
+   "repo": null,
+   "quant": "MLX 3-bit g128 expert, 4-bit resto",
+   "size_gb": 0.0,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 42.5,
+    "tps_media": 42.6
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-agents-a1-onyx-224-per-mlx-224-expert-2-3-bit-per-strato-come-onyx",
+   "file": "results/mac/2026-11-13-agents-a1-onyx-224-per-mlx-224-expert-2-3-bit-per-strato-come-onyx.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "speed",
+   "status": "ok",
+   "title": "Agents-A1 ONYX-224 per MLX (224 expert, 2/3 bit per strato come ONYX)",
+   "summary": "35.8 t/s medi su 4 tipi di prompt (core-speed v1), 35.6 t/s mediana.",
+   "model": "A1-ONYX224-mlx",
+   "repo": null,
+   "quant": "MLX mix 2-bit g128 / 3-bit g64 expert, 4-bit resto",
+   "size_gb": 11.4,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 35.6,
+    "tps_media": 35.8
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-13-agents-a1-onyx-224-mlx-qualita",
+   "file": "results/mac/2026-11-13-agents-a1-onyx-224-mlx-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "Agents-A1 ONYX-224 per MLX (2/3 bit per strato): qualita (duro n=15, agente)",
+   "summary": "Agents-A1 ONYX-224 per MLX (2/3 bit per strato): duro n=15 54.2 (32/59: math 66.7, HumanEval+ 73.3, MBPP+ 26.7, MMLU-Pro 50.0).",
+   "model": "Agents-A1",
+   "repo": null,
+   "quant": "MLX 2-3 bit come ONYX",
+   "size_gb": 11.4,
+   "engine": "mlx-lm",
+   "ref": false,
+   "headline": {
+    "duro_pct": 54.2,
+    "humaneval": 73.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
+  {
+   "id": "2026-11-13-agents-a1-4b-q4_k_m-n15-qualita",
+   "file": "results/mac/2026-11-13-agents-a1-4b-q4_k_m-n15-qualita.json",
+   "platform": "mac",
+   "author": "Pietro",
+   "date": "2026-11-13",
+   "category": "other",
+   "status": "ok",
+   "title": "Agents-A1-4B Q4_K_M, duro n=15: qualita (duro n=15, agente)",
+   "summary": "Agents-A1-4B Q4_K_M, duro n=15: duro n=15 67.8 (40/59: math 73.3, HumanEval+ 93.3, MBPP+ 53.3, MMLU-Pro 50.0).",
+   "model": "Agents-A1-4B",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": 2.71,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 67.8,
+    "humaneval": 93.3
+   },
+   "ctx": null,
+   "tags": [
+    "n15",
+    "replica-windows"
+   ]
+  },
   {
    "id": "2026-11-10-onyx-224r-64k-dflash-ngram-mod-draft-n8-pmin",
    "file": "results/mac/2026-11-10-onyx-224r-64k-dflash-ngram-mod-draft-n8-pmin.json",

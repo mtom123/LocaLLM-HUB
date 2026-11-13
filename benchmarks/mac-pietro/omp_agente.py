@@ -43,7 +43,7 @@ def passi(sessdir):
             m = d.get("message") or {}
             if m.get("role") == "assistant":
                 n += 1
-                if m.get("provider") and m.get("provider") != "llama.cpp":
+                if m.get("provider") and m.get("provider") not in ("llama.cpp", "mlx"):  # mlx: profilo OMP per mlx-lm
                     altri.add(f'{m.get("provider")}/{m.get("model")}')
                 for x in m.get("content") or []:
                     if isinstance(x, dict) and x.get("type") == "thinking":

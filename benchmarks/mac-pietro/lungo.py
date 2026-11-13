@@ -27,7 +27,11 @@ def riga(i):
 
 # stima token per riga con il tokenizer del server
 campione = "".join(riga(i) for i in range(200))
-tpr = len(post("/tokenize", {"content": campione})["tokens"]) / 200
+try:
+    tpr = len(post("/tokenize", {"content": campione})["tokens"]) / 200
+except Exception:  # server senza /tokenize (mlx-lm): conta i token del prompt con una richiesta da 1 token
+    tpr = post("/v1/chat/completions", {"model": "x", "messages": [{"role": "user", "content": campione}], "max_tokens": 1,
+                                       "temperature": 0})["usage"]["prompt_tokens"] / 200
 righe, aghi_pos = [], []
 for pos_tok, frase, dom, gold in AGHI:
     aghi_pos.append((int(pos_tok / tpr), frase, dom, gold))

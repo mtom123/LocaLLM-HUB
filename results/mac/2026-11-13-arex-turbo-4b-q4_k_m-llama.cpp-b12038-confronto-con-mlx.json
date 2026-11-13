@@ -1,0 +1,66 @@
+{
+ "schema": 1,
+ "id": "2026-11-13-arex-turbo-4b-q4_k_m-llama.cpp-b12038-confronto-con-mlx",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-13",
+ "category": "speed",
+ "status": "ok",
+ "title": "AREX-Turbo 4B Q4_K_M llama.cpp b12038 (confronto con MLX)",
+ "reference": false,
+ "model": {
+  "name": "BAAI_AREX-Turbo-Q4_K_M",
+  "repo": null,
+  "quant": "Q4_K_M",
+  "size_gb": 2.9
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "-c",
+   "65536",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "-b",
+   "512",
+   "-ub",
+   "512"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 26.7,
+  "tps_media": 26.6,
+  "tps_by_type": {
+   "codice": 26.7,
+   "storia": 26.3,
+   "ragionamento": 26.8,
+   "json": 26.8
+  },
+  "tps_method": "timings"
+ },
+ "notes": "Stesso modello di Motti (bartowski Q4_K_M). Confronto con MLX 4-bit sullo stesso Mac.",
+ "tags": [],
+ "summary": "26.6 t/s medi su 4 tipi di prompt (core-speed v1), 26.7 t/s mediana."
+}
