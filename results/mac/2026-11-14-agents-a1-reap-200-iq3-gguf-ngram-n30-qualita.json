@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-200-iq3-gguf-ngram-n30-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "other",
+ "status": "ok",
+ "title": "Agents-A1 REAP-200 IQ3_XXS GGUF, solo ngram-mod, duro n=30 e OMP: qualita (duro, agente, OMP)",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1",
+  "repo": null,
+  "quant": "expert IQ3_XXS, resto Q4_K_M",
+  "size_gb": 11.31
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "--jinja",
+   "-c",
+   "65536",
+   "--cache-type-k",
+   "q4_0",
+   "--cache-type-v",
+   "q4_0",
+   "--spec-type",
+   "ngram-mod",
+   "--reasoning",
+   "off"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 76.3,
+  "math": 76.7,
+  "humaneval": 76.7,
+  "mbpp": 80.0,
+  "mmlu": 71.4,
+  "n": 118,
+  "secondi_domanda": 12.6,
+  "troncate_pct": 10.2,
+  "lungo_62k_richiamo": "2/2",
+  "lungo_62k_s": 316.5,
+  "omp_agente_mini_pieno_pct": 100.0,
+  "omp_agente_mini_sec": 624,
+  "omp_esplora_pieno_pct": 66.7,
+  "omp_esplora_sec": 664
+ },
+ "summary": "Agents-A1 REAP-200 IQ3_XXS GGUF, solo ngram-mod, duro n=30 e OMP: duro n=30 76.3 (90/118: math 76.7, HumanEval+ 76.7, MBPP+ 80.0, MMLU-Pro 71.4); lungo 62K 2/2 in 316.5 s; OMP agente-mini (spento) 100.0% pieni in 624 s; OMP esplora (spento) 66.7% pieni in 664 s.",
+ "notes": "8 expert in piu di REAP-192: duro entro il rumore (76,3 contro 75,4), ma in OMP il doppio dei passi e dei secondi (agente-mini 624 s contro 292, esplora 664 s contro 96-120). Memoria al limite. Non adottato.",
+ "tags": [
+  "reap",
+  "a1-fork"
+ ]
+}

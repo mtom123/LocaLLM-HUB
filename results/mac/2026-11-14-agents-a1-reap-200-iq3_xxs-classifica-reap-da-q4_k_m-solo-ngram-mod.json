@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-200-iq3_xxs-classifica-reap-da-q4_k_m-solo-ngram-mod",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "speculative",
+ "status": "ok",
+ "title": "Agents-A1 REAP-200 IQ3_XXS (classifica REAP, da Q4_K_M) solo ngram-mod",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-REAP200-iq3",
+  "repo": null,
+  "quant": "REAP-200, expert IQ3_XXS, resto Q4_K_M",
+  "size_gb": 11.31
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "-c",
+   "65536",
+   "--cache-type-k",
+   "q4_0",
+   "--cache-type-v",
+   "q4_0",
+   "-b",
+   "512",
+   "-ub",
+   "256",
+   "--spec-type",
+   "ngram-mod",
+   "--dry-multiplier",
+   "0.5",
+   "--dry-allowed-length",
+   "8",
+   "--reasoning",
+   "off"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 37.5,
+  "tps_media": 56.3,
+  "tps_by_type": {
+   "codice": 51.6,
+   "storia": 36.2,
+   "ragionamento": 70.5,
+   "json": 66.9
+  },
+  "tps_method": "timings",
+  "draft_acceptance_pct": 77.9
+ },
+ "notes": "Come REAP-192 con 8 expert in piu per strato.",
+ "tags": [],
+ "summary": "56.3 t/s medi su 4 tipi di prompt (core-speed v1), 37.5 t/s mediana. Accettazione drafter 77.9%."
+}

@@ -41,12 +41,14 @@ Per REAP-176 (`a1-locale veloce-176`) si aggiunge il drafter: `--spec-type draft
 | Modello | Motore | GB | t/s | duro n=15 | agente | OMP agente-mini | OMP esplora |
 |---|---|---|---|---|---|---|---|
 | **REAP-192 IQ3_XXS** | llama.cpp ngram-mod | 10,92 | ~52 | **71,2** (n=30: **75,4**) | 11/12 | **6/6, 292 s** | **3/3, 96 s** |
+| REAP-200 IQ3_XXS | llama.cpp ngram-mod | 11,31 | ~56 | n=30: 76,3 | - | 6/6, 624 s | 2/3, 664 s |
 | REAP-176 IQ3_XXS | llama.cpp DFlash+ngram | 10,14 | ~42,5 (solo ngram: ~42) | 64,4 | 12/12 | 4/6, 698 s | 2/3, 114 s |
 | ONYX-224r | llama.cpp DFlash+ngram | 10,21 | ~51 | 55,9 | 12/12 | 4/6, 687 s | 1/3, 896 s |
 | REAP-144 MLX 3 bit | MLX | 10,33 | 39 | 67,8 (n=30: 67,8) | 12/12 | 4/6, 1723 s | 2/3, 908 s |
 | REAP-128 MLX 3 bit (profilo ricco) | MLX | 9,44 | 36 | 69,5 (n=30: 66,1) | 11/12 | - | - |
 
-OMP: `omp_agente.py --snello --profile=locale`, ragionamento spento.
+OMP: `omp_agente.py --snello --profile=locale`, ragionamento spento. REAP-192 ripetuto: agente-mini 5/6 in 267 s, esplora 2/3 in 120 s.
+REAP-200: duro entro il rumore di REAP-192, ma in OMP il doppio dei passi e dei secondi, con la memoria al limite: 192 resta il punto giusto.
 
 DFlash non serve sempre: su REAP-176 con o senza drafter la velocita e quasi uguale (~42 t/s), e REAP-192 senza drafter
 va piu veloce (~52 t/s), forse perche risponde in modo piu compatto e ngram-mod trova piu ripetizioni.
