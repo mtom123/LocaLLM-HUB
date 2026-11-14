@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-176-iq3-gguf-veloce-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "other",
+ "status": "ok",
+ "title": "Agents-A1 REAP-176 IQ3_XXS GGUF, llama.cpp veloce (DFlash+ngram): qualita (duro, agente, OMP)",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1",
+  "repo": null,
+  "quant": "expert IQ3_XXS, resto Q4_K_M",
+  "size_gb": 10.14
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "--jinja",
+   "-c",
+   "65536",
+   "--cache-type-k",
+   "q4_0",
+   "--cache-type-v",
+   "q4_0",
+   "--spec-type",
+   "draft-dflash,ngram-mod",
+   "-md",
+   "Qwen3.5-35B-A3B-DFlash-Q4_K_M.gguf",
+   "--reasoning",
+   "off"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 64.4,
+  "math": 66.7,
+  "humaneval": 100.0,
+  "mbpp": 46.7,
+  "mmlu": 42.9,
+  "n": 59,
+  "secondi_domanda": 11.4,
+  "troncate_pct": 11.9,
+  "agente_pct": 100.0,
+  "agente_secondi_compito": 8.6,
+  "omp_agente_mini_pieno_pct": 66.7,
+  "omp_agente_mini_sec": 698,
+  "omp_esplora_pieno_pct": 66.7,
+  "omp_esplora_sec": 114
+ },
+ "summary": "Agents-A1 REAP-176 IQ3_XXS GGUF, llama.cpp veloce (DFlash+ngram): duro n=15 64.4 (38/59: math 66.7, HumanEval+ 100.0, MBPP+ 46.7, MMLU-Pro 42.9); agente 12/12; OMP agente-mini (spento) 66.7% pieni in 698 s; OMP esplora (spento) 66.7% pieni in 114 s.",
+ "notes": "Nuovo a1-locale veloce. Potatura REAP del GGUF Q4_K_M, expert riquantizzati IQ3_XXS con imatrix ritagliato. Batte ONYX-224r (55,9) di 8,5 punti su duro, agente 12/12, ~42,5 t/s; OMP vero: agente-mini 4/6 (93,5% parziale) in 698 s, esplorazione 2/3 in 114 s contro 896 di ONYX.",
+ "tags": [
+  "reap",
+  "a1-fork"
+ ]
+}

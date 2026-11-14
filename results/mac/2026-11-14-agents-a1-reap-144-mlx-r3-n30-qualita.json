@@ -1,0 +1,52 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-144-mlx-r3-n30-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "other",
+ "status": "ok",
+ "title": "Agents-A1 REAP-144 MLX 3 bit g64, duro n=30: qualita (duro, agente, OMP)",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1",
+  "repo": null,
+  "quant": "MLX 3 bit g64 expert, 4 bit resto",
+  "size_gb": 10.33
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server (bench/mlx_serve.py)",
+   "--max-tokens",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 67.8,
+  "math": 66.7,
+  "humaneval": 76.7,
+  "mbpp": 73.3,
+  "mmlu": 53.6,
+  "n": 118,
+  "secondi_domanda": 15.4,
+  "troncate_pct": 17.8
+ },
+ "summary": "Agents-A1 REAP-144 MLX 3 bit g64, duro n=30: duro n=30 67.8 (80/118: math 66.7, HumanEval+ 76.7, MBPP+ 73.3, MMLU-Pro 53.6).",
+ "notes": "Conferma a n=30 (118 domande, rumore circa ±4,5): 67,8 come a n=15.",
+ "tags": [
+  "reap",
+  "a1-fork"
+ ]
+}

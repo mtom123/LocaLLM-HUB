@@ -21,7 +21,8 @@ Ogni script scrive `<nome>-risultati.jsonl` accanto a se (ignorato da git): una 
 | `regole-locale.md` | non e un test: le regole del profilo `omp-locale` (comandi mirati, output corti, dati con Python, verifica prima di finire) | - | - | G8-G11, E8-E11 |
 | `mlx_onyx.py` | non e un test: costruisce un Agents-A1 per MLX potato (profilo REAP di `optiq prune-experts --profile-only`, o conteggi imatrix) e ri-quantizzato per tensore (3 bit con `quantize_best` di optiq) | - | - | REAP-144/160 (M10) |
 | `mlx_serve.py`, `omp-profilo-mlx/` | non e un test: `mlx_lm.server` che accetta qualunque nome di modello, e il profilo OMP (`~/.omp/profiles/mlx/agent/`) con provider OpenAI chat completions: il provider `llama.cpp` di OMP chiama `/props` e `/v1/responses`, che mlx-lm non ha | - | - | M10-M11, G12/E12-13 |
-| `prune_experts.py`, `prune_imatrix.py` | potatura degli expert stile REAP da conteggi imatrix, e ritaglio dell'imatrix | - | - | ONYX-224r, 192r, 176r |
+| `prune_experts.py`, `prune_imatrix.py` | potatura degli expert di un GGUF da conteggi imatrix o, con `--reap=PROFILO.json`, con la classifica REAP; e ritaglio dell'imatrix agli stessi expert | - | - | ONYX-224r, REAP-176 (M14) |
+| `tipi_reap.py` | non e un test: file dei tipi per `llama-quantize --tensor-type-file` (expert a un tipo, il resto invariato) | - | - | REAP-176 (`RICETTA-REAP-GGUF.md`) |
 
 ## Dataset di `duro.py` (non nel repo)
 Vanno in `benchmarks/mac-pietro/dati/` come JSON (righe del dataset):

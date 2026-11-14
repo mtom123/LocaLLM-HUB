@@ -1,11 +1,12 @@
 """Ritaglia un imatrix di llama.cpp (formato GGUF) agli stessi K expert per layer scelti da prune_experts.py,
-così si può riquantizzare un modello già potato. Uso: python -I prune_imatrix.py IMATRIX.gguf N_EXP K USCITA.gguf"""
-import os, sys
+così si può riquantizzare un modello già potato. Uso: python -I prune_imatrix.py IMATRIX.gguf N_EXP K USCITA.gguf [--reap=PROFILO.json] (stessa classifica di prune_experts.py)"""
+import json, os, sys
 import numpy as np
 sys.path.insert(0, os.environ.get("GGUF_PY", "gguf-py"))  # cartella gguf-py di llama.cpp, oppure pip install gguf
 import gguf  # noqa: E402
 from gguf import GGUFReader, GGUFWriter, GGUFValueType  # noqa: E402
 
+REAP = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--reap=")), None)
 imx, n_exp, K, dst = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
 im = GGUFReader(imx)
 score = {}
@@ -20,6 +21,9 @@ for t in im.tensors:
 keep = {}
 for l, s in score.items():
     order = np.lexsort((-s.get("sum2", np.zeros(n_exp)), -s["counts"]))
+    if REAP:
+        v = np.array([-1e30 if x is None else x for x in json.load(open(REAP))["layers"][str(l)]["reap"]], dtype=np.float64)
+        order = np.argsort(-v, kind="stable")
     keep[l] = np.sort(order[:K])
 arch = im.fields["general.architecture"].contents() if "general.architecture" in im.fields else "imatrix"
 w = GGUFWriter(dst, arch=arch)

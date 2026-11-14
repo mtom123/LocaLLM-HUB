@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-192-iq3-gguf-ngram-n30-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "other",
+ "status": "ok",
+ "title": "Agents-A1 REAP-192 IQ3_XXS GGUF, solo ngram-mod, duro n=30 e OMP: qualita (duro, agente, OMP)",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1",
+  "repo": null,
+  "quant": "expert IQ3_XXS, resto Q4_K_M",
+  "size_gb": 10.92
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "--jinja",
+   "-c",
+   "65536",
+   "--cache-type-k",
+   "q4_0",
+   "--cache-type-v",
+   "q4_0",
+   "--spec-type",
+   "ngram-mod",
+   "--reasoning",
+   "off"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 75.4,
+  "math": 73.3,
+  "humaneval": 76.7,
+  "mbpp": 80.0,
+  "mmlu": 71.4,
+  "n": 118,
+  "secondi_domanda": 13.1,
+  "troncate_pct": 11.0,
+  "lungo_62k_richiamo": "2/2",
+  "lungo_62k_s": 315.5,
+  "omp_agente_mini_pieno_pct": 100.0,
+  "omp_agente_mini_sec": 292,
+  "omp_esplora_pieno_pct": 100.0,
+  "omp_esplora_sec": 96,
+  "omp_agente_mini_ripetizione_pieno_pct": 83.3,
+  "omp_agente_mini_ripetizione_sec": 267,
+  "omp_esplora_ripetizione_pieno_pct": 66.7,
+  "omp_esplora_ripetizione_sec": 120
+ },
+ "summary": "Agents-A1 REAP-192 IQ3_XXS GGUF, solo ngram-mod, duro n=30 e OMP: duro n=30 75.4 (89/118: math 73.3, HumanEval+ 76.7, MBPP+ 80.0, MMLU-Pro 71.4); lungo 62K 2/2 in 315.5 s; OMP agente-mini (spento) 100.0% pieni in 292 s; OMP esplora (spento) 100.0% pieni in 96 s; OMP agente-mini (spento) 83.3% pieni in 267 s; OMP esplora (spento) 66.7% pieni in 120 s.",
+ "notes": "Nuovo a1-locale veloce. Conferma a n=30 e OMP vero (stesse opzioni di G13/E14), ripetuto due volte: agente-mini 6/6 in 292 s e 5/6 in 267 s, esplorazione 3/3 in 96 s e 2/3 in 120 s. Contesto lungo 62K: richiamo 2/2, prefill 197 t/s. Memoria: circa 10,9 GB di pesi (mmap) piu 0,6-0,8 GB di lavoro.",
+ "tags": [
+  "reap",
+  "a1-fork"
+ ]
+}

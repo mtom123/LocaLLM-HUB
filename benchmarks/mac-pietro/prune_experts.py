@@ -2,8 +2,11 @@
 Tiene, in ogni layer, i K expert più usati secondo un imatrix di llama.cpp (conteggi per expert su un testo di calibrazione),
 ritaglia i tensori *_exps e le righe del router, aggiorna expert_count. I pesi tenuti restano byte per byte identici.
 
-Uso: python -I prune_experts.py MODELLO.gguf IMATRIX.gguf K USCITA.gguf
+Uso: python -I prune_experts.py MODELLO.gguf IMATRIX.gguf K USCITA.gguf [--reap=PROFILO.json]
+Con --reap la classifica e quella REAP di `optiq prune-experts --profile-only` (peso del router x norma dell'uscita):
+regge meglio dei conteggi dell'imatrix sotto i 192 expert (vedi RICETTA-REAP-MLX.md). L'imatrix resta per il resoconto.
 """
+import json
 import os
 import sys
 
@@ -13,6 +16,7 @@ sys.path.insert(0, os.environ.get("GGUF_PY", "gguf-py"))  # cartella gguf-py di 
 import gguf  # noqa: E402
 from gguf import GGUFReader, GGUFWriter, GGUFValueType  # noqa: E402
 
+REAP = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--reap=")), None)
 src, imx, K, dst = sys.argv[1], sys.argv[2], int(sys.argv[3]), sys.argv[4]
 r = GGUFReader(src)
 arch = r.fields["general.architecture"].contents()
@@ -43,6 +47,9 @@ for l in range(n_layer):
         raise SystemExit(f"imatrix senza conteggi per il layer {l}")
     tie = s.get("sum2", np.zeros(n_exp))
     order = np.lexsort((-tie, -c))   # by count desc, then activation desc
+    if REAP:
+        v = np.array([-1e30 if x is None else x for x in json.load(open(REAP))["layers"][str(l)]["reap"]], dtype=np.float64)
+        order = np.argsort(-v, kind="stable")
     keep[l] = np.sort(order[:K])
     print(f"layer {l}: tengo {K} expert, uso coperto {100 * c[keep[l]].sum() / max(1, c.sum()):.1f}%", flush=True)
 
@@ -58,7 +65,7 @@ for name, f in r.fields.items():
         w.add_key_value(name, v, t0, sub_type=f.types[-1])
     else:
         w.add_key_value(name, v, t0)
-w.add_string("general.pruned", f"REAP-style frequency pruning: {K} of {n_exp} experts per layer (imatrix counts)")
+w.add_string("general.pruned", f"REAP-style pruning: {K} of {n_exp} experts per layer ({'REAP profile' if REAP else 'imatrix counts'})")
 for t in r.tensors:
     data = t.data
     if t.name.startswith("blk.") and ("_exps." in t.name or t.name.endswith(".ffn_gate_inp.weight")):

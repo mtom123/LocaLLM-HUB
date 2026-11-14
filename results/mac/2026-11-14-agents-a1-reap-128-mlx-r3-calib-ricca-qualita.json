@@ -1,0 +1,54 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-128-mlx-r3-calib-ricca-qualita",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "other",
+ "status": "ok",
+ "title": "Agents-A1 REAP-128 (profilo optiq, calibrazione ricca) MLX 3 bit g64: qualita (duro, agente, OMP)",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1",
+  "repo": null,
+  "quant": "MLX 3 bit g64 expert, 4 bit resto",
+  "size_gb": 9.44
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server (bench/mlx_serve.py)",
+   "--max-tokens",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + agente",
+  "version": "1",
+  "harness": "benchmarks/mac-pietro/duro.py --sets=math,code,mbpp,mmlu --n=15 --jobs=1; agente.py; lungo.py --max=62000; omp_agente.py --snello --profile=locale"
+ },
+ "metrics": {
+  "duro_pct": 69.5,
+  "math": 66.7,
+  "humaneval": 100.0,
+  "mbpp": 53.3,
+  "mmlu": 57.1,
+  "n": 59,
+  "secondi_domanda": 18.5,
+  "troncate_pct": 18.6,
+  "agente_pct": 91.7,
+  "agente_secondi_compito": 8.5
+ },
+ "summary": "Agents-A1 REAP-128 (profilo optiq, calibrazione ricca) MLX 3 bit g64: duro n=15 69.5 (41/59: math 66.7, HumanEval+ 100.0, MBPP+ 53.3, MMLU-Pro 57.1); agente 11/12.",
+ "notes": "Potato da noi a 128 con il profilo REAP ricco (non il REAP-128 pubblico): n=15 69,5 come AREX di Motti, ma a n=30 66,1 contro 67,8 di REAP-144: entro il rumore.",
+ "tags": [
+  "reap",
+  "a1-fork"
+ ]
+}

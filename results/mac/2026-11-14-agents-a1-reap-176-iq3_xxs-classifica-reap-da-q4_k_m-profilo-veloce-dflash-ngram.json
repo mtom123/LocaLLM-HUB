@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-176-iq3_xxs-classifica-reap-da-q4_k_m-profilo-veloce-dflash-ngram",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "speculative",
+ "status": "ok",
+ "title": "Agents-A1 REAP-176 IQ3_XXS (classifica REAP, da Q4_K_M) profilo veloce DFlash+ngram",
+ "reference": false,
+ "model": {
+  "name": "Agents-A1-REAP176-iq3",
+  "repo": null,
+  "quant": "REAP-176, expert IQ3_XXS, resto Q4_K_M",
+  "size_gb": 10.14
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12038",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--parallel",
+   "1",
+   "--cache-ram",
+   "512",
+   "-c",
+   "65536",
+   "--cache-type-k",
+   "q4_0",
+   "--cache-type-v",
+   "q4_0",
+   "-b",
+   "512",
+   "-ub",
+   "256",
+   "--spec-type",
+   "draft-dflash,ngram-mod",
+   "-md",
+   "<PATH>/strata-models/agents-a1/dflash/Qwen3.5-35B-A3B-DFlash-Q4_K_M.gguf",
+   "-ngld",
+   "99",
+   "--dry-multiplier",
+   "0.5",
+   "--dry-allowed-length",
+   "8",
+   "--reasoning",
+   "off"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 43.5,
+  "tps_media": 42.5,
+  "tps_by_type": {
+   "codice": 49.5,
+   "storia": 29.9,
+   "ragionamento": 44.6,
+   "json": 46.2
+  },
+  "tps_method": "timings",
+  "draft_acceptance_pct": 56.8
+ },
+ "notes": "Potatura con classifica REAP (profilo optiq), expert riquantizzati IQ3_XXS con imatrix-a1-v2 ritagliato.",
+ "tags": [],
+ "summary": "42.5 t/s medi su 4 tipi di prompt (core-speed v1), 43.5 t/s mediana. Accettazione drafter 56.8%."
+}

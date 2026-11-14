@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "id": "2026-11-14-agents-a1-reap-128-profilo-optiq-calibrazione-ricca-mlx-r3",
+ "platform": "mac",
+ "author": "Pietro",
+ "date": "2026-11-14",
+ "category": "speed",
+ "status": "ok",
+ "title": "Agents-A1 REAP-128 (profilo optiq, calibrazione ricca), MLX r3",
+ "reference": false,
+ "model": {
+  "name": "A1-R128-r3",
+  "repo": null,
+  "quant": "MLX r3 expert, 4-bit resto",
+  "size_gb": 9.4
+ },
+ "engine": {
+  "name": "mlx-lm",
+  "version": "0.32.2",
+  "args": [
+   "mlx_lm.server",
+   "(bench/mlx_serve.py)"
+  ]
+ },
+ "hardware": {
+  "chip": "Apple M4 (10-core GPU)",
+  "ram_gb": 16.0,
+  "os": "macOS 26.6"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 36.0,
+  "tps_media": 35.8,
+  "tps_by_type": {
+   "codice": 35.9,
+   "storia": 36.2,
+   "ragionamento": 35.1,
+   "json": 36.0
+  },
+  "tps_method": "wallclock"
+ },
+ "notes": "Profilo REAP di optiq (96 campioni, calibrazione ricca), 128 expert, mlx_onyx.py piano r3. t/s a orologio (mlx-lm non restituisce timings).",
+ "tags": [],
+ "summary": "35.8 t/s medi su 4 tipi di prompt (core-speed v1), 36.0 t/s mediana."
+}
