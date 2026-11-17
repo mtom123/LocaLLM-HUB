@@ -1,8 +1,33 @@
 {
  "platform": "windows",
- "count": 121,
+ "count": 122,
  "hidden_failed": 38,
  "experiments": [
+  {
+   "id": "2026-11-18-glm-rco152e-maya-feasibility",
+   "file": "results/windows/2026-11-18-glm-rco152e-maya-feasibility.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-rco152e-maya-feasibility",
+   "summary": "GLM RCO-152E su Maya (12+16 GB): 1.02 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s.",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "Project Maya v1.1.66 (GLM native tiering)",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "maya",
+    "expert-tiering",
+    "feasibility"
+   ]
+  },
   {
    "id": "2026-11-17-mellum21-reap-saliency-confronto",
    "file": "results/windows/2026-11-17-mellum21-reap-saliency-confronto.json",

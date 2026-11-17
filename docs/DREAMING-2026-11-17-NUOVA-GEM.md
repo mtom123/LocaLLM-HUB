@@ -27,6 +27,7 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Gyro**: non è un motore ma un formato di quantizzazione trellis+Hadamard (AgentionAI) per Qwen3.8-Flash-Next. Nessun supporto `glm5-next`. **Fuori**.
 - **Edge0 / edge0-strata**: il prerouter addestrato (arXiv 2609.18063) riduce la latenza, non i byte; è per-modello e serve training. **Fuori per il nostro GGUF**.
 - **Project Maya**: l'unico motore dichiarato dalla scheda RCO-152E. Supporto Windows nativo, CUDA 13.4 e VS Build Tools verificati sul nostro PC; `--gguf-dir` permette di usare i nostri file invece dei pack da 89-108 GB. `--check` dice "This PC can run Maya". **In prova ora**.
+- **Basalt** (`jesdga95/basalt`, MIT, v0.4.1 16/11/2026, fork di Strata): reale e più veloce di Strata su prefill/TTFT/JSON (test indipendente: TTFT 100K 41,1 s vs 69,2), ma supporta solo Qwen3.8-Flash-Next / DeepSeek-V4.1 / Qwen3.8-27B, richiede GPU Blackwell sm_120 e 64-128 GB RAM. **Nessun supporto `glm5-next`** → valutato e scartato per il nostro caso.
 - **llama.cpp + MoE cache/direct-I/O** resta il piano B: PR #25294 (SSD streaming) è ancora *open* e non mergiata; i flag in master sono `--moe-cache-mib`, `--moe-cache-cpu-share`, `-lm dio`. Con 47 GB su 12+16 GB le stime di letteratura per SSD-streaming sono 1,5-4 t/s: non è il risultato sperato, ma è misurabile.
 
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte

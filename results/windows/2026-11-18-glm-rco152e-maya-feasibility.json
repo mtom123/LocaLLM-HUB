@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-rco152e-maya-feasibility",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-rco152e-maya-feasibility",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "Project Maya v1.1.66 (GLM native tiering)",
+  "version": "1.1.66",
+  "args": [
+   "--gguf-dir <PATH>",
+   "--context 8192",
+   "--no-vision",
+   "--gpu 0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-feasibility-v1",
+  "harness": "3 prompt x 48 token, misura diretta",
+  "params": {
+   "n": 3,
+   "max_tokens": 48,
+   "temperature": 0
+  }
+ },
+ "metrics": {
+  "decode_tps_mediano": 1.02,
+  "sanity_391": true,
+  "dettaglio": [
+   {
+    "prompt": "Quanto fa 17 x 23? Rispondi solo con il numer",
+    "tok": 27,
+    "sec": 32.4,
+    "tps": 0.83,
+    "risposta": "391"
+   },
+   {
+    "prompt": "Scrivi una funzione Python che verifica se un",
+    "tok": 48,
+    "sec": 47.1,
+    "tps": 1.02,
+    "risposta": "```python def is_palindrome(s: str) -> bool:     s = s.lower().strip()     return"
+   },
+   {
+    "prompt": "Spiega in 2 frasi perché il cielo e' blu.",
+    "tok": 48,
+    "sec": 42.2,
+    "tps": 1.14,
+    "risposta": "Il cielo appears blue because air molecules scatter short-wavelength light (blue) in all directions, while longer wavelengths pass through"
+   }
+  ],
+  "n": 3
+ },
+ "notes": "Protocollo abbreviato (3 prompt x 48 token), NON comparabile col core-speed a 8x300. Serve a dire se Maya carica il RCO-152E con --gguf-dir e a che velocita' grezza su 12GB VRAM + 16GB RAM. Page file 24,5 GB (non allargato). Nessun claim di qualita: solo sanity aritmetica/codice.",
+ "tags": [
+  "glm",
+  "maya",
+  "expert-tiering",
+  "feasibility"
+ ],
+ "summary": "GLM RCO-152E su Maya (12+16 GB): 1.02 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s."
+}
