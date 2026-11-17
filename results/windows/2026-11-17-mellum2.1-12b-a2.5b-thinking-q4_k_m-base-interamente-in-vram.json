@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-mellum2.1-12b-a2.5b-thinking-q4_k_m-base-interamente-in-vram",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "speed",
+ "status": "ok",
+ "title": "Mellum2.1-12B-A2.5B-Thinking Q4_K_M (base, interamente in VRAM)",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 7.52
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "16384",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "-t",
+   "6"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 100.4,
+  "tps_media": 100.2,
+  "tps_by_type": {
+   "codice": 100.8,
+   "storia": 100.3,
+   "ragionamento": 99.1,
+   "json": 100.4
+  },
+  "tps_method": "timings"
+ },
+ "notes": "Baseline del esperimento potatura esperti notturno: base 64 esperti/layer, 8 attivi, arch mellum. Imatrix e varianti pruned nella stessa notte.",
+ "tags": [],
+ "summary": "100.2 t/s medi su 4 tipi di prompt (core-speed v1), 100.4 t/s mediana."
+}

@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-glm-rco-152e-iq2xxs-feasibility",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "glm-rco-152e-iq2xxs-feasibility",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "file": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS.gguf",
+  "quant": "IQ2_XXS (GSQ) su esperti + Q4/Q6/Q8 su attenzione/dense",
+  "size_gb": 47.4
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12244 (d5bbcd1f3)",
+  "args": ["--jinja", "-ngl 99", "-cmoe", "-fa on", "-c 16384", "-ctk q8_0", "-ctv q8_0", "-b 1024", "-ub 512", "-t 6", "-np 1"]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "feasibility-manual",
+  "harness": "API OpenAI-compatibile, misura diretta"
+ },
+ "metrics": {
+  "decode_tps": 0.6,
+  "prompt_tps": 0.4,
+  "sanity_math": "17x23=391 corretto",
+  "sanity_code": "palindromo corretto",
+  "n": 2,
+  "load_s": 1.5
+ },
+ "notes": "Protocollo abbreviato NON comparabile col core-speed (2 prompt liberi, non gli 8 del protocollo): serve solo a dire se gira e quanto. Esperti (38 GB su 45 layer, arch glm5-next: MLA+KDA, 3 dense + 42 MoE, 152/288 esperti tenuti, 8 attivi) via mmap da NVMe: con 16 GB RAM la cache copre ~35% e il tetto teorico e ~0,7-0,9 t/s. Target di progetto dell'autore: 24 GB VRAM + 32 GB RAM (24+32). IMPORTANTE: i numeri sono CPU-only perche la build b12244 ha il CUDA rotto (llama-cli --list-devices: none; la b12141 invece vede CUDA0) - con attenzione su GPU la cifra potrebbe salire poco (stima 0,8-1,0 t/s, comunque inusabile). Con -ncmoe 34: 0,64-0,67 t/s (anche CPU-only). SHA256 verificato col README del progetto.",
+ "tags": ["moe-pruning", "glm", "expert-offload", "too-slow"],
+ "summary": "Il MoE pruned RCO-152E (cervello GLM condensato, 44 GB) GIRA sul nostro 12+16 GB e risponde correttamente (matematica e codice OK, carica in 1,5 s), ma a 0,6 t/s e inusabile: la RAM e sotto il target 24+32 del progetto. Conferma il pavimento della community: per i MoE 300B+ servono almeno 24 GB VRAM + 32 GB RAM. Riuscito come prova di concetto della potatura esperti, fallito come strumento quotidiano."
+}
