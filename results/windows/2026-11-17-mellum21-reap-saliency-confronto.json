@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-mellum21-reap-saliency-confronto",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "mellum21-reap-saliency-confronto",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B potato (confronto saliency)",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M + potatura",
+  "size_gb": 7.52
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl 99 -c 2048"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "potatura-esperti-v1",
+  "harness": "llama-perplexity su heldout + fork potatore"
+ },
+ "metrics": {
+  "confronto": {
+   "48": {
+    "reap": 4.6706,
+    "counts_only": 4.6883,
+    "delta": -0.0177
+   },
+   "40": {
+    "reap": 5.8646,
+    "counts_only": 4.982,
+    "delta": 0.8826
+   }
+  },
+  "n": 1
+ },
+ "notes": "Stesso imatrix, stessa K, stessa PPL heldout: cambia solo la regola di saliency. Baseline counts-only dalla curva 2026-11-17-mellum21-potatura-esperti-curva.json. REAP-style = conteggi x sqrt(in_sum2), approssimazione di g_j*||f_j|| perche' l'imatrix non espone il gate. n=1, differenze <0,1 PPL sono rumore.",
+ "tags": [
+  "moe-pruning",
+  "reap",
+  "saliency"
+ ],
+ "summary": "Confronto tra potatura per frequenza e potatura REAP-style su Mellum2.1-12B a K=48/40: vedi delta PPL (negativo = meglio)."
+}

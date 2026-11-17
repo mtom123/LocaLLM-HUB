@@ -1,8 +1,32 @@
 {
  "platform": "windows",
- "count": 119,
+ "count": 120,
  "hidden_failed": 38,
  "experiments": [
+  {
+   "id": "2026-11-17-mellum21-reap-saliency-confronto",
+   "file": "results/windows/2026-11-17-mellum21-reap-saliency-confronto.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-17",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "mellum21-reap-saliency-confronto",
+   "summary": "Confronto tra potatura per frequenza e potatura REAP-style su Mellum2.1-12B a K=48/40: vedi delta PPL (negativo = meglio).",
+   "model": "Mellum2.1-12B-A2.5B potato (confronto saliency)",
+   "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+   "quant": "Q4_K_M + potatura",
+   "size_gb": 7.52,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "moe-pruning",
+    "reap",
+    "saliency"
+   ]
+  },
   {
    "id": "2026-11-17-mellum21-potatura-esperti-curva",
    "file": "results/windows/2026-11-17-mellum21-potatura-esperti-curva.json",

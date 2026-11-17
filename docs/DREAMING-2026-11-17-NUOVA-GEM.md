@@ -30,7 +30,7 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 4. Criterio di successo onesto: **≥15 t/s misurati**. Se la qualità crolla (PPL/duro), lo scrivo: è un esperimento di ingegneria, non la gem.
 
 ### Traiettoria B — `la gem che esiste davvero` (quella che può vincere)
-1. **Mellum2.1 Q4_K_M**: 100 t/s (record della macchina). Il duro-v1 completo (math/code/mmlu, n=15) è in corso: dice se è anche il più intelligente.
+1. **Mellum2.1 Q4_K_M**: 100 t/s (record della macchina). Primo duro-v1 completo a budget di default 1500: **50,0%** (sotto AREX 69,5). Ma test successivi mostrano che il collo è il **budget di pensiero**: su MMLU, 1500 → 4096 token alza l'accuratezza da **64,3% a 78,6%** e le risposte troncate da 28,6% a 7,1% (8192 non aggiunge nulla). Quindi il confronto corretto è a parità di budget 4096, non a 1500.
 2. **MTP head ufficiale JetBrains** (`Mellum2.1-...-MTP-Q4_K_M.gguf`, 7,76 GB): `--spec-type draft-mtp -md <head>` → speedup atteso 1,4-2× senza cambiare le risposte.
 3. **Bake-off**: stesso `duro.py`, stesse domande, n=15, per Mellum, **Qwen3.5-9B Q4_K_M** e (se avanza tempo) Gemma4-12B. Ipotesi preregistrata: vince Qwen3.5 se il composite pesa knowledge/math; vince Mellum se pesa codice/agentic.
 4. **CISC gated**: N=8 con voto ponderato per confidenza, solo sui casi incerti. Misuro `greedy_ok`, `vote_ok`, `help`, `harm` per categoria; disattivo il voto dove l'harm supera l'help.
