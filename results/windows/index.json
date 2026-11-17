@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 120,
+ "count": 121,
  "hidden_failed": 38,
  "experiments": [
   {
@@ -76,6 +76,31 @@
     "mellum",
     "duro",
     "qualita"
+   ]
+  },
+  {
+   "id": "2026-11-17-mellum21-budget-pensiero",
+   "file": "results/windows/2026-11-17-mellum21-budget-pensiero.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-17",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "mellum21-budget-pensiero",
+   "summary": "Il budget di pensiero e' il collo di Mellum: MMLU 64,3% a 1500 token -> 78,6% a 4096 (troncate 28,6% -> 7,1%). Risultato completo a 4096: 56.8%.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 7.52,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "mellum",
+    "duro",
+    "budget",
+    "test-time-compute"
    ]
   },
   {

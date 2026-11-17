@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-mellum21-budget-pensiero",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "mellum21-budget-pensiero",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 7.52
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl 99 -fa on -c 16384 -ctk q8_0 -ctv q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py (fork windows-fabbrica)",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "jobs": 1
+  }
+ },
+ "metrics": {
+  "budget_mmlu": {
+   "1500": {
+    "mmlu_pct": 64.3,
+    "troncate_pct": 28.6,
+    "n": 15,
+    "corrette": "9/14"
+   },
+   "4096": {
+    "mmlu_pct": 78.6,
+    "troncate_pct": 7.1,
+    "n": 15,
+    "corrette": "11/14"
+   },
+   "8192": {
+    "mmlu_pct": 78.6,
+    "troncate_pct": 7.1,
+    "n": 15,
+    "corrette": "11/14"
+   }
+  },
+  "full_b4096": {
+   "duro_pct": 56.8,
+   "per_categoria_pct": {
+    "code": 53.3,
+    "math": 66.7,
+    "mmlu": 50.0
+   },
+   "corrette": "25/44",
+   "troncate_pct": 18.2,
+   "n": 15
+  }
+ },
+ "notes": "Il modello e' thinking: con budget 1500 il 28,6% delle risposte veniva troncato e il MMLU era 64,3%; a 4096 sale a 78,6% con 7,1% troncate; 8192 non aggiunge nulla. Attenzione: il run completo a 1500 had mmlu 35,7% (confronto non perfettamente accoppiato, probabilmente per effetto del contesto condiviso tra categorie nello stesso server): per questo il confronto pulito e' quello mmlu-only qui sopra, a parita' di set e server. n=15, rumore ±3 punti.",
+ "tags": [
+  "mellum",
+  "duro",
+  "budget",
+  "test-time-compute"
+ ],
+ "summary": "Il budget di pensiero e' il collo di Mellum: MMLU 64,3% a 1500 token -> 78,6% a 4096 (troncate 28,6% -> 7,1%). Risultato completo a 4096: 56.8%."
+}
