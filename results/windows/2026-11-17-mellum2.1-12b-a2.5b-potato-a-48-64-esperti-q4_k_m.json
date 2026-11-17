@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-mellum2.1-12b-a2.5b-potato-a-48-64-esperti-q4_k_m",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "speed",
+ "status": "ok",
+ "title": "Mellum2.1-12B-A2.5B potato a 48/64 esperti (Q4_K_M)",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-RCO",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF + potatura REAP/RCO nostra",
+  "quant": "Q4_K_M-pruned-48of64",
+  "size_gb": 5.79
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "16384",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "-t",
+   "6"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 98.6,
+  "tps_media": 98.6,
+  "tps_by_type": {
+   "codice": 98.8,
+   "storia": 98.4,
+   "ragionamento": 98.5,
+   "json": 98.8
+  },
+  "tps_method": "timings"
+ },
+ "notes": "Variante notte potatura: 48/64 esperti/layer via imatrix (conteggi routing), fork di prune_experts (mac-pietro). Baseline 100 t/s. n=1 per variante.",
+ "tags": [],
+ "summary": "98.6 t/s medi su 4 tipi di prompt (core-speed v1), 98.6 t/s mediana."
+}

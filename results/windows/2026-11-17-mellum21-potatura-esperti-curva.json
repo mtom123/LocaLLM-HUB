@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-mellum21-potatura-esperti-curva",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "mellum21-potatura-esperti-curva",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking potato (curva K)",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M + potatura esperti imatrix",
+  "size_gb": 7.52
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl 99",
+   "-fa on",
+   "-c 16384",
+   "-ctk q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "potatura-esperti-v1",
+  "harness": "imatrix + prune_experts (fork mac-pietro) + core-speed + perplexity heldout"
+ },
+ "metrics": {
+  "ppl_base": 4.3652,
+  "ppl_base_end": 4.3652,
+  "varianti": {
+   "56": {
+    "ppl": 4.5261,
+    "gb": 6.65,
+    "speedtest_exit": 0
+   },
+   "48": {
+    "ppl": 4.6883,
+    "gb": 5.79,
+    "speedtest_exit": 0
+   },
+   "40": {
+    "ppl": 4.982,
+    "gb": 4.93,
+    "speedtest_exit": 0
+   },
+   "32": {
+    "ppl": 6.6614,
+    "gb": 4.06,
+    "speedtest_exit": 0
+   },
+   "24": {
+    "ppl": 7.9064,
+    "gb": 3.2,
+    "speedtest_exit": 0
+   }
+  },
+  "migliore": {
+   "K": 56,
+   "ppl": 4.5261
+  },
+  "n": 1
+ },
+ "notes": "Potatura esperti fatta in casa su MoE che entra in VRAM, ispirata a RCO-152E/REAP. Pesi tenuti byte-identici, nessuna ri-quantizzazione. PPL su heldout (14 KB, non usato in calibrazione). Ogni variante cancellata dopo la misura (permesso Motti); resta solo la migliore, rigenerabile. I tentativi precedenti avevano PPL null per bug di parsing su stderr e servizi 503 per porte aperte prima del caricamento: qui corretto. n=1 per variante: non dichiarare vincitori dentro il rumore.",
+ "tags": [
+  "moe-pruning",
+  "mellum",
+  "expert-saliency",
+  "notte"
+ ],
+ "summary": "Curva K=56/48/40/32/24 di 64 esperti su Mellum2.1-12B. Baseline 100 t/s. La potatura compra VRAM/dimensione (8 esperti attivi invarianti); la PPL misura il cervello perso."
+}
