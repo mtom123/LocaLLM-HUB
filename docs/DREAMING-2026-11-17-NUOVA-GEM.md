@@ -21,6 +21,14 @@
 
 Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E`; ISTA GSQ arxiv 2604.18556; CAT-Q ICML 2026 e ScaleQ-1.58 arxiv 2608.01078; llama.cpp docs/moe-cache.md, docs/speculative.md, PR #27773/#29887/#29928/#30966; MMLU-Pro arxiv 2406.01574; CISC arxiv 2502.06233; "When Self-Consistency Hurts" arxiv 2611.11201; s1 arxiv 2501.19393; Dynamic Cheatsheet arxiv 2504.07952; "Revisit Self-Debugging" arxiv 2501.12793; RouteLLM/FrugalGPT; card JetBrains Mellum2.1 e card Qwen3.5-9B.
 
+## 2b. Aggiornamento motori avanzati (secondo giro di ricerca, 17/11)
+
+- **Strata 0.2.15**: verificato anche a mano (`strata launch --model-path ... --plan`): risponde *"this model type is not supported by the Strata engine"*. Supporta solo Qwen3.8-Flash-Next e Qwen3.6-35B-A3B; i fork GLM (lighttransport `glm53f`, OpenMOSE) vogliono 64-128 GB RAM e shape a 288/224/144 esperti, non 152. **Fuori**.
+- **Gyro**: non è un motore ma un formato di quantizzazione trellis+Hadamard (AgentionAI) per Qwen3.8-Flash-Next. Nessun supporto `glm5-next`. **Fuori**.
+- **Edge0 / edge0-strata**: il prerouter addestrato (arXiv 2609.18063) riduce la latenza, non i byte; è per-modello e serve training. **Fuori per il nostro GGUF**.
+- **Project Maya**: l'unico motore dichiarato dalla scheda RCO-152E. Supporto Windows nativo, CUDA 13.4 e VS Build Tools verificati sul nostro PC; `--gguf-dir` permette di usare i nostri file invece dei pack da 89-108 GB. `--check` dice "This PC can run Maya". **In prova ora**.
+- **llama.cpp + MoE cache/direct-I/O** resta il piano B: PR #25294 (SSD streaming) è ancora *open* e non mergiata; i flag in master sono `--moe-cache-mib`, `--moe-cache-cpu-share`, `-lm dio`. Con 47 GB su 12+16 GB le stime di letteratura per SSD-streaming sono 1,5-4 t/s: non è il risultato sperato, ma è misurabile.
+
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
