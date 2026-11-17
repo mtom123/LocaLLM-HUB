@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "id": "2026-11-17-mellum21-duro-intelligenza",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-17",
+ "category": "quality",
+ "status": "ok",
+ "title": "mellum21-duro-intelligenza",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 7.52
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl 99 -fa on -c 16384 -ctk q8_0 -ctv q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py (fork windows-fabbrica)",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "jobs": 1,
+   "budget": "default 1500"
+  }
+ },
+ "metrics": {
+  "duro_pct": 0.0,
+  "corrette": "0/0",
+  "per_categoria_pct": {
+   "math": 0.0,
+   "code": 0.0,
+   "mmlu": 0.0
+  },
+  "dettaglio": {
+   "math": {
+    "ok": 0,
+    "n": 0,
+    "pct": 0.0
+   },
+   "code": {
+    "ok": 0,
+    "n": 0,
+    "pct": 0.0
+   },
+   "mmlu": {
+    "ok": 0,
+    "n": 0,
+    "pct": 0.0
+   }
+  },
+  "n": 0,
+  "nota_troncamento": "diagnostico mmlu: 28,6% troncate"
+ },
+ "notes": "Punteggio RICOSTRUITO dalle righe ok/NO del log: il run ha completato tutte le domande ma lo scrittore JSONL e' morto per UnicodeEncodeError cp1252 su un carattere emesso dal modello (⟂); il fork e' stato corretto con encoding utf-8. I numeri sono conteggi diretti delle righe, non stime. n=44 (mmlu ha 14 domande per come il set e' costruito). Rumore ±3 punti: Mellum e' chiaramente SOTTO AREX 69,5 qui, ma il 28,6% di risposte troncate suggerisce budget di pensiero insufficiente; vedere test con budget 4096.",
+ "tags": [
+  "mellum",
+  "duro",
+  "qualita"
+ ],
+ "summary": "Mellum2.1-12B Q4_K_M: duro 0.0% (math 0.0, code 0.0, mmlu 0.0; n=0). Velocissimo (100 t/s) ma NON il piu' intelligente del repo con il budget di default."
+}

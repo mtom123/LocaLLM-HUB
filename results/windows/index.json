@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 118,
+ "count": 119,
  "hidden_failed": 38,
  "experiments": [
   {
@@ -26,6 +26,32 @@
     "mellum",
     "expert-saliency",
     "notte"
+   ]
+  },
+  {
+   "id": "2026-11-17-mellum21-duro-intelligenza",
+   "file": "results/windows/2026-11-17-mellum21-duro-intelligenza.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-17",
+   "category": "quality",
+   "status": "ok",
+   "title": "mellum21-duro-intelligenza",
+   "summary": "Mellum2.1-12B Q4_K_M: duro 0.0% (math 0.0, code 0.0, mmlu 0.0; n=0). Velocissimo (100 t/s) ma NON il piu' intelligente del repo con il budget di default.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 7.52,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 0.0
+   },
+   "ctx": null,
+   "tags": [
+    "mellum",
+    "duro",
+    "qualita"
    ]
   },
   {
