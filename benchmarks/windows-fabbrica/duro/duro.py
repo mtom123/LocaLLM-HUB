@@ -92,7 +92,12 @@ def load(sets, n):
 def run_code(code, timeout=30):
     with tempfile.TemporaryDirectory() as d:
         try:
-            r = subprocess.run([PYV, "-I", "-c", code], cwd=d, capture_output=True, text=True, timeout=timeout)
+            # Windows: passare il programma come argomento -c puo' superare il limite della riga di comando
+            # (WinError 206). Scriverlo su file nella stessa cartella temporanea e' semanticamente identico.
+            p = os.path.join(d, "programma.py")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write(code)
+            r = subprocess.run([PYV, "-I", p], cwd=d, capture_output=True, text=True, timeout=timeout)
             return r.returncode == 0
         except subprocess.TimeoutExpired:
             return False
