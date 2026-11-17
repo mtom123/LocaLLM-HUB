@@ -4,7 +4,7 @@
  "platform": "windows",
  "author": "Motti",
  "date": "2026-11-17",
- "category": "quality",
+ "category": "quality-tiny",
  "status": "ok",
  "title": "mellum21-duro-intelligenza",
  "reference": false,
@@ -38,31 +38,31 @@
   }
  },
  "metrics": {
-  "duro_pct": 0.0,
-  "corrette": "0/0",
+  "duro_pct": 50.0,
+  "corrette": "22/44",
   "per_categoria_pct": {
-   "math": 0.0,
-   "code": 0.0,
-   "mmlu": 0.0
+   "math": 60.0,
+   "code": 53.3,
+   "mmlu": 35.7
   },
   "dettaglio": {
    "math": {
-    "ok": 0,
-    "n": 0,
-    "pct": 0.0
+    "ok": 9,
+    "n": 15,
+    "pct": 60.0
    },
    "code": {
-    "ok": 0,
-    "n": 0,
-    "pct": 0.0
+    "ok": 8,
+    "n": 15,
+    "pct": 53.3
    },
    "mmlu": {
-    "ok": 0,
-    "n": 0,
-    "pct": 0.0
+    "ok": 5,
+    "n": 14,
+    "pct": 35.7
    }
   },
-  "n": 0,
+  "n": 44,
   "nota_troncamento": "diagnostico mmlu: 28,6% troncate"
  },
  "notes": "Punteggio RICOSTRUITO dalle righe ok/NO del log: il run ha completato tutte le domande ma lo scrittore JSONL e' morto per UnicodeEncodeError cp1252 su un carattere emesso dal modello (⟂); il fork e' stato corretto con encoding utf-8. I numeri sono conteggi diretti delle righe, non stime. n=44 (mmlu ha 14 domande per come il set e' costruito). Rumore ±3 punti: Mellum e' chiaramente SOTTO AREX 69,5 qui, ma il 28,6% di risposte troncate suggerisce budget di pensiero insufficiente; vedere test con budget 4096.",
@@ -71,5 +71,5 @@
   "duro",
   "qualita"
  ],
- "summary": "Mellum2.1-12B Q4_K_M: duro 0.0% (math 0.0, code 0.0, mmlu 0.0; n=0). Velocissimo (100 t/s) ma NON il piu' intelligente del repo con il budget di default."
+ "summary": "Mellum2.1-12B Q4_K_M: duro 50.0% (math 60.0, code 53.3, mmlu 35.7; n=44). Velocissimo (100 t/s) ma NON il piu' intelligente del repo con il budget di default."
 }
