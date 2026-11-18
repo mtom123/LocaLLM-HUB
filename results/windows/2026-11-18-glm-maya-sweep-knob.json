@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-maya-sweep-knob",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-maya-sweep-knob",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "Project Maya v1.1.66",
+  "version": "1.1.66",
+  "args": [
+   "--glm-pack custom",
+   "--context 4096 --prefill 512 -dflash OFF"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-sweep-v1",
+  "harness": "3 prompt x 48 token, mediana",
+  "params": {
+   "n": 3,
+   "max_tokens": 48,
+   "protocol": "A/A due volte, baseline finale; soglia=max(5%,2*noise,2*drift)"
+  }
+ },
+ "metrics": {
+  "tps": {
+   "baseline_A": 1.61,
+   "baseline_AA": 1.6,
+   "lend_park_lru": 1.6,
+   "ckpt_off": 1.6,
+   "stream_fetch_off": 1.38,
+   "pcie_share_025": 1.6,
+   "prefetch_off": 1.6,
+   "baseline_final": 1.32
+  },
+  "baseline": 1.61,
+  "aa": 1.6,
+  "baseline_final": 1.32,
+  "noise_aa": 0.010000000000000009,
+  "drift": 0.29000000000000004,
+  "soglia": 0.5800000000000001,
+  "promossi": [],
+  "n": 3
+ },
+ "notes": "Sperimentazione vera sul motore GLM: knob Maya testati uno alla volta con riavvio, A/A due volte per il noise floor e baseline finale per il drift. DFlash2 e' stato provato separatamente e SCARTATO (0,8 vs 1,6 t/s): il drafter su questo modello offloadato costa piu' di quanto accetta. Profilo esperti/usage tracking anche scartato (0,8 t/s). n=3 per variante: solo differenze sopra la soglia contano.",
+ "tags": [
+  "glm",
+  "maya",
+  "autotune",
+  "sweep"
+ ],
+ "summary": "Sweep 6 knob Maya su GLM RCO-152E: baseline 1.61 t/s, noise A/A 0.010000000000000009, drift 0.29000000000000004, promossi: nessuno."
+}

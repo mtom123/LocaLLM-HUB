@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 124,
+ "count": 125,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -39,7 +39,7 @@
    "category": "speed",
    "status": "ok",
    "title": "glm-rco152e-maya-feasibility",
-   "summary": "GLM RCO-152E su Maya (12+16 GB): 1.6 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s.",
+   "summary": "GLM RCO-152E su Maya (12+16 GB): 1.62 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s.",
    "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
    "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
    "quant": "IQ2_XXS",
@@ -53,6 +53,31 @@
     "maya",
     "expert-tiering",
     "feasibility"
+   ]
+  },
+  {
+   "id": "2026-11-18-glm-maya-sweep-knob",
+   "file": "results/windows/2026-11-18-glm-maya-sweep-knob.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-maya-sweep-knob",
+   "summary": "Sweep 6 knob Maya su GLM RCO-152E: baseline 1.61 t/s, noise A/A 0.010000000000000009, drift 0.29000000000000004, promossi: nessuno.",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "Project Maya v1.1.66",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "maya",
+    "autotune",
+    "sweep"
    ]
   },
   {
