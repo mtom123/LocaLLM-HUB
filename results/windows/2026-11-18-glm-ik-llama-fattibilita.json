@@ -1,0 +1,42 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-ik-llama-fattibilita",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "failed",
+ "title": "glm-ik-llama-fattibilita",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "ik_llama.cpp",
+  "version": "git-master build 464613d (CUDA sm_86)",
+  "args": ["--jinja", "-ngl 99", "-fa on", "-c 4096", "-cmoe", "--moe-cache-mib 3000", "GGML_CUDA_NO_PINNED=1"]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-feasibility-v1",
+  "harness": "avvio server + 3 prompt x 48 token (protocollo abbreviato)",
+  "params": {"n": 0, "max_tokens": 48}
+ },
+ "metrics": {
+  "decode_tps": null,
+  "n": 0,
+  "load_ok": true,
+  "cuda_ok": true
+ },
+ "notes": "ik_llama.cpp compila e vede CUDA0 (sm_86), carica correttamente l'arch glm5-next di questo GGUF. Ma con -ngl 99 tenta di allocare 45 GB in VRAM (cudaMalloc OOM); con -cmoe tenta di pinnare 39,8 GB di RAM host (impossibile con 16 GB). Con GGML_CUDA_NO_PINNED=1 e mmap il modello carica e risponde, ma la misura di 3 prompt ha richiesto oltre 15 minuti senza completare (circa 5 min/prompt): regime I/O peggiore di Project Maya (1,6 t/s). DFlash2 (PR #2761, +26% misurati dal fork su altro hardware) NON e' stato misurato perche' il baseline e' troppo lento: la regola e' non aspettare ore in benchmark inutili. Nessun page file allargato, nessuna app utente chiusa.",
+ "tags": ["glm", "ik-llama", "cuda", "too-slow", "no-pinned-ram"],
+ "summary": "ik_llama.cpp supporta il nostro GLM e la GPU, ma su 12+16 GB e' piu' lento di Maya: richiede 40 GB di RAM pinnabile, e con mmap i prompt impiegano minuti. Registrato come fallimento: la strada vincente resta Project Maya."
+}
