@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-maya-context-128k",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-maya-context-32k",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "Project Maya v1.1.66",
+  "version": "1.1.66",
+  "args": [
+   "--max-context 4096 o 32768",
+   "MAYA_GLM_KV_INT8=1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-prefix-v1",
+  "harness": "3 prompt x 48 token",
+  "params": {
+   "n": 3
+  }
+ },
+ "metrics": {
+  "configurazioni": {
+   "ctx4096": {
+    "health": true,
+    "tps": 1.62
+   },
+   "ctx131072_kvint8": {
+    "health": true,
+    "tps": 1.56
+   }
+  },
+  "n": 3
+ },
+ "notes": "Test di fattibilita' del contesto esteso su 12 GB: KV INT8 dimezza i byte per posizione ma sottrae VRAM al pool di esperti. n=3, misura esplorativa non bootstrapata.",
+ "tags": [
+  "glm",
+  "maya",
+  "contesto",
+  "kv-int8"
+ ],
+ "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.62} vs 128K+KV INT8 {'health': True, 'tps': 1.56}."
+}

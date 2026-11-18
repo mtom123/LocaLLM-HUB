@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 129,
+ "count": 130,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -140,6 +140,31 @@
    "status": "ok",
    "title": "glm-maya-context-32k",
    "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.62} vs 32K+KV INT8 {'health': True, 'tps': 1.62}.",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "Project Maya v1.1.66",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "maya",
+    "contesto",
+    "kv-int8"
+   ]
+  },
+  {
+   "id": "2026-11-18-glm-maya-context-128k",
+   "file": "results/windows/2026-11-18-glm-maya-context-128k.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-maya-context-32k",
+   "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.62} vs 128K+KV INT8 {'health': True, 'tps': 1.56}.",
    "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
    "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
    "quant": "IQ2_XXS",
