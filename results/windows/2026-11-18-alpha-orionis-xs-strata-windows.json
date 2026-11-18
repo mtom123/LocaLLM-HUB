@@ -1,0 +1,50 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-alpha-orionis-xs-strata-windows",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "integration-attempt",
+ "status": "failed",
+ "title": "Alpha-Orionis-XS (Qwen3.8 Flash Next IQ2_XS) su edge0-strata Windows",
+ "reference": false,
+ "model": {
+  "name": "Qwen3.8-Flash-Next GSQ-RCO IQ2_XS (bundle Betelgeuse Alpha-Orionis-XS)",
+  "files_gb": {
+   "dense_gguf": 3.51,
+   "experts_bin": 33.0,
+   "ple_gguf": 26.82,
+   "profile": 0.0001
+  }
+ },
+ "engine": {
+  "name": "edge0-strata fork Windows (STRATA_ARENA_MMAP)",
+  "version": "workspace 18/11"
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "result": {
+  "loaded": true,
+  "server_ready": true,
+  "generation": "NaN logits before first token (503 #879)",
+  "tps": null
+ },
+ "steps_completed": [
+  "tokenizer Flash-Next copiato (vocab/merges/chat_template) da modelli-flash-next/IQ3_XXS",
+  "native_experts.txt v3 ricostruito da descrittori GGUF: 48 layer, 512 esperti, blob 985.600-1.510.400 B",
+  "split.count/tensors.count patchati; 144 descrittori esperti stripped rimossi dal dense GGUF (1223->1079 tensori)",
+  "dense.bin (1,43 GiB) ricostruito da 777 tensori del GGUF secondo index.txt IQ3_XXS",
+  "experts.bin rimpacchettato da stride 4 KiB a blob raw contigui + 1 blob spare per mmap",
+  "profile STRP generato con tools/make_profile.py; PLE direct 115k rows/s",
+  "server avviato e pronto su :8021; embedding 322 MiB, 300 matrici native, 4581 esperti in VRAM"
+ ],
+ "root_cause_analysis": [
+  "Il bundle e'impacchettato per Betelgeuse (io_uring/Linux), non per Strata: formato pack diverso (4 KiB padding, PLE FP8 atteso, MTP proprietario)",
+  "NaN prima del primo token: incompatibilita' di formato nei dati (verosimilmente PLE/grafo di verifica spec); non risolta con repack expert e ricostruzione dense",
+  "Community: 22 t/s bit-exact ONLY con Betelgeuse; Strata low-RAM misura 8,11 t/s su questa stessa configurazione -> anche riuscendo non batterebbe Mellum (100 t/s, duro 56,8)"
+ ],
+ "decision": "Abbandonare la via Betelgeuse-bundle-su-Strata-Windows. Mellum resta campione. Pivot: (1) glitch di sistema su stack funzionante, (2) router ibrido, (3) se serve Flash-Next usare engine Betelgeuse nativo (richiede WSL2, non approvato) oppure llama.cpp mainline con shard originali."
+}
