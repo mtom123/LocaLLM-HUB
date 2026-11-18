@@ -1,0 +1,61 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-qwen3.8-35b-a3b-distill-iq2_m",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "Qwen3.8-35B-A3B Distill IQ2_M",
+ "reference": false,
+ "model": {
+  "name": "Qwen3.8-35B-A3B-Distill",
+  "repo": null,
+  "quant": "IQ2_M",
+  "size_gb": null
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "2048",
+   "-np",
+   "1",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "-t",
+   "6"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 72.4,
+  "tps_media": 72.3,
+  "tps_by_type": {
+   "codice": 72.3,
+   "storia": 72.3,
+   "ragionamento": 72.4,
+   "json": 72.3
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "72.3 t/s medi su 4 tipi di prompt (core-speed v1), 72.4 t/s mediana."
+}

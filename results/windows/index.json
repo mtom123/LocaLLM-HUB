@@ -1,8 +1,53 @@
 {
  "platform": "windows",
- "count": 143,
+ "count": 145,
  "hidden_failed": 42,
  "experiments": [
+  {
+   "id": "2026-11-19-e8-qwen35b-greedy",
+   "file": "results/windows/2026-11-19-e8-qwen35b-greedy.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "E8 Qwen3.8-35B-A3B Distill IQ2_M duro (confronto E0)",
+   "summary": "Qwen3.8-35B-A3B IQ2_M: duro 77.3% (34/44), 6.3 s/domanda, 72.3 t/s - nuovo campione.",
+   "model": "Qwen3.8-35B-A3B-Distill",
+   "repo": "empero-ai/Qwen3.8-35B-A3B-Distill-GGUF",
+   "quant": "IQ2_M",
+   "size_gb": 11.7,
+   "engine": "llama.cpp",
+   "ref": true,
+   "headline": {
+    "duro_pct": 77.3
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-qwen3.8-35b-a3b-distill-iq2_m",
+   "file": "results/windows/2026-11-18-qwen3.8-35b-a3b-distill-iq2_m.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.8-35B-A3B Distill IQ2_M",
+   "summary": "72.3 t/s medi su 4 tipi di prompt (core-speed v1), 72.4 t/s mediana.",
+   "model": "Qwen3.8-35B-A3B-Distill",
+   "repo": null,
+   "quant": "IQ2_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 72.4,
+    "tps_media": 72.3
+   },
+   "ctx": 2048,
+   "tags": []
+  },
   {
    "id": "2026-11-18-mellum21-self-consistency",
    "file": "results/windows/2026-11-18-mellum21-self-consistency.json",

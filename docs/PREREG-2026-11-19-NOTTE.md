@@ -33,6 +33,13 @@ Campione = AREX-Turbo se E0 mostra AREX − Mellum ≥ +8 pp con ≥5 coppie dis
 ## E5 — Mellum MTP (già testato stanotte)
 - Risultato: 52-62 t/s vs 100 baseline → **FLOP**, scartato. Il 1,6× di JetBrains è su H200; qui il draft da 8,3 GB satura la VRAM.
 
+## E7 — Metodologia inference-optimisation-skill (aggiunta 19/11)
+- **T1 drift:** ripetere E0-mellum-greedy con config identica. Se differisce >3 pp, i risultati vanno rivalutati (rumore dichiarato ±5-10%).
+- **T3 KV dtype su AREX:** q4_0 (usato) vs q8_0. Prior sfavorevole (il repo riporta -41% su modelli con pochi layer KV), ma AREX è dense → misurare.
+- **T6 quant AREX Q6_K:** stessa domande E0, verifica se maggiore precisione migliora il duro.
+- **Leve TTFT (non decode):** --cache-ram 32768, --ctx-checkpoints 64, --checkpoint-every-n-tokens 4096, --slot-prompt-similarity 0.3, --cache-reuse 256. Guadagno atteso su prefissi ripetuti (38-53×), NON sul t/s single-user.
+- **Non rifare:** MTP (net-negativo su MoE, 4 fonti), KV q4 come "win" (entro rumore), ngram su probe sintetici.
+
 ## Regole comuni
 - Scrivere ipotesi/metrica/decision rule/budget PRIMA di ogni run (questo file).
 - Logging in `results/windows/` con build.py; commit piccoli.

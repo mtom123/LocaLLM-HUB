@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "2026-11-19-e8-qwen35b-greedy",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "category": "quality-tiny",
+ "status": "ok",
+ "reference": true,
+ "title": "E8 Qwen3.8-35B-A3B Distill IQ2_M duro (confronto E0)",
+ "model": {
+  "name": "Qwen3.8-35B-A3B-Distill",
+  "repo": "empero-ai/Qwen3.8-35B-A3B-Distill-GGUF",
+  "quant": "IQ2_M",
+  "size_gb": 11.7
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "-ngl 99 -fa on -c 6144 -np 1 -ctk q4_0 -ctv q4_0 -t 6"
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --votes=1",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "votes": 1,
+   "budget": 4096
+  }
+ },
+ "metrics": {
+  "duro_pct": 77.3,
+  "corrette": "34/44",
+  "per_categoria_pct": {
+   "code": 86.7,
+   "math": 73.3,
+   "mmlu": 71.4
+  },
+  "n": 44,
+  "secondi_per_domanda": 6.3
+ },
+ "notes": "Stesso campione seed 2026 di E0. Qwen 35B A3B batte AREX 72.7 e Mellum 61.4, ed e 2.1x piu veloce per domanda (ragionamento piu corto). 72.3 t/s da speedtest. Nuovo campione.",
+ "summary": "Qwen3.8-35B-A3B IQ2_M: duro 77.3% (34/44), 6.3 s/domanda, 72.3 t/s - nuovo campione."
+}
