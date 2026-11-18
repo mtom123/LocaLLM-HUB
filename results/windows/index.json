@@ -12,7 +12,7 @@
    "category": "speed",
    "status": "ok",
    "title": "glm-rco152e-maya-feasibility",
-   "summary": "GLM RCO-152E su Maya (12+16 GB): 1.41 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s.",
+   "summary": "GLM RCO-152E su Maya (12+16 GB): 1.6 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s.",
    "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
    "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
    "quant": "IQ2_XXS",

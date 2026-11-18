@@ -30,6 +30,15 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Basalt** (`jesdga95/basalt`, MIT, v0.4.1 16/11/2026, fork di Strata): reale e più veloce di Strata su prefill/TTFT/JSON (test indipendente: TTFT 100K 41,1 s vs 69,2), ma supporta solo Qwen3.8-Flash-Next / DeepSeek-V4.1 / Qwen3.8-27B, richiede GPU Blackwell sm_120 e 64-128 GB RAM. **Nessun supporto `glm5-next`** → valutato e scartato per il nostro caso.
 - **llama.cpp + MoE cache/direct-I/O** resta il piano B: PR #25294 (SSD streaming) è ancora *open* e non mergiata; i flag in master sono `--moe-cache-mib`, `--moe-cache-cpu-share`, `-lm dio`. Con 47 GB su 12+16 GB le stime di letteratura per SSD-streaming sono 1,5-4 t/s: non è il risultato sperato, ma è misurabile.
 
+## 2c. RISULTATO REALE (18/11, 00:52) — GLM RCO-152E gira su Maya
+
+- `START-MAYA.bat --setup --gguf-dir <cartella RCO> --model glm-maya-s --context 4096 --no-vision` ha costruito il pack dal **nostro GGUF da 44,2 GiB** (1257 tensori), senza scaricare i pack da 89 GB.
+- Tre ostacoli risolti senza toccare page file o app dell'utente: (1) `--vram-reserve-mib 300` + `MAYA_GLM_POOL_GB` per il pool, (2) `--repack` dopo aver letto i metadati, (3) **un llama-server mio rimasto vivo da 10,9 GB che esauriva il commit**: fermato, commit libero 9,9 → 20,8 GB.
+- Top-7 (modifica sperimentale di `expert_used_count`) causava un access violation; **ripristinato top-8**, pack ricostruito, tutto stabile.
+- Config finale: pool VRAM 4 GB (18 slot/layer), tier RAM, `MAYA_GLM_READ_CHUNKS=4`, `MAYA_GLM_PREFETCH_N=1`, `MAYA_GLM_RAM_HEADROOM_GB=3`.
+- **Misura (protocollo abbreviato, 3 prompt × 48 token): 1,02 → 1,41 → 1,60 t/s** (mediana wallclock, engine ~2,0 t/s). Sanity corrette (391, palindromo, spiegazione).
+- Collo dominante: **~180 letture SSD/token, ~470 ms/token**, hit VRAM ~45%. Il modello risponde ma è lontano dai 15 t/s: per avvicinarsi servono più RAM/VRAM, non un altro flag. Questo è registrato come `2026-11-18-glm-rco152e-maya-feasibility.json`.
+
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)

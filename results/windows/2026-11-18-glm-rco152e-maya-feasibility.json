@@ -40,28 +40,28 @@
   }
  },
  "metrics": {
-  "decode_tps_mediano": 1.41,
+  "decode_tps_mediano": 1.6,
   "sanity_391": true,
   "dettaglio": [
    {
     "prompt": "Quanto fa 17 x 23? Rispondi solo con il numer",
     "tok": 27,
-    "sec": 23.3,
-    "tps": 1.16,
+    "sec": 20.6,
+    "tps": 1.31,
     "risposta": "391"
    },
    {
     "prompt": "Scrivi una funzione Python che verifica se un",
     "tok": 48,
-    "sec": 34.1,
-    "tps": 1.41,
+    "sec": 30.0,
+    "tps": 1.6,
     "risposta": "```python def is_palindrome(s: str) -> bool:     s = s.lower().strip()     return"
    },
    {
     "prompt": "Spiega in 2 frasi perché il cielo e' blu.",
     "tok": 48,
-    "sec": 32.6,
-    "tps": 1.47,
+    "sec": 28.9,
+    "tps": 1.66,
     "risposta": "Il cielo appears blue because air molecules scatter sunlight, reflecting the blue light waves more than other colors. This scattering effect is"
    }
   ],
@@ -74,5 +74,5 @@
   "expert-tiering",
   "feasibility"
  ],
- "summary": "GLM RCO-152E su Maya (12+16 GB): 1.41 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s."
+ "summary": "GLM RCO-152E su Maya (12+16 GB): 1.6 t/s mediani su 3 prompt brevi, sanity OK. Confronto con llama.cpp CPU-only ~0,6 t/s."
 }
