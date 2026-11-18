@@ -1,0 +1,61 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-qwen3.8-27b-ud-iq2_xs",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "Qwen3.8-27B UD-IQ2_XS",
+ "reference": false,
+ "model": {
+  "name": "Qwen3.8-27B",
+  "repo": null,
+  "quant": "UD-IQ2_XS",
+  "size_gb": null
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "6144",
+   "-np",
+   "1",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "-t",
+   "6"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 20.8,
+  "tps_media": 20.8,
+  "tps_by_type": {
+   "codice": 20.9,
+   "storia": 20.8,
+   "ragionamento": 20.8,
+   "json": 20.8
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "20.8 t/s medi su 4 tipi di prompt (core-speed v1), 20.8 t/s mediana."
+}

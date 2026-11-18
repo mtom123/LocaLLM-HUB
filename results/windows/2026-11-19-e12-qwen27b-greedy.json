@@ -1,0 +1,52 @@
+{
+ "schema": 1,
+ "id": "2026-11-19-e12-qwen27b-greedy",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "category": "quality-tiny",
+ "status": "ok",
+ "reference": true,
+ "title": "E12 Qwen3.8-27B UD-IQ2_XS duro (confronto E0/E8)",
+ "model": {
+  "name": "Qwen3.8-27B",
+  "repo": "unsloth/Qwen3.8-27B-GGUF",
+  "quant": "UD-IQ2_XS",
+  "size_gb": 7.1
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "-ngl 99 -fa on -c 6144 -np 1 -ctk q4_0 -ctv q4_0 -t 6"
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --votes=1",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "votes": 1,
+   "budget": 4096
+  }
+ },
+ "metrics": {
+  "duro_pct": 84.1,
+  "corrette": "37/44",
+  "per_categoria_pct": {
+   "code": 86.7,
+   "math": 86.7,
+   "mmlu": 78.6
+  },
+  "n": 44,
+  "secondi_per_domanda": 40.0,
+  "decode_tps": 20.9
+ },
+ "notes": "Modello denso 27B: +6.8 pp di qualita rispetto al campione Qwen35B-A3B (77.3%), ma 6.3x piu lento per domanda (40.0 vs 6.3 s) e 3.5x meno t/s (20.9 vs 72.3). Stesso campione seed 2026. Conferma la letteratura: il distill empero e un checkpoint intermedio fragile, il 27B dense e il riferimento qualita. Due campioni Pareto: speed=Qwen35B, quality=Qwen27B.",
+ "summary": "Qwen3.8-27B UD-IQ2_XS: duro 84.1% (37/44), 20.9 t/s, 40 s/dom - campione qualita; Qwen35B resta campione velocita."
+}

@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 150,
+ "count": 152,
  "hidden_failed": 47,
  "experiments": [
   {
@@ -43,6 +43,28 @@
    "ref": true,
    "headline": {
     "duro_pct": 77.3
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-19-e12-qwen27b-greedy",
+   "file": "results/windows/2026-11-19-e12-qwen27b-greedy.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "E12 Qwen3.8-27B UD-IQ2_XS duro (confronto E0/E8)",
+   "summary": "Qwen3.8-27B UD-IQ2_XS: duro 84.1% (37/44), 20.9 t/s, 40 s/dom - campione qualita; Qwen35B resta campione velocita.",
+   "model": "Qwen3.8-27B",
+   "repo": "unsloth/Qwen3.8-27B-GGUF",
+   "quant": "UD-IQ2_XS",
+   "size_gb": 7.1,
+   "engine": "llama.cpp",
+   "ref": true,
+   "headline": {
+    "duro_pct": 84.1
    },
    "ctx": null,
    "tags": []
@@ -159,6 +181,29 @@
     "tps_media": 72.3
    },
    "ctx": 2048,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-qwen3.8-27b-ud-iq2_xs",
+   "file": "results/windows/2026-11-18-qwen3.8-27b-ud-iq2_xs.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.8-27B UD-IQ2_XS",
+   "summary": "20.8 t/s medi su 4 tipi di prompt (core-speed v1), 20.8 t/s mediana.",
+   "model": "Qwen3.8-27B",
+   "repo": null,
+   "quant": "UD-IQ2_XS",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 20.8,
+    "tps_media": 20.8
+   },
+   "ctx": 6144,
    "tags": []
   },
   {
