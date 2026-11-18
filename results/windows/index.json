@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 132,
+ "count": 133,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -255,6 +255,31 @@
     "duro",
     "speed",
     "non-campione"
+   ]
+  },
+  {
+   "id": "2026-11-18-edge0-120b-speed-tuning",
+   "file": "results/windows/2026-11-18-edge0-120b-speed-tuning.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "edge0-120b-speed-tuning",
+   "summary": "Speed tuning Edge0-120B: (7.58, 'pcie036') (tps, variante).",
+   "model": "Edge0-120B-q3k",
+   "repo": "Edge0/Edge0-120B-q3k",
+   "quant": "Q3_K",
+   "size_gb": 41.7,
+   "engine": "edge0-strata fork Motti (Windows mmap + ghost PLE)",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "edge0",
+    "120b",
+    "tuning",
+    "speculative"
    ]
   },
   {
