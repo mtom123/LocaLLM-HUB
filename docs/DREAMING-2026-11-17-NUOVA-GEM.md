@@ -55,6 +55,14 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Ik_llama.cpp**: compila, vede CUDA e carica glm5-next, ma richiede ~40 GB di RAM pinnabile; con `GGML_CUDA_NO_PINNED=1` e mmap serve ~5 min/prompt → più lento di Maya. Registrato come fallimento.
 - Prossimo: **bake-off Qwen3.5-9B Q4_K_M** (5,29 GB, MMLU-Pro 82,5 vendor) con lo stesso metro e 8 voti. Se supera 69,5 (AREX) in modo riproducibile, è il nuovo campione del repo.
 
+## 2f. Sperimentazione motoristica su GLM (18/11, 08:00-10:00)
+
+- **DFlash2** (drafter 0,7 GB): 0,8 t/s contro 1,6 senza → **kill criterion**, scartato. Causa: costo di verify ~3,5-4,5× il decode su 47 GB con esperti offloadati; anche con accettazione perfetta non può vincere.
+- **Profilo esperti / usage tracking**: 0,8 t/s nel test falsato da `--dflash`; ritest pulito con profilo STRP 46×152 e 5.834 coppie reali: 1,63 vs 1,60 → **nessun guadagno** (soglia 0,26). L'adaptive tier di Maya impara già a runtime.
+- **Sweep 6 knob** (A/A due volte, baseline finale): noise 0,01, drift 0,29, soglia 0,58 → **nessun knob promosso**. `stream_fetch_off` peggiora (1,38). Termica stabile (45-52 °C, clock 1650): il drift non è termico.
+- **Prefill**: 2.373 token richiedono 64 s (37 t/s). Con conversation/slot cache, il secondo turno riusa **2.372 token** e passa da **78,6 s a 14,6 s (5,4×)**. Il prefill va evitato, non ottimizzato.
+- **Limite fisico**: 336 letture di esperti/token × 6,5 MB = 2,18 GB/token; a 2,2 GB/s di NVMe il limite senza cache è ~1 t/s. Per 16 t/s servirebbe 94% di hit, cioè ~39 GB residenti: impossibile con 28 GB totali. Il massimo onesto con 2-3× di hit improvement è 3-5 t/s; 16-17 t/s richiedono una macchina con 121 GB unificati (DGX Spark, misurato).
+
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
