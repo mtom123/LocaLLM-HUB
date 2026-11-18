@@ -40,12 +40,12 @@
   "tps": {
    "baseline_A": 1.6,
    "baseline_AA": 1.59,
-   "profile_load": null,
-   "baseline_final": 1.59
+   "profile_load": 1.63,
+   "baseline_final": 1.47
   },
   "noise_aa": 0.010000000000000009,
-  "drift": 0.010000000000000009,
-  "soglia": 0.08000000000000002,
+  "drift": 0.13000000000000012,
+  "soglia": 0.26000000000000023,
   "profilo_vince": false,
   "n": 3
  },
@@ -56,5 +56,5 @@
   "profilo",
   "autotune"
  ],
- "summary": "Profilo esperti su GLM: baseline 1.6 t/s, con profilo None t/s, vince=False."
+ "summary": "Profilo esperti su GLM: baseline 1.6 t/s, con profilo 1.63 t/s, vince=False."
 }
