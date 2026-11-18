@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "id": "2026-11-18-glm-maya-context-128k",
+ "id": "2026-11-18-glm-maya-context-256k",
  "platform": "windows",
  "author": "Motti",
  "date": "2026-11-18",
  "category": "speed",
  "status": "ok",
- "title": "glm-maya-context-32k",
+ "title": "glm-maya-context-256k",
  "reference": false,
  "model": {
   "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
@@ -55,5 +55,5 @@
   "contesto",
   "kv-int8"
  ],
- "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.61} vs 128K+KV INT8 None."
+ "summary": "Contesto GLM su Maya con KV INT8: 4K 1.61 t/s vs 256K 1.36 t/s (-16%). 256K entra in 12GB VRAM + 16GB RAM; il costo e GPU/KV, non errore di contesto."
 }
