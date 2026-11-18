@@ -1,0 +1,60 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-maya-profilo-ab",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-maya-profilo-ab",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "Project Maya v1.1.66",
+  "version": "1.1.66",
+  "args": [
+   "--glm-pack custom",
+   "--expert-profile profilo.locale"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-sweep-v1",
+  "harness": "3 prompt x 48 token, mediana",
+  "params": {
+   "n": 3,
+   "protocol": "baseline A/A, profile, baseline finale"
+  }
+ },
+ "metrics": {
+  "tps": {
+   "baseline_A": 1.49,
+   "baseline_AA": 1.6,
+   "profile_load": null,
+   "baseline_final": 1.61
+  },
+  "noise_aa": 0.1100000000000001,
+  "drift": 0.1200000000000001,
+  "soglia": 0.2400000000000002,
+  "profilo_vince": false,
+  "n": 3
+ },
+ "notes": "Ritest del profilo esperti DOPO aver scoperto che la misura precedente era falsata da --dflash rimasto nel config (0,8 vs 1,6 t/s). Ora config pulito, assert che vieta dflash. Il profilo e' stato generato in una sessione precedente (36 KB). n=3: solo differenze sopra soglia contano.",
+ "tags": [
+  "glm",
+  "maya",
+  "profilo",
+  "autotune"
+ ],
+ "summary": "Profilo esperti su GLM: baseline 1.49 t/s, con profilo None t/s, vince=False."
+}

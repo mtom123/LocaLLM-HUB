@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 125,
+ "count": 126,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -78,6 +78,31 @@
     "maya",
     "autotune",
     "sweep"
+   ]
+  },
+  {
+   "id": "2026-11-18-glm-maya-profilo-ab",
+   "file": "results/windows/2026-11-18-glm-maya-profilo-ab.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-maya-profilo-ab",
+   "summary": "Profilo esperti su GLM: baseline 1.49 t/s, con profilo None t/s, vince=False.",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "Project Maya v1.1.66",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "maya",
+    "profilo",
+    "autotune"
    ]
   },
   {
