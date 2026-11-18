@@ -1,8 +1,35 @@
 {
  "platform": "windows",
- "count": 123,
+ "count": 124,
  "hidden_failed": 39,
  "experiments": [
+  {
+   "id": "2026-11-18-mellum21-self-consistency",
+   "file": "results/windows/2026-11-18-mellum21-self-consistency.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "mellum21-self-consistency",
+   "summary": "Mellum2.1 con 8 voti a budget 4096: duro 65.9% vs 56,8% baseline (delta +9.1 pp). Confronto non paired, n=15: differenze <3 pp sono rumore.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 7.52,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 65.9
+   },
+   "ctx": null,
+   "tags": [
+    "mellum",
+    "self-consistency",
+    "duro",
+    "test-time-compute"
+   ]
+  },
   {
    "id": "2026-11-18-glm-rco152e-maya-feasibility",
    "file": "results/windows/2026-11-18-glm-rco152e-maya-feasibility.json",

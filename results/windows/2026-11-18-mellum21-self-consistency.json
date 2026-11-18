@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-mellum21-self-consistency",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "mellum21-self-consistency",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 7.52
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl 99 -fa on -c 16384 -ctk q8_0 -ctv q8_0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --votes=8 (voto adattivo, early-stop)",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "jobs": 1,
+   "budget": 4096,
+   "votes": 8
+  }
+ },
+ "metrics": {
+  "duro_pct": 65.9,
+  "baseline_votes1_pct": 56.8,
+  "baseline_label": "recheck vote=1, stesso server",
+  "delta_pp": 9.1,
+  "recheck_vote1_pct": 56.8,
+  "recheck_per_categoria": {
+   "code": 53.3,
+   "math": 66.7,
+   "mmlu": 50.0
+  },
+  "per_categoria_pct": {
+   "code": 60.0,
+   "math": 80.0,
+   "mmlu": 57.1
+  },
+  "corrette": "29/44",
+  "n": 15
+ },
+ "notes": "Confronto con recheck vote=1 eseguito subito dopo sullo STESSO server e stesse domande (se disponibile), per isolare il drift run-to-run: il vecchio baseline storico era 56,8%. Anche con recheck non e' un bootstrap appaiato per-domanda (non ho salvatole risposte singole), quindi n=15 e rumore ±3 punti. I voti valgono solo per math/mmlu (code resta 1 campione): se code si muove, e' drift, non effetto del voting. Voto adattivo con early-stop, costo medio <8x.",
+ "tags": [
+  "mellum",
+  "self-consistency",
+  "duro",
+  "test-time-compute"
+ ],
+ "summary": "Mellum2.1 con 8 voti a budget 4096: duro 65.9% vs 56,8% baseline (delta +9.1 pp). Confronto non paired, n=15: differenze <3 pp sono rumore."
+}
