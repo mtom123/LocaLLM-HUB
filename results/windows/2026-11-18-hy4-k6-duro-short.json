@@ -1,0 +1,54 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-hy4-k6-duro-short",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "hy4-k6-duro-short",
+ "reference": false,
+ "model": {
+  "name": "Hy4-flash AD-IQ2_S + Engram reale (K6)",
+  "repo": "AtomicChat/Hy4-flash-GGUF",
+  "quant": "AD-IQ2_S-IQ2_XXS",
+  "size_gb": 78.9
+ },
+ "engine": {
+  "name": "llama.cpp PR 32517 @0a054d0",
+  "version": "0a054d0",
+  "args": [
+   "-cmoe -c 8192 -fa on",
+   "expert_used_count=6"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --budget=256 (short)",
+  "params": {
+   "sets": "mmlu",
+   "n": 15,
+   "budget": 256,
+   "votes": 1
+  }
+ },
+ "metrics": {
+  "duro_pct": 57.1,
+  "corrette": "8/14",
+  "troncate_pct": 71.4,
+  "n": 14
+ },
+ "notes": "Short-budget: 71,4% di risposte troncate per budget 256. NON confrontabile con i duro a 4096 (Mellum 56,8, AREX 69,5). Da ripetere con budget 512 prima di dichiarare la qualita. La velocita K6 e 3,41 t/s con sanity corrette.",
+ "tags": [
+  "hy4",
+  "duro",
+  "short-budget"
+ ],
+ "summary": "Hy4 K6 duro short-budget: 57.1% MMLU con 71.4% troncate - non confrontabile."
+}

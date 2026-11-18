@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 137,
+ "count": 138,
  "hidden_failed": 40,
  "experiments": [
   {
@@ -28,6 +28,32 @@
     "self-consistency",
     "duro",
     "test-time-compute"
+   ]
+  },
+  {
+   "id": "2026-11-18-hy4-k6-duro-short",
+   "file": "results/windows/2026-11-18-hy4-k6-duro-short.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "hy4-k6-duro-short",
+   "summary": "Hy4 K6 duro short-budget: 57.1% MMLU con 71.4% troncate - non confrontabile.",
+   "model": "Hy4-flash AD-IQ2_S + Engram reale (K6)",
+   "repo": "AtomicChat/Hy4-flash-GGUF",
+   "quant": "AD-IQ2_S-IQ2_XXS",
+   "size_gb": 78.9,
+   "engine": "llama.cpp PR 32517 @0a054d0",
+   "ref": false,
+   "headline": {
+    "duro_pct": 57.1
+   },
+   "ctx": null,
+   "tags": [
+    "hy4",
+    "duro",
+    "short-budget"
    ]
   },
   {
