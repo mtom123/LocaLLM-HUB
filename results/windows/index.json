@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 122,
+ "count": 123,
  "hidden_failed": 38,
  "experiments": [
   {
@@ -26,6 +26,31 @@
     "maya",
     "expert-tiering",
     "feasibility"
+   ]
+  },
+  {
+   "id": "2026-11-18-glm-ik-llama-dflash2",
+   "file": "results/windows/2026-11-18-glm-ik-llama-dflash2.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-ik-llama-dflash2",
+   "summary": "GLM RCO-152E su ik_llama.cpp: baseline None t/s, DFlash2 0.33 t/s (3 prompt brevi).",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "ik_llama.cpp",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "ik_llama",
+    "dflash2",
+    "speculative"
    ]
   },
   {

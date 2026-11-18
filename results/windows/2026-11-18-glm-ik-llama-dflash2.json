@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-ik-llama-dflash2",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-ik-llama-dflash2",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "ik_llama.cpp",
+  "version": "git-master",
+  "args": [
+   "-ngl 99 -fa on -c 4096 -ctk q8_0 -ctv q8_0",
+   "--spec-type dflash:n_max=3"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-feasibility-v1",
+  "harness": "3 prompt x 48 token, misura diretta",
+  "params": {
+   "n": 3,
+   "max_tokens": 48
+  }
+ },
+ "metrics": {
+  "tps_mediani": {
+   "dflash2": 0.33
+  },
+  "dettaglio": {
+   "baseline": [
+    {
+     "err": "[WinError 10054] Connessione in corso interrotta forzatamente dall'host remoto"
+    },
+    {
+     "err": "<urlopen error [WinError 10061] Impossibile stabilire la connessione. Rifiuto persistente del comput"
+    },
+    {
+     "err": "<urlopen error [WinError 10061] Impossibile stabilire la connessione. Rifiuto persistente del comput"
+    }
+   ],
+   "dflash2": [
+    {
+     "tok": 48,
+     "sec": 146.8,
+     "tps": 0.33,
+     "txt": "{'role': 'assistant', 'content': '', 'reasoning_content': 'The user is asking \"Quanto fa 17 x 23?\" which means \"How much is 17 x 23?\" in Ita"
+    },
+    {
+     "tok": 48,
+     "sec": 454.3,
+     "tps": 0.11,
+     "txt": "{'role': 'assistant', 'content': '', 'reasoning_content': 'The user is asking for a Python function that checks if a string is a palindrome."
+    },
+    {
+     "err": "[WinError 10054] Connessione in corso interrotta forzatamente dall'host remoto"
+    }
+   ]
+  },
+  "n": 3
+ },
+ "notes": "Confronto A/B sullo stesso file e hardware: fork ik_llama.cpp che include DFlash2 per glm5-next (PR #2761). Protocollo abbreviato non comparabile col core-speed. NVIDIA_TF32_OVERRIDE=0 per correttezza GLM.",
+ "tags": [
+  "glm",
+  "ik_llama",
+  "dflash2",
+  "speculative"
+ ],
+ "summary": "GLM RCO-152E su ik_llama.cpp: baseline None t/s, DFlash2 0.33 t/s (3 prompt brevi)."
+}
