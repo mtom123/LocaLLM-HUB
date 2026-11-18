@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-mellum-2.1-q4_k_m-engine-b12244",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "Mellum 2.1 Q4_K_M engine b12244",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": null,
+  "quant": "Q4_K_M",
+  "size_gb": null
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12244",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "16384",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "-t",
+   "6"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 20.6,
+  "tps_media": 20.6,
+  "tps_by_type": {
+   "codice": 20.5,
+   "storia": 20.6,
+   "ragionamento": 20.5,
+   "json": 20.6
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "20.6 t/s medi su 4 tipi di prompt (core-speed v1), 20.6 t/s mediana."
+}

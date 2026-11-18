@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-mellum-2.1-q4_k_m-mtp-draft",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "Mellum 2.1 Q4_K_M + MTP draft",
+ "reference": false,
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": null,
+  "quant": "Q4_K_M",
+  "size_gb": null
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "16384",
+   "-ctk",
+   "q8_0",
+   "-ctv",
+   "q8_0",
+   "-t",
+   "6",
+   "--spec-type",
+   "draft-mtp",
+   "--spec-draft-n-max",
+   "2"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 52.1,
+  "tps_media": 52.8,
+  "tps_by_type": {
+   "codice": 52.1,
+   "storia": 48.8,
+   "ragionamento": 58.2,
+   "json": 52.1
+  },
+  "tps_method": "timings",
+  "draft_acceptance_pct": 60.6
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "52.8 t/s medi su 4 tipi di prompt (core-speed v1), 52.1 t/s mediana. Accettazione drafter 60.6%."
+}

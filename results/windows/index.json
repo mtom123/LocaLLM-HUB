@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 138,
+ "count": 143,
  "hidden_failed": 42,
  "experiments": [
   {
@@ -29,6 +29,123 @@
     "duro",
     "test-time-compute"
    ]
+  },
+  {
+   "id": "2026-11-18-mellum-2.1-q4_k_m-mtp-n1",
+   "file": "results/windows/2026-11-18-mellum-2.1-q4_k_m-mtp-n1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Mellum 2.1 Q4_K_M + MTP n1",
+   "summary": "62.4 t/s medi su 4 tipi di prompt (core-speed v1), 62.6 t/s mediana. Accettazione drafter 79.7%.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 62.6,
+    "tps_media": 62.4,
+    "draft_acceptance_pct": 79.7
+   },
+   "ctx": 16384,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-mellum-2.1-q4_k_m-mtp-draft",
+   "file": "results/windows/2026-11-18-mellum-2.1-q4_k_m-mtp-draft.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Mellum 2.1 Q4_K_M + MTP draft",
+   "summary": "52.8 t/s medi su 4 tipi di prompt (core-speed v1), 52.1 t/s mediana. Accettazione drafter 60.6%.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 52.1,
+    "tps_media": 52.8,
+    "draft_acceptance_pct": 60.6
+   },
+   "ctx": 16384,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-mellum-2.1-q4_k_m-kv-q4_0",
+   "file": "results/windows/2026-11-18-mellum-2.1-q4_k_m-kv-q4_0.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Mellum 2.1 Q4_K_M KV q4_0",
+   "summary": "100.6 t/s medi su 4 tipi di prompt (core-speed v1), 100.6 t/s mediana.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 100.6,
+    "tps_media": 100.6
+   },
+   "ctx": 16384,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-mellum-2.1-q4_k_m-engine-b12244",
+   "file": "results/windows/2026-11-18-mellum-2.1-q4_k_m-engine-b12244.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Mellum 2.1 Q4_K_M engine b12244",
+   "summary": "20.6 t/s medi su 4 tipi di prompt (core-speed v1), 20.6 t/s mediana.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 20.6,
+    "tps_media": 20.6
+   },
+   "ctx": 16384,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-mellum-2.1-q4_k_m-baseline-glitch-test",
+   "file": "results/windows/2026-11-18-mellum-2.1-q4_k_m-baseline-glitch-test.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Mellum 2.1 Q4_K_M baseline glitch-test",
+   "summary": "98.7 t/s medi su 4 tipi di prompt (core-speed v1), 99.0 t/s mediana.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": null,
+   "quant": "Q4_K_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 99.0,
+    "tps_media": 98.7
+   },
+   "ctx": 16384,
+   "tags": []
   },
   {
    "id": "2026-11-18-hy4-k6-duro-short",
