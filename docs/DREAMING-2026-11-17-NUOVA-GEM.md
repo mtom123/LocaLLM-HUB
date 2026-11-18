@@ -84,6 +84,16 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - Duro short K6: 57,1% MMLU ma 71,4% troncate a budget 256 → non confrontabile; duro a 512 in corso per il verdetto vero.
 - Gli agenti (HF/GitHub/paper) dicono: 100 t/s su 12 GB non fisicamente credibile; target realistico **battere Edge0 7,36 t/s**. Per ora Hy4 è a 3,41 t/s ma con cervello molto più grande e qualità sanity corretta.
 
+## 2i. Ricerca post-Hy4 (4 agenti, 18/11 sera) — cosa provare dopo
+
+- **Campione attuale resta Mellum** (100 t/s, duro 56,8): miglior rapporto t/s÷qualità. Qwen3.8-7B/W7B **non esistono** come modelli ufficiali; i prune community 7B sono inutilizzabili (CE 6,26-6,34).
+- **Pista calda mai provata**: `Qwen3.8-Flash-Next` **GSQ-RCO IQ2_XS** (39,2 GB backbone + 28,8 GB PLE separato) con engine **Betelgeuse** (fork llama.cpp): **16,8 t/s freddo / 22,03 caldo su RTX 3060 12GB + 16GB RAM**, bit-exact (0 diff su 576 token) e task-average 89,16 (AIME25 96,7, GPQA-D 87,4, LCB 83,4). Con Strata low-RAM solo 8,11 t/s, con llama.cpp stock 1,5. Serve ~68 GB di disco: liberabile cancellando Hy4 (78,9 GB) dopo il duro.
+- **llamAmpere v0.7.0.1 preset 12dense + Qwen3.8-27B Swift 1.5 3bpw** (9 GB): 70,8 t/s @100K su 3080 Ti 12GB ma con ~90 GB RAM; con i nostri 16 GB partire da 64K e verificare. Binari solo Linux (da buildare o WSL2).
+- **Router ibrido Mellum↔modello lento** (Gatekeeper/RouteLLM/speculative cascades): con deferral 5-10% si passa da 3,41 a 26-41 t/s blended; i tokenizer diversi vietano il draft token-level, va fatto a livello di routing.
+- **Engram-PEFT / distillazione two-stage**: +2-5 punti innestando memoria n-gram in un 7B 4-bit; 10-30k tracce sintetiche via API (~$17) + QLoRA 1-3h danno +3-6 punti mirati, non +10 generali. Niente trapianto letterale di esperti tra architetture.
+- **Glitch di sistema** (CUDA graphs + MTP + KV q4 + pinned I/O): 1,5-2,3× misurati su stack simili; da fare solo dopo aver scelto il modello.
+- **Avvertenze**: PR Hy4 #32517 è draft con 2 finding bloccanti; DFly2 non è ancora nei GGUF (confermato Tencent 18/11 15:32); Halocline è Ada-only; Edge0-145B richiede 20 GB RAM.
+
 ## 3. Dreaming - tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
