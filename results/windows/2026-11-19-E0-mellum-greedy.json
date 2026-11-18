@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": true,
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "-ngl 99 -fa on -ctk q4_0 -ctv q4_0 -t 6"
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --votes=1",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "votes": 1,
+   "budget": 4096
+  }
+ },
+ "notes": "E0 confronto appaiato con seed 2026 (stesse 15 domande). n=15 DIREZIONALE, differenza +11,3 pp oltre soglia preregistrata +8 pp. AREX crashato al primo tentativo per RAM (due server attivi); ripetuto con 1 slot/8K e solo AREX in memoria.",
+ "id": "2026-11-19-E0-mellum-greedy",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "E0-mellum-greedy",
+ "model": {
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 7.52
+ },
+ "metrics": {
+  "duro_pct": 61.4,
+  "corrette": "27/44",
+  "per_categoria_pct": {
+   "code": 60.0,
+   "math": 73.3,
+   "mmlu": 50.0
+  },
+  "n": 44,
+  "secondi_per_domanda": 16.5
+ },
+ "summary": "E0-mellum-greedy: duro 61.4% (27/44), 16.5 s/domanda, confronto appaiato E0."
+}

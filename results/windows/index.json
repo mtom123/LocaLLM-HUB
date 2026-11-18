@@ -1,8 +1,52 @@
 {
  "platform": "windows",
- "count": 143,
+ "count": 145,
  "hidden_failed": 42,
  "experiments": [
+  {
+   "id": "2026-11-19-E0-mellum-greedy",
+   "file": "results/windows/2026-11-19-E0-mellum-greedy.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "E0-mellum-greedy",
+   "summary": "E0-mellum-greedy: duro 61.4% (27/44), 16.5 s/domanda, confronto appaiato E0.",
+   "model": "Mellum2.1-12B-A2.5B-Thinking",
+   "repo": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 7.52,
+   "engine": "llama.cpp",
+   "ref": true,
+   "headline": {
+    "duro_pct": 61.4
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-19-E0-arex-greedy",
+   "file": "results/windows/2026-11-19-E0-arex-greedy.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "E0-arex-greedy",
+   "summary": "E0-arex-greedy: duro 72.7% (32/44), 13.3 s/domanda, confronto appaiato E0.",
+   "model": "BAAI_AREX-Turbo",
+   "repo": "bartowski/BAAI_AREX-Turbo-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 2.69,
+   "engine": "llama.cpp",
+   "ref": true,
+   "headline": {
+    "duro_pct": 72.7
+   },
+   "ctx": null,
+   "tags": []
+  },
   {
    "id": "2026-11-18-mellum21-self-consistency",
    "file": "results/windows/2026-11-18-mellum21-self-consistency.json",
