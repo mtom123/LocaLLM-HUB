@@ -39,6 +39,14 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Misura (protocollo abbreviato, 3 prompt × 48 token): 1,02 → 1,41 → 1,60 t/s** (mediana wallclock, engine ~2,0 t/s). Sanity corrette (391, palindromo, spiegazione).
 - Collo dominante: **~180 letture SSD/token, ~470 ms/token**, hit VRAM ~45%. Il modello risponde ma è lontano dai 15 t/s: per avvicinarsi servono più RAM/VRAM, non un altro flag. Questo è registrato come `2026-11-18-glm-rco152e-maya-feasibility.json`.
 
+## 2d. Seconda ondata di ricerca (18/11) — idee nuove e limiti duri
+
+- **ik_llama.cpp** (`ikawrakow/ik_llama.cpp`): GLM-5.3-Flash (PR #2376), MTP (PR #2548), **DFlash2 (PR #2761: 16,35 → 20,61 t/s, +26% su code)**, MoE MMQ ottimizzato (#2831), dynamic expert cache (#2644). È il fork da provare prima di scrivere kernel nuovi. In prova ora.
+- **Compilazione**: TMA/tcgen05/WGMMA **non esistono su sm_86** (RTX 3060 è Ampere): i megakernel 2026 vanno riscritti con `cp.async` + `mma.sync` int8. ggml fa già IQ2_XXS → int8 → tensor core; il guadagno concreto è estendere la fusione MMQ a IQ2_XXS (oggi solo Q4_K/Q8_0/IQ4_XS/…) e fondere gate/up. Stima onesta: 1,26 × 1,3 × 1,15 ≈ **2,3×**, non 10×.
+- **Cascade Mellum→GLM**: con gate a confidenza sui logit (Mellum 60 t/s, GLM 1,6, escalate 5%) l'aritmetica dà ~19 t/s aggregati. Zero fork, 2-4 h: è l'esperimento ad alto ROI da fare dopo ik.
+- **Verso il "quasi-lossless"**: **GSQ** (ISTA, ICML 2026) rifinisce GGUF in-formato (+6,25 pp su Q2_K) ma serve il teacher FP8/BF16 e 8×H200 per ~1-2 giorni; **EoRA/QER** aggiungono correzioni low-rank (+3…+11 pp task-specific, 128 sample). **Lossless matematico a 2 bit è impossibile**: mancano ~145 GB di informazione rispetto a FP8; 1-2 GB di adapter coprono <1,5%. "Task-lossless" dimostrato solo a 2,75-3,5 bpw.
+- **Prefetch a impronta del router** (n-gram sugli ID esperti del prefill) e **per-expert bit-width dinamico** (DynaExq: +4,5 pp e 2,73× throughput su Qwen3-80B) sono le due idee originali da implementare nel fork Maya se il cascade non basta.
+
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
