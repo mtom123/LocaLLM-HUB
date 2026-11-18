@@ -1,0 +1,54 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-edge0-120b-feasibility",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "edge0-120b-feasibility",
+ "reference": false,
+ "model": {
+  "name": "Edge0-120B-q3k (Q3_K latent MoE, 8.64B attivi, top-8 + shared, MTP)",
+  "repo": "Edge0/Edge0-120B-q3k",
+  "quant": "Q3_K",
+  "size_gb": 41.7
+ },
+ "engine": {
+  "name": "edge0-infer + edge0-strata (fork Motti: Windows STRATA_ARENA_MMAP + padding blob)",
+  "version": "0.2.0 / engine 0.1.55",
+  "args": [
+   "--serve --pack <DIR> --ple-io direct --expert-cache auto --spec 4 --mtp --max-context 131072 --kv int8 --pcie-frac 0"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-feasibility-v1",
+  "harness": "3 promptBrevi / chat API",
+  "params": {
+   "n": 1,
+   "max_tokens": 128
+  }
+ },
+ "metrics": {
+  "decode_tps": 2.29,
+  "sanity_391": true,
+  "context_tokens": 131072,
+  "n": 1
+ },
+ "notes": "Modello da 120B su 12 GB VRAM + 16 GB RAM. Tre innovazioni: (1) STRATA_ARENA_MMAP portato a Windows con MapViewOfFile (il fork upstream lo abilita solo POSIX): experts.bin da 26,7 GB mappato in sola lettura, 0 GB di RAM/pinning dedicati; (2) ple-fp8.gguf 'ghost' da 47,68 GiB logici creato come file NTFS sparse con header GGUF valido (320.001.536 righe I8, strata.ple.format=f8_e4m3), righe a zero -> memoria n-gram degradata ma modello caricabile senza 47 GB di disco; (3) experts.bin esteso di 1.164.800 byte di padding (want+blob) e controllo LatentA::open allentato per accettare want..want+blob. PCIe probe 13,1 GB/s, 105 esperti residenti, MTP 950 MiB, PCIe fraction 0. Non e' ancora una misura di qualita' (duro in corso). Nessun upgrade hardware, nessun page file toccato.",
+ "tags": [
+  "edge0",
+  "120b",
+  "moe",
+  "mmap",
+  "sparse-ple",
+  "windows-fork"
+ ],
+ "summary": "Edge0-120B (41,7 GB di pesi) gira su RTX 3060 12GB + 16GB RAM a 2,29 t/s con risposte corrette e 131K di contesto, grazie a mmap Windows del pool esperti e PLE sparse."
+}

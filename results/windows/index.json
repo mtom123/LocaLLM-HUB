@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 131,
+ "count": 132,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -255,6 +255,33 @@
     "duro",
     "speed",
     "non-campione"
+   ]
+  },
+  {
+   "id": "2026-11-18-edge0-120b-feasibility",
+   "file": "results/windows/2026-11-18-edge0-120b-feasibility.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "edge0-120b-feasibility",
+   "summary": "Edge0-120B (41,7 GB di pesi) gira su RTX 3060 12GB + 16GB RAM a 2,29 t/s con risposte corrette e 131K di contesto, grazie a mmap Windows del pool esperti e PLE sparse.",
+   "model": "Edge0-120B-q3k (Q3_K latent MoE, 8.64B attivi, top-8 + shared, MTP)",
+   "repo": "Edge0/Edge0-120B-q3k",
+   "quant": "Q3_K",
+   "size_gb": 41.7,
+   "engine": "edge0-infer + edge0-strata (fork Motti: Windows STRATA_ARENA_MMAP + padding blob)",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "edge0",
+    "120b",
+    "moe",
+    "mmap",
+    "sparse-ple",
+    "windows-fork"
    ]
   },
   {
