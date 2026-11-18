@@ -38,14 +38,14 @@
  },
  "metrics": {
   "tps": {
-   "baseline_A": 1.49,
-   "baseline_AA": 1.6,
+   "baseline_A": 1.6,
+   "baseline_AA": 1.59,
    "profile_load": null,
-   "baseline_final": 1.61
+   "baseline_final": 1.59
   },
-  "noise_aa": 0.1100000000000001,
-  "drift": 0.1200000000000001,
-  "soglia": 0.2400000000000002,
+  "noise_aa": 0.010000000000000009,
+  "drift": 0.010000000000000009,
+  "soglia": 0.08000000000000002,
   "profilo_vince": false,
   "n": 3
  },
@@ -56,5 +56,5 @@
   "profilo",
   "autotune"
  ],
- "summary": "Profilo esperti su GLM: baseline 1.49 t/s, con profilo None t/s, vince=False."
+ "summary": "Profilo esperti su GLM: baseline 1.6 t/s, con profilo None t/s, vince=False."
 }
