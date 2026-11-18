@@ -47,6 +47,14 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Verso il "quasi-lossless"**: **GSQ** (ISTA, ICML 2026) rifinisce GGUF in-formato (+6,25 pp su Q2_K) ma serve il teacher FP8/BF16 e 8×H200 per ~1-2 giorni; **EoRA/QER** aggiungono correzioni low-rank (+3…+11 pp task-specific, 128 sample). **Lossless matematico a 2 bit è impossibile**: mancano ~145 GB di informazione rispetto a FP8; 1-2 GB di adapter coprono <1,5%. "Task-lossless" dimostrato solo a 2,75-3,5 bpw.
 - **Prefetch a impronta del router** (n-gram sugli ID esperti del prefill) e **per-expert bit-width dinamico** (DynaExq: +4,5 pp e 2,73× throughput su Qwen3-80B) sono le due idee originali da implementare nel fork Maya se il cascade non basta.
 
+## 2e. Risultato self-consistency (18/11, 01:30) — il "candidate system v2"
+
+- Mellum2.1 Q4_K_M, duro-v1 n=15, budget 4096, **8 voti con early-stop adattivo: 65,9%** (math 80,0 / code 60,0 / mmlu 57,1) contro **56,8%** con 1 voto. Un recheck vote=1 subito dopo ha riprodotto **esattamente 56,8%** con le stesse per-categoria → non era drift di sessione.
+- Con **16 voti: 63,6%** (math/mmlu identici, code 53,3): oltre 8 non si guadagna, e il ramo codice (che non usa voting) oscilla di ±6,7 pp a n=15 → è rumore, non segnale.
+- Significance: +9,1 pp è sopra il rumore di ±3, ma il confronto non è bootstrap appaiato per-domanda (non ho salvato le risposte singole del run storico): va trattato come **forte evidenza, non come prova statistica**. Replica di votes8 in corso.
+- **Ik_llama.cpp**: compila, vede CUDA e carica glm5-next, ma richiede ~40 GB di RAM pinnabile; con `GGML_CUDA_NO_PINNED=1` e mmap serve ~5 min/prompt → più lento di Maya. Registrato come fallimento.
+- Prossimo: **bake-off Qwen3.5-9B Q4_K_M** (5,29 GB, MMLU-Pro 82,5 vendor) con lo stesso metro e 8 voti. Se supera 69,5 (AREX) in modo riproducibile, è il nuovo campione del repo.
+
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
