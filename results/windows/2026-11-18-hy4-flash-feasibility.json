@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-hy4-flash-feasibility",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "hy4-flash-feasibility",
+ "reference": false,
+ "model": {
+  "name": "Hy4-flash AD-IQ2_S/IQ2_XXS (AtomicChat community quant) + Engram Q4_0 reale",
+  "repo": "AtomicChat/Hy4-flash-GGUF",
+  "quant": "AD-IQ2_S-IQ2_XXS + Engram Q4_0",
+  "size_gb": 78.9
+ },
+ "engine": {
+  "name": "llama.cpp PR #32517 @ 0a054d0 (hy_v4_flash)",
+  "version": "0a054d0",
+  "args": [
+   "-ngl 99 -cmoe --moe-cache-mib 3000 --override-tensor per_layer=CPU --load-mode mmap --lazy --no-host -c 8192 -fa on -b 512"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "hy4-short-v1",
+  "harness": "3 prompt x 128 token dopo warm-up",
+  "params": {
+   "n": 3
+  }
+ },
+ "metrics": {
+  "tps": {
+   "K16": 0.94,
+   "K8": 1.75,
+   "K6": 3.41,
+   "K4": 4.89
+  },
+  "sanity": {
+   "K16": "391 corretto + codice corretto",
+   "K8": "391 corretto",
+   "K6": "391 corretto + codice corretto",
+   "K4": "391 SBAGLIATO"
+  },
+  "scelto": 6,
+  "n": 3
+ },
+ "notes": "Primo esperimento su Hy4-flash uscito ieri: runtime esiste solo in llama.cpp PR #32517 (pinnato 0a054d0) dopo aver aggirato un difetto della build UI (placeholder workbox[hash].js). GGUF ufficiali 125-150 GB: usata quant community AtomicChat (45,69+33,19 GB). Engram ghost a zeri: modello carica ma produce nonsense (tabella = 29% dei parametri) -> scaricata tabella reale da 33,19 GB e sostituita. Router starvation (expert_used_count 16->K, patch in-place di 4 byte all'offset 1050): K4=4,89 t/s ma risposte sbagliate; K6=3,41 t/s con sanity corrette; K8=1,75; K16=0,94. K6 e' il compromesso scelto. La patch e' reversibile con patch_hy4_router.py 16.",
+ "tags": [
+  "hy4-flash",
+  "router-starvation",
+  "engram",
+  "pr-32517",
+  "tuning"
+ ],
+ "summary": "Hy4-flash (220B, 11,3B attivi) gira su 12+16 GB a 3,41 t/s con K=6 esperti attivi e risposte corrette; l'Engram reale e' obbligatorio (quello ghost distrugge la qualita')."
+}

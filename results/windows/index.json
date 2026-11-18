@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 136,
+ "count": 137,
  "hidden_failed": 40,
  "experiments": [
   {
@@ -28,6 +28,32 @@
     "self-consistency",
     "duro",
     "test-time-compute"
+   ]
+  },
+  {
+   "id": "2026-11-18-hy4-flash-feasibility",
+   "file": "results/windows/2026-11-18-hy4-flash-feasibility.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "hy4-flash-feasibility",
+   "summary": "Hy4-flash (220B, 11,3B attivi) gira su 12+16 GB a 3,41 t/s con K=6 esperti attivi e risposte corrette; l'Engram reale e' obbligatorio (quello ghost distrugge la qualita').",
+   "model": "Hy4-flash AD-IQ2_S/IQ2_XXS (AtomicChat community quant) + Engram Q4_0 reale",
+   "repo": "AtomicChat/Hy4-flash-GGUF",
+   "quant": "AD-IQ2_S-IQ2_XXS + Engram Q4_0",
+   "size_gb": 78.9,
+   "engine": "llama.cpp PR #32517 @ 0a054d0 (hy_v4_flash)",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "hy4-flash",
+    "router-starvation",
+    "engram",
+    "pr-32517",
+    "tuning"
    ]
   },
   {
