@@ -1,0 +1,61 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-edge0-120b-duro-qualita",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "edge0-120b-duro-qualita",
+ "reference": false,
+ "model": {
+  "name": "Edge0-120B-q3k (PLE ghost)",
+  "repo": "Edge0/Edge0-120B-q3k",
+  "quant": "Q3_K + Engram ghost a zeri",
+  "size_gb": 41.7
+ },
+ "engine": {
+  "name": "edge0-strata fork Motti",
+  "version": "0.1.55",
+  "args": [
+   "ctx 8192",
+   "pcie 0.20",
+   "tier async",
+   "warm-up"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --budget=256 (short budget)",
+  "params": {
+   "sets": "math,mmlu",
+   "n": 15,
+   "budget": 256,
+   "votes": 1
+  }
+ },
+ "metrics": {
+  "duro_pct": 10.3,
+  "per_categoria_pct": {
+   "math": 0.0,
+   "mmlu": 21.4
+  },
+  "corrette": "3/29",
+  "troncate_pct": 93.1,
+  "n": 15
+ },
+ "notes": "Qualita' distrutta: 93,1% di risposte troncate con soli 256 token di budget e PLE ghost (tabella n-gram a zeri). Il modello e' un thinking che non arriva alla risposta in 256 token; inoltre il PLE ghost rimuove la memoria n-gram. NON confrontabile con i duro a 4096 (Mellum 56,8, AREX 69,5). La velocita' 7,36 t/s resta il risultato valido di questo esperimento; la qualita' e' fallita. Prossimo: Engram ghost su Hy4-flash con budget piu' alto e/o tabella sintetica.",
+ "tags": [
+  "edge0",
+  "duro",
+  "ple-ghost",
+  "failed"
+ ],
+ "summary": "Edge0-120B con Engram ghost: duro short-budget 10.3% (troncate 93.1%). Veloce ma non intelligente in questa configurazione."
+}

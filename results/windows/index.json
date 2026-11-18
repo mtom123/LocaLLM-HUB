@@ -1,7 +1,7 @@
 {
  "platform": "windows",
  "count": 136,
- "hidden_failed": 39,
+ "hidden_failed": 40,
  "experiments": [
   {
    "id": "2026-11-18-mellum21-self-consistency",
