@@ -46,5 +46,7 @@
   "NaN prima del primo token: incompatibilita' di formato nei dati (verosimilmente PLE/grafo di verifica spec); non risolta con repack expert e ricostruzione dense",
   "Community: 22 t/s bit-exact ONLY con Betelgeuse; Strata low-RAM misura 8,11 t/s su questa stessa configurazione -> anche riuscendo non batterebbe Mellum (100 t/s, duro 56,8)"
  ],
- "decision": "Abbandonare la via Betelgeuse-bundle-su-Strata-Windows. Mellum resta campione. Pivot: (1) glitch di sistema su stack funzionante, (2) router ibrido, (3) se serve Flash-Next usare engine Betelgeuse nativo (richiede WSL2, non approvato) oppure llama.cpp mainline con shard originali."
+ "decision": "Abbandonare la via Betelgeuse-bundle-su-Strata-Windows. Mellum resta campione. Pivot: (1) glitch di sistema su stack funzionante, (2) router ibrido, (3) se serve Flash-Next usare engine Betelgeuse nativo (richiede WSL2, non approvato) oppure llama.cpp mainline con shard originali.",
+ "summary": "Bundle Alpha-Orionis-XS caricato su edge0-strata Windows dopo esteso reverse-engineering del formato, ma la generazione produce logit NaN prima del primo token: il bundle e per Betelgeuse/Linux, non Strata. Mellum resta campione.",
+ "metrics": {}
 }
