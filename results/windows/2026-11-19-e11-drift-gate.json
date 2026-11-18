@@ -35,5 +35,10 @@
   "secondi_per_domanda": 6.2
  },
  "notes": "E8, E9, E11 tutti 77.3% 34/44. Rumore <0.1 pp: le differenze E0 (+11.3 pp) sono reali, non drift.",
- "summary": "Drift gate: tre run identici danno lo stesso risultato. E8, E9, E11 tutti 77.3% 34/44. Rumore <0.1 pp: le differenze E0 (+11.3 pp) sono reali, non drift."
+ "summary": "Drift gate: tre run identici danno lo stesso risultato. E8, E9, E11 tutti 77.3% 34/44. Rumore <0.1 pp: le differenze E0 (+11.3 pp) sono reali, non drift.",
+ "model": {
+  "name": "AREX-Turbo",
+  "quant": "Q4_K_M",
+  "size_gb": 2.69
+ }
 }

@@ -34,5 +34,10 @@
   "secondi_per_domanda": 6.3
  },
  "notes": "chat_template_kwargs enable_thinking=false non cambia nulla: il distill genera gia 423 token medi. Conferma che il modello ragiona corto.",
- "summary": "Qwen35B thinking disattivato: identico a E8 (77.3%), no-op. chat_template_kwargs enable_thinking=false non cambia nulla: il distill genera gia 423 token medi. Conferma che il modello ragiona corto."
+ "summary": "Qwen35B thinking disattivato: identico a E8 (77.3%), no-op. chat_template_kwargs enable_thinking=false non cambia nulla: il distill genera gia 423 token medi. Conferma che il modello ragiona corto.",
+ "model": {
+  "name": "Qwen35B",
+  "quant": "IQ2_M",
+  "size_gb": 11.7
+ }
 }

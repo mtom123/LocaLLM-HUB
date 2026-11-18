@@ -34,5 +34,10 @@
   "secondi_per_domanda": 22.3
  },
  "notes": "SC4 su math+mmlu: 69.0% vs 72.4% greedy sullo stesso sottoinsieme, 3.5x piu lenta. Coerente con letteratura: distill con runaway soffre il voto multiplo.",
- "summary": "Qwen35B self-consistency 4 voti peggiora. SC4 su math+mmlu: 69.0% vs 72.4% greedy sullo stesso sottoinsieme, 3.5x piu lenta. Coerente con letteratura: distill con runaway soffre il voto multip"
+ "summary": "Qwen35B self-consistency 4 voti peggiora. SC4 su math+mmlu: 69.0% vs 72.4% greedy sullo stesso sottoinsieme, 3.5x piu lenta. Coerente con letteratura: distill con runaway soffre il voto multip",
+ "model": {
+  "name": "Qwen35B",
+  "quant": "IQ2_M",
+  "size_gb": 11.7
+ }
 }
