@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 135,
+ "count": 136,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -357,6 +357,31 @@
     "mmap",
     "sparse-ple",
     "windows-fork"
+   ]
+  },
+  {
+   "id": "2026-11-18-edge0-120b-combo-finale",
+   "file": "results/windows/2026-11-18-edge0-120b-combo-finale.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "edge0-120b-combo-finale",
+   "summary": "Config finale Edge0-120B: 7.36 t/s (3 prompt, warm-up, PCIe 0.20 + tier async).",
+   "model": "Edge0-120B-q3k",
+   "repo": "Edge0/Edge0-120B-q3k",
+   "quant": "Q3_K",
+   "size_gb": 41.7,
+   "engine": "edge0-strata fork Motti",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "edge0",
+    "120b",
+    "combo",
+    "tuning"
    ]
   },
   {
