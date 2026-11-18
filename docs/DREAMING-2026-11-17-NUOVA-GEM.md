@@ -61,6 +61,7 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Profilo esperti / usage tracking**: 0,8 t/s nel test falsato da `--dflash`; ritest pulito con profilo STRP 46×152 e 5.834 coppie reali: 1,63 vs 1,60 → **nessun guadagno** (soglia 0,26). L'adaptive tier di Maya impara già a runtime.
 - **Sweep 6 knob** (A/A due volte, baseline finale): noise 0,01, drift 0,29, soglia 0,58 → **nessun knob promosso**. `stream_fetch_off` peggiora (1,38). Termica stabile (45-52 °C, clock 1650): il drift non è termico.
 - **Prefill**: 2.373 token richiedono 64 s (37 t/s). Con conversation/slot cache, il secondo turno riusa **2.372 token** e passa da **78,6 s a 14,6 s (5,4×)**. Il prefill va evitato, non ottimizzato.
+- **Batching `--parallel 2` + `MAYA_GLM_GROUP_EXPERTS=1`**: 2 richieste parallele 63,1 s contro 61,1 s sequenziali (0,97×): la seconda KV sottrae VRAM al pool esperti più di quanto il grouping risparmi. Scartato.
 - **Limite fisico**: 336 letture di esperti/token × 6,5 MB = 2,18 GB/token; a 2,2 GB/s di NVMe il limite senza cache è ~1 t/s. Per 16 t/s servirebbe 94% di hit, cioè ~39 GB residenti: impossibile con 28 GB totali. Il massimo onesto con 2-3× di hit improvement è 3-5 t/s; 16-17 t/s richiedono una macchina con 121 GB unificati (DGX Spark, misurato).
 
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
