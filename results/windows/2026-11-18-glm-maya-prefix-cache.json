@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-maya-prefix-cache",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-maya-prefix-cache",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "Project Maya v1.1.66 (slot/prefix cache)",
+  "version": "1.1.66",
+  "args": [
+   "--glm-pack custom",
+   "--max-context 4096",
+   "MAYA_GLM_SLOTS=4 (default)",
+   "MAYA_GLM_PREFIX_CUT=1 (default)"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-prefix-v1",
+  "harness": "2 turni OpenAI-compatible, prompt 2373 token + follow-up",
+  "params": {
+   "n": 1,
+   "max_tokens": 32
+  }
+ },
+ "metrics": {
+  "turn1_sec": 78.57,
+  "turn1_prompt_tokens": 2373,
+  "turn1_prompt_ms": 63918,
+  "turn1_prompt_tps": 37.1,
+  "turn2_sec": 14.59,
+  "turn2_cached_tokens": 2372,
+  "turn2_new_prompt_tokens": 32,
+  "turn2_prompt_ms": 6719.6,
+  "speedup_totale": 5.39,
+  "decode_tps": 2.2,
+  "n": 1
+ },
+ "notes": "Protocollo: stesso server, prima richiesta con prompt lungo 2373 token, seconda richiesta nella stessa conversazione (messages dell'assistente + nuova domanda). Maya ha riusato 2372 token dal KV cache: il prefill e' elementos sparito (32 token nuovi). Il restore del KV costa comunque ~6,7 s per 32 token nuovi, quindi non e' gratis, ma e' 9x piu' veloce del prefill fresco. La velocita' di decode resta ~2,2 t/s: questo esperimento accelera il PREFILL, non il decode. n=1, misura singola non bootstrapata.",
+ "tags": [
+  "glm",
+  "maya",
+  "prefix-cache",
+  "prefill"
+ ],
+ "summary": "Prefix/cache di conversazione su GLM RCO-152E: richiesta successiva nella stessa chat 78,6s -> 14,6s (5,4x), con 2372/2373 token di prompt riusati. Il prefill non va ottimizzato: va evitato."
+}

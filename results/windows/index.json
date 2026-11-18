@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 126,
+ "count": 127,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -103,6 +103,31 @@
     "maya",
     "profilo",
     "autotune"
+   ]
+  },
+  {
+   "id": "2026-11-18-glm-maya-prefix-cache",
+   "file": "results/windows/2026-11-18-glm-maya-prefix-cache.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-maya-prefix-cache",
+   "summary": "Prefix/cache di conversazione su GLM RCO-152E: richiesta successiva nella stessa chat 78,6s -> 14,6s (5,4x), con 2372/2373 token di prompt riusati. Il prefill non va ottimizzato: va evitato.",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "Project Maya v1.1.66 (slot/prefix cache)",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "maya",
+    "prefix-cache",
+    "prefill"
    ]
   },
   {
