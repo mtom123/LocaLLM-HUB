@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-edge0-120b-speed-tuning2",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "edge0-120b-speed-tuning",
+ "reference": false,
+ "model": {
+  "name": "Edge0-120B-q3k",
+  "repo": "Edge0/Edge0-120B-q3k",
+  "quant": "Q3_K",
+  "size_gb": 41.7
+ },
+ "engine": {
+  "name": "edge0-strata fork Motti (Windows mmap + ghost PLE)",
+  "version": "0.1.55",
+  "args": [
+   "varianti: baseline/ctx8k/nomtp/spec2/kvq4/pcie036"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "edge0-short-v1",
+  "harness": "2 prompt x 128 token, mediana",
+  "params": {
+   "n": 2,
+   "varianti": 6
+  }
+ },
+ "metrics": {
+  "tps_per_variante": {
+   "best8k": 7.05,
+   "best32k": 6.2,
+   "best8k_q4": 6.66
+  },
+  "classifica": [
+   [
+    "best8k",
+    7.05
+   ],
+   [
+    "best8k_q4",
+    6.66
+   ],
+   [
+    "best32k",
+    6.2
+   ]
+  ],
+  "n": 2
+ },
+ "notes": "Iteration brevi (2 prompt x 128 token) per non fossilizzarsi su test da ore. Ogni variante riavvia il motore (load ~1 min). Config ripristinata alla fine. Il PLE e' ghost (righe a zero): la qualita' non e' misurata qui.",
+ "tags": [
+  "edge0",
+  "120b",
+  "tuning",
+  "speculative"
+ ],
+ "summary": "Speed tuning Edge0-120B: (7.05, 'best8k') (tps, variante)."
+}
