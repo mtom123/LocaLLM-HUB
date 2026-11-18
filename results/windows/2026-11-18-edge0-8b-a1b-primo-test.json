@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-edge0-8b-a1b-primo-test",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "edge0-8b-a1b-primo-test",
+ "reference": false,
+ "model": {
+  "name": "Edge0-8B-A1B-preview (AideMemo recover GGUF, Q4_K_M)",
+  "repo": "Proairos/Edge0-8B-A1B-preview-AideMemo-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 4.49
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "--jinja -ngl 99 -fa on -c 8192 -t 6"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "duro-v1 + speed diretto",
+  "harness": "duro.py + 3 prompt x 48/96 token",
+  "params": {
+   "n": 15,
+   "budget": 4096,
+   "votes": 1
+  }
+ },
+ "metrics": {
+  "decode_tps_mediano": 126.46,
+  "decode_tps_con_risposta": 102.6,
+  "duro_pct": 34.1,
+  "per_categoria_pct": {
+   "math": 26.7,
+   "code": 40.0,
+   "mmlu": 35.7
+  },
+  "corrette": "15/44",
+  "n": 15
+ },
+ "notes": "Edge0-8B arch bailingmoe3 e' supportata da llama.cpp b12141. Il modello e' un thinking: con max_tokens bassi il contenuto e' vuoto e la risposta sta in reasoning_content; con 512 token emette la risposta finale in content (391 corretto). Velocita' altissima ma qualita' bassa: duro 34,1% contro Mellum 56,8% e AREX 69,5%. Il tokenizer segnala special_eos_id fuori da special_eog_ids. Non e' il campione; si passa al 35B con prerouter addestrato.",
+ "tags": [
+  "edge0",
+  "duro",
+  "speed",
+  "non-campione"
+ ],
+ "summary": "Edge0-8B-A1B: 100-126 t/s ma duro 34,1% (math 26,7 / code 40 / mmlu 35,7). Veloce ma non abbastanza intelligente: in attesa del 35B."
+}

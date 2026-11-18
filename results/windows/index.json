@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 130,
+ "count": 131,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -228,6 +228,33 @@
     "ik_llama",
     "dflash2",
     "speculative"
+   ]
+  },
+  {
+   "id": "2026-11-18-edge0-8b-a1b-primo-test",
+   "file": "results/windows/2026-11-18-edge0-8b-a1b-primo-test.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "edge0-8b-a1b-primo-test",
+   "summary": "Edge0-8B-A1B: 100-126 t/s ma duro 34,1% (math 26,7 / code 40 / mmlu 35,7). Veloce ma non abbastanza intelligente: in attesa del 35B.",
+   "model": "Edge0-8B-A1B-preview (AideMemo recover GGUF, Q4_K_M)",
+   "repo": "Proairos/Edge0-8B-A1B-preview-AideMemo-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 4.49,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 34.1
+   },
+   "ctx": null,
+   "tags": [
+    "edge0",
+    "duro",
+    "speed",
+    "non-campione"
    ]
   },
   {
