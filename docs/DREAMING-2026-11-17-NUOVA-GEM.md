@@ -75,7 +75,16 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - È il "best brain" che gira su questa macchina: 120B contro i 12B/9B di prima. Duro-v1 con budget 512 in corso (con 4096 richiederebbe ore); il confronto con i run a 4096 non è diretto.
 - Il PLE ghost degrada la memoria n-gram: se il duro delude, il passo successivo è generare righe PLE approssimate nel reader invece di zeri, senza scaricare 47,7 GB.
 
-## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
+## 2h. Hy4-flash (18/11 pomeriggio) — il nuovo goal
+
+- Modello uscito ieri: **220B totali, 11,3B attivi, 42 layer, 512 esperti/16 attivi, Engram da 63,4B, MLA ibrido + DFly2**. Arch GGUF `hy_v4_flash`.
+- L'unico runtime esistente è **llama.cpp PR #32517 @ `0a054d0`** (draft), compilato con CUDA sm_86 aggirando un bug della web UI (placeholder `workbox[hash].js`). Build e comandi nel repo.
+- GGUF ufficiali 125-150 GB: usata quant community **AtomicChat AD-IQ2_S/IQ2_XXS** (45,69+33,19 GB). Ghost Engram a zeri: modello carica ma **produce nonsense** (l'Engram è il 29% dei parametri) → scaricata tabella reale da 33,19 GB e sostituita; qualità restaurata (391 e codice corretti).
+- **Router starvation** (patch in-place `expert_used_count` 16→K, offset 1050): K16 0,94 t/s ( corretto), K8 1,75 (corretto), **K6 3,41 (corretto, scelto)**, K5 2,21 (corretto), K4 4,89 (**sbagliato**: 391 errato). Curva non monotona: sotto 6 il danno supera il guadagno.
+- Duro short K6: 57,1% MMLU ma 71,4% troncate a budget 256 → non confrontabile; duro a 512 in corso per il verdetto vero.
+- Gli agenti (HF/GitHub/paper) dicono: 100 t/s su 12 GB non fisicamente credibile; target realistico **battere Edge0 7,36 t/s**. Per ora Hy4 è a 3,41 t/s ma con cervello molto più grande e qualità sanity corretta.
+
+## 3. Dreaming - tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
 1. Build **b12244 CUDA12.4**: unica che vede `CUDA0` *e* supporta `glm5-next` (la CUDA13.5 non vede GPU: tutti i vecchi numeri erano CPU-only).
