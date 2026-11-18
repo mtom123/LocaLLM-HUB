@@ -65,6 +65,14 @@ Fonti principali: REAP arxiv 2510.13999; RCO repo `lapadatbogdan/GLM-5.3-Flash-C
 - **Contesto con KV INT8**: 4K → 1,62 t/s, 32K → 1,62, 128K → 1,56, **256K → 1,36**. Il GLM RCO-152E regge 256K di contesto su 12+16 GB con Maya: il costo è solo −16% di decode, non un errore di memoria. Record nel repo: `2026-11-18-glm-maya-context-256k.json`.
 - **Limite fisico**: 336 letture di esperti/token × 6,5 MB = 2,18 GB/token; a 2,2 GB/s di NVMe il limite senza cache è ~1 t/s. Per 16 t/s servirebbe 94% di hit, cioè ~39 GB residenti: impossibile con 28 GB totali. Il massimo onesto con 2-3× di hit improvement è 3-5 t/s; 16-17 t/s richiedono una macchina con 121 GB unificati (DGX Spark, misurato).
 
+## 2g. SVOLTA: Edge0-120B su 12+16 GB (18/11, 15:00)
+
+- Scaricato `Edge0/Edge0-120B-q3k` senza il PLE da 47,7 GB (41,7 GB di file reali), compilato `edge0-infer` (CPU/AVX2) e `edge0-strata` (CUDA 13.4, sm_86).
+- Tre patch applicate al fork locale: (1) **`STRATA_ARENA_MMAP` portato a Windows** con `MapViewOfFile`: `experts.bin` da 26,7 GB mappato read-only invece di 26,7 GB di RAM/pinning; (2) **PLE ghost**: GGUF sparse NTFS da 47,68 GiB logici con header valido e righe a zero (occupazione ~0); (3) `experts.bin` esteso di 1.164.800 B di padding e `LatentA::open` allentato per accettare `want..want+blob`.
+- **Risultato: il modello da 120B gira** a **2,29 t/s**, risposta corretta (391), **131072 token di contesto**, 105 esperti residenti, PCIe 13,1 GB/s, MTP attivo. `2026-11-18-edge0-120b-feasibility.json`.
+- È il "best brain" che gira su questa macchina: 120B contro i 12B/9B di prima. Duro-v1 con budget 512 in corso (con 4096 richiederebbe ore); il confronto con i run a 4096 non è diretto.
+- Il PLE ghost degrada la memoria n-gram: se il duro delude, il passo successivo è generare righe PLE approssimate nel reader invece di zeri, senza scaricare 47,7 GB.
+
 ## 3. Dreaming — tre traiettorie, in ordine di realizzabilità stanotte
 
 ### Traiettoria A — `GLM impossibile` (quello che vuoi, lo provo comunque)
