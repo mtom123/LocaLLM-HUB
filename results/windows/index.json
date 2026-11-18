@@ -164,7 +164,7 @@
    "category": "speed",
    "status": "ok",
    "title": "glm-maya-context-32k",
-   "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.62} vs 128K+KV INT8 {'health': True, 'tps': 1.56}.",
+   "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.61} vs 128K+KV INT8 None.",
    "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
    "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
    "quant": "IQ2_XXS",

@@ -39,11 +39,11 @@
   "configurazioni": {
    "ctx4096": {
     "health": true,
-    "tps": 1.62
+    "tps": 1.61
    },
-   "ctx131072_kvint8": {
+   "ctx262144_kvint8": {
     "health": true,
-    "tps": 1.56
+    "tps": 1.36
    }
   },
   "n": 3
@@ -55,5 +55,5 @@
   "contesto",
   "kv-int8"
  ],
- "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.62} vs 128K+KV INT8 {'health': True, 'tps': 1.56}."
+ "summary": "Contesto GLM su Maya: 4K {'health': True, 'tps': 1.61} vs 128K+KV INT8 None."
 }
