@@ -1,0 +1,37 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "budget": 4096
+  }
+ },
+ "id": "2026-11-19-e6-arex-quant-confronto",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "AREX Q6_K non migliora Q4_K_M",
+ "metrics": {
+  "q4_pct": 54.2,
+  "q6_pct": 50.0,
+  "n": 24
+ },
+ "notes": "Sottoinsieme math+mmlu n=10: Q4 13/24 vs Q6 12/24. Differenza -4.2 pp entro rumore con n=24. Nessun motivo di usare Q6 (3.23GB vs 2.52GB).",
+ "summary": "AREX Q6_K non migliora Q4_K_M. Sottoinsieme math+mmlu n=10: Q4 13/24 vs Q6 12/24. Differenza -4.2 pp entro rumore con n=24. Nessun motivo di usare Q6 (3.23GB vs 2.52GB)."
+}

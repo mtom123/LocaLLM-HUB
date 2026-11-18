@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "budget": 4096
+  }
+ },
+ "id": "2026-11-19-e11-drift-gate",
+ "category": "harness",
+ "status": "ok",
+ "title": "Drift gate: tre run identici danno lo stesso risultato",
+ "metrics": {
+  "duro_pct": 77.3,
+  "corrette": "34/44",
+  "n": 44,
+  "run_identici": 3,
+  "secondi_per_domanda": 6.2
+ },
+ "notes": "E8, E9, E11 tutti 77.3% 34/44. Rumore <0.1 pp: le differenze E0 (+11.3 pp) sono reali, non drift.",
+ "summary": "Drift gate: tre run identici danno lo stesso risultato. E8, E9, E11 tutti 77.3% 34/44. Rumore <0.1 pp: le differenze E0 (+11.3 pp) sono reali, non drift."
+}

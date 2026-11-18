@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "budget": 4096
+  }
+ },
+ "id": "2026-11-19-e9-qwen35b-nothink",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "Qwen35B thinking disattivato: identico a E8 (77.3%), no-op",
+ "metrics": {
+  "duro_pct": 77.3,
+  "corrette": "34/44",
+  "n": 44,
+  "secondi_per_domanda": 6.3
+ },
+ "notes": "chat_template_kwargs enable_thinking=false non cambia nulla: il distill genera gia 423 token medi. Conferma che il modello ragiona corto.",
+ "summary": "Qwen35B thinking disattivato: identico a E8 (77.3%), no-op. chat_template_kwargs enable_thinking=false non cambia nulla: il distill genera gia 423 token medi. Conferma che il modello ragiona corto."
+}

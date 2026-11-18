@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "-ngl 99 -ncmoe 8"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "id": "2026-11-19-iq3m-ncmoe8-flop",
+ "category": "speed",
+ "status": "failed",
+ "title": "IQ3_M -ngl 99 -ncmoe 8",
+ "model": {
+  "name": "Qwen3.8-35B-A3B-Distill",
+  "quant": "IQ3_M",
+  "size_gb": 15.22
+ },
+ "metrics": {
+  "decode_tps_1": 21.0,
+  "tps_media": 21.0
+ },
+ "notes": "11.7GB VRAM ma 21 t/s: PCIe offload annulla il guadagno qualita. Archiviato.",
+ "summary": "IQ3_M -ngl 99 -ncmoe 8: 21.0 t/s. 11.7GB VRAM ma 21 t/s: PCIe offload annulla il guadagno qualita. Archiviato."
+}

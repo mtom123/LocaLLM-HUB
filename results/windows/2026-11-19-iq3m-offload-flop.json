@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "-ngl 40"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "id": "2026-11-19-iq3m-offload-flop",
+ "category": "speed",
+ "status": "failed",
+ "title": "IQ3_M con -ngl 40 (8 layer CPU)",
+ "model": {
+  "name": "Qwen3.8-35B-A3B-Distill",
+  "quant": "IQ3_M",
+  "size_gb": 15.22
+ },
+ "metrics": {
+  "decode_tps_1": 16.5,
+  "tps_media": 16.5
+ },
+ "notes": "Offload verticale: 16.5 t/s vs 72.3 IQ2_M. Archiviato.",
+ "summary": "IQ3_M con -ngl 40 (8 layer CPU): 16.5 t/s. Offload verticale: 16.5 t/s vs 72.3 IQ2_M. Archiviato."
+}

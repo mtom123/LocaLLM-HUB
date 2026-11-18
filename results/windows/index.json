@@ -1,8 +1,30 @@
 {
  "platform": "windows",
- "count": 145,
- "hidden_failed": 42,
+ "count": 150,
+ "hidden_failed": 47,
  "experiments": [
+  {
+   "id": "2026-11-19-e9-qwen35b-nothink",
+   "file": "results/windows/2026-11-19-e9-qwen35b-nothink.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "quality-tiny",
+   "status": "ok",
+   "title": "Qwen35B thinking disattivato: identico a E8 (77.3%), no-op",
+   "summary": "Qwen35B thinking disattivato: identico a E8 (77.3%), no-op. chat_template_kwargs enable_thinking=false non cambia nulla: il distill genera gia 423 token medi. Conferma che il modello ragiona corto.",
+   "model": null,
+   "repo": null,
+   "quant": null,
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 77.3
+   },
+   "ctx": null,
+   "tags": []
+  },
   {
    "id": "2026-11-19-e8-qwen35b-greedy",
    "file": "results/windows/2026-11-19-e8-qwen35b-greedy.json",
@@ -23,6 +45,97 @@
     "duro_pct": 77.3
    },
    "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-19-e11-drift-gate",
+   "file": "results/windows/2026-11-19-e11-drift-gate.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "harness",
+   "status": "ok",
+   "title": "Drift gate: tre run identici danno lo stesso risultato",
+   "summary": "Drift gate: tre run identici danno lo stesso risultato. E8, E9, E11 tutti 77.3% 34/44. Rumore <0.1 pp: le differenze E0 (+11.3 pp) sono reali, non drift.",
+   "model": null,
+   "repo": null,
+   "quant": null,
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "duro_pct": 77.3
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-qwen3.8-35b-a3b-iq3_m-offload-8-layer",
+   "file": "results/windows/2026-11-18-qwen3.8-35b-a3b-iq3_m-offload-8-layer.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.8-35B-A3B IQ3_M offload 8 layer",
+   "summary": "16.5 t/s medi su 4 tipi di prompt (core-speed v1), 16.5 t/s mediana.",
+   "model": "Qwen3.8-35B-A3B-Distill",
+   "repo": null,
+   "quant": "IQ3_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 16.5,
+    "tps_media": 16.5
+   },
+   "ctx": 4096,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-qwen3.8-35b-a3b-iq3_m-ngl99-ncmoe8",
+   "file": "results/windows/2026-11-18-qwen3.8-35b-a3b-iq3_m-ngl99-ncmoe8.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.8-35B-A3B IQ3_M ngl99 ncmoe8",
+   "summary": "20.8 t/s medi su 4 tipi di prompt (core-speed v1), 21.0 t/s mediana.",
+   "model": "Qwen3.8-35B-A3B-Distill",
+   "repo": null,
+   "quant": "IQ3_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 21.0,
+    "tps_media": 20.8
+   },
+   "ctx": 4096,
+   "tags": []
+  },
+  {
+   "id": "2026-11-18-qwen3.8-35b-a3b-iq3_m-ngl99-ncmoe36",
+   "file": "results/windows/2026-11-18-qwen3.8-35b-a3b-iq3_m-ngl99-ncmoe36.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.8-35B-A3B IQ3_M ngl99 ncmoe36",
+   "summary": "19.5 t/s medi su 4 tipi di prompt (core-speed v1), 19.9 t/s mediana.",
+   "model": "Qwen3.8-35B-A3B-Distill",
+   "repo": null,
+   "quant": "IQ3_M",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 19.9,
+    "tps_media": 19.5
+   },
+   "ctx": 4096,
    "tags": []
   },
   {

@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "budget": 4096
+  }
+ },
+ "id": "2026-11-19-e10-qwen35b-sc4",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "Qwen35B self-consistency 4 voti peggiora",
+ "metrics": {
+  "duro_pct": 69.0,
+  "corrette": "20/29",
+  "n": 29,
+  "secondi_per_domanda": 22.3
+ },
+ "notes": "SC4 su math+mmlu: 69.0% vs 72.4% greedy sullo stesso sottoinsieme, 3.5x piu lenta. Coerente con letteratura: distill con runaway soffre il voto multiplo.",
+ "summary": "Qwen35B self-consistency 4 voti peggiora. SC4 su math+mmlu: 69.0% vs 72.4% greedy sullo stesso sottoinsieme, 3.5x piu lenta. Coerente con letteratura: distill con runaway soffre il voto multip"
+}
