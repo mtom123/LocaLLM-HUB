@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 127,
+ "count": 128,
  "hidden_failed": 39,
  "experiments": [
   {
@@ -128,6 +128,31 @@
     "maya",
     "prefix-cache",
     "prefill"
+   ]
+  },
+  {
+   "id": "2026-11-18-glm-maya-batch-experts",
+   "file": "results/windows/2026-11-18-glm-maya-batch-experts.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-18",
+   "category": "speed",
+   "status": "ok",
+   "title": "glm-maya-batch-experts",
+   "summary": "Batching 2 richieste GLM su Maya: sequenziale 61.14s vs parallelo+group 63.14s (speedup 0.97x).",
+   "model": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+   "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+   "quant": "IQ2_XXS",
+   "size_gb": 44.19,
+   "engine": "Project Maya v1.1.66",
+   "ref": false,
+   "headline": {},
+   "ctx": null,
+   "tags": [
+    "glm",
+    "maya",
+    "batching",
+    "expert-grouping"
    ]
   },
   {

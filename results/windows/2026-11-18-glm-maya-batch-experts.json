@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "id": "2026-11-18-glm-maya-batch-experts",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-18",
+ "category": "speed",
+ "status": "ok",
+ "title": "glm-maya-batch-experts",
+ "reference": false,
+ "model": {
+  "name": "GLM-5.3-Flash-Coder-RCO-152E-IQ2_XXS",
+  "repo": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "quant": "IQ2_XXS",
+  "size_gb": 44.19
+ },
+ "engine": {
+  "name": "Project Maya v1.1.66",
+  "version": "1.1.66",
+  "args": [
+   "--parallel 2",
+   "MAYA_GLM_GROUP_EXPERTS=1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "benchmark": {
+  "suite": "maya-batch-v1",
+  "harness": "2 richieste concorrenti vs sequenziali, 48 token",
+  "params": {
+   "n": 1,
+   "max_tokens": 48
+  }
+ },
+ "metrics": {
+  "risultati": {
+   "sequenziale": {
+    "totale_sec": 61.14,
+    "richieste": [
+     31.6,
+     29.54
+    ]
+   },
+   "parallelo_group": {
+    "totale_sec": 63.14,
+    "richieste": [
+     63.13,
+     63.13
+    ]
+   }
+  },
+  "speedup": 0.97,
+  "n": 1
+ },
+ "notes": "Obiettivo: condividere il costo di lettura degli esperti tra due token di step diversi (MAYA_GLM_GROUP_EXPERTS=1). --parallel 2 sottrae VRAM al pool esperti, quindi il risultato puo' essere negativo. n=1, misura esplorativa.",
+ "tags": [
+  "glm",
+  "maya",
+  "batching",
+  "expert-grouping"
+ ],
+ "summary": "Batching 2 richieste GLM su Maya: sequenziale 61.14s vs parallelo+group 63.14s (speedup 0.97x)."
+}
