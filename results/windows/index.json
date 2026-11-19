@@ -1,8 +1,31 @@
 {
  "platform": "windows",
- "count": 153,
+ "count": 154,
  "hidden_failed": 51,
  "experiments": [
+  {
+   "id": "2026-11-19-sensenova-loop-9b-100k-fork-patched",
+   "file": "results/windows/2026-11-19-sensenova-loop-9b-100k-fork-patched.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "speed",
+   "status": "ok",
+   "title": "SenseNova-Loop-9B 100K (fork patched)",
+   "summary": "18.4 t/s medi su 4 tipi di prompt (core-speed v1), 18.4 t/s mediana.",
+   "model": "SenseNova-Loop-9B",
+   "repo": null,
+   "quant": "8GB-100K",
+   "size_gb": null,
+   "engine": "llama.cpp sensenova-loop fork",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 18.4,
+    "tps_media": 18.4
+   },
+   "ctx": 8192,
+   "tags": []
+  },
   {
    "id": "2026-11-19-qwen3.8-27b-gsq-rco-iq2_xs",
    "file": "results/windows/2026-11-19-qwen3.8-27b-gsq-rco-iq2_xs.json",

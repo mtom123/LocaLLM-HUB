@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "id": "2026-11-19-sensenova-loop-9b-100k-fork-patched",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "category": "speed",
+ "status": "ok",
+ "title": "SenseNova-Loop-9B 100K (fork patched)",
+ "reference": false,
+ "model": {
+  "name": "SenseNova-Loop-9B",
+  "repo": null,
+  "quant": "8GB-100K",
+  "size_gb": null
+ },
+ "engine": {
+  "name": "llama.cpp sensenova-loop fork",
+  "version": "cd78d55",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "8192",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 18.4,
+  "tps_media": 18.4,
+  "tps_by_type": {
+   "codice": 18.5,
+   "storia": 18.4,
+   "ragionamento": 18.4,
+   "json": 18.4
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "18.4 t/s medi su 4 tipi di prompt (core-speed v1), 18.4 t/s mediana."
+}
