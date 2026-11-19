@@ -1,0 +1,48 @@
+{
+ "schema": 1,
+ "id": "2026-11-19-e16-sensenova-duro",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "category": "quality-tiny",
+ "status": "partial",
+ "reference": false,
+ "title": "E16 SenseNova-Loop-9B duro (architettura loop)",
+ "model": {
+  "name": "SenseNova-Loop-9B",
+  "quant": "8GB-100K",
+  "size_gb": 5.17
+ },
+ "engine": {
+  "name": "llama.cpp fork sensenova-loop",
+  "version": "cd78d55",
+  "args": "-ngl 99 -fa on -c 8192 -np 1"
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --votes=1",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "budget": 4096
+  }
+ },
+ "metrics": {
+  "duro_pct": 70.5,
+  "corrette": "31/44",
+  "per_categoria_pct": {
+   "code": 80.0,
+   "math": 66.7,
+   "mmlu": 64.3
+  },
+  "n": 44,
+  "secondi_per_domanda": 35.3
+ },
+ "notes": "Prima architettura loop testata. Build fork riuscita su Windows con Ninja+CUDA13.4+placeholder workbox[hash].js. 70.5% duro, 18.4 t/s - sotto i campioni. Potenziale MTP non testato (GGUF 100K non ha tensori MTP embedded, serve v2/v3).",
+ "summary": "SenseNova-Loop-9B: 70.5% duro a 18.4 t/s - esperimento architetturale riuscito, non nuovo campione."
+}

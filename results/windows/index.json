@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 154,
+ "count": 155,
  "hidden_failed": 51,
  "experiments": [
   {
@@ -10,7 +10,7 @@
    "author": "Motti",
    "date": "2026-11-19",
    "category": "speed",
-   "status": "ok",
+   "status": "partial",
    "title": "SenseNova-Loop-9B 100K (fork patched)",
    "summary": "18.4 t/s medi su 4 tipi di prompt (core-speed v1), 18.4 t/s mediana.",
    "model": "SenseNova-Loop-9B",
@@ -89,6 +89,28 @@
    "ref": true,
    "headline": {
     "duro_pct": 77.3
+   },
+   "ctx": null,
+   "tags": []
+  },
+  {
+   "id": "2026-11-19-e16-sensenova-duro",
+   "file": "results/windows/2026-11-19-e16-sensenova-duro.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "quality-tiny",
+   "status": "partial",
+   "title": "E16 SenseNova-Loop-9B duro (architettura loop)",
+   "summary": "SenseNova-Loop-9B: 70.5% duro a 18.4 t/s - esperimento architetturale riuscito, non nuovo campione.",
+   "model": "SenseNova-Loop-9B",
+   "repo": null,
+   "quant": "8GB-100K",
+   "size_gb": 5.17,
+   "engine": "llama.cpp fork sensenova-loop",
+   "ref": false,
+   "headline": {
+    "duro_pct": 70.5
    },
    "ctx": null,
    "tags": []

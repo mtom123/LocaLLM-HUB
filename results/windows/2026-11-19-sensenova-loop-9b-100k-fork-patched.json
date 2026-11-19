@@ -5,7 +5,7 @@
  "author": "Motti",
  "date": "2026-11-19",
  "category": "speed",
- "status": "ok",
+ "status": "partial",
  "title": "SenseNova-Loop-9B 100K (fork patched)",
  "reference": false,
  "model": {
@@ -49,7 +49,7 @@
   },
   "tps_method": "timings"
  },
- "notes": "",
+ "notes": "Prima architettura LOOP testata nel lab (32 layer fisici, 56 esecuzioni, mHC). Build fork sensenova-loop cd78d55 con placeholder UI per CMake 4.4. 18.4 t/s senza MTP (community riporta 47 con MTP su 4060 8GB). Duro 70.5% (31/44) - sotto i campioni 77.3/84.1. Non e un nuovo campione, ma esperimento architetturale riuscito: il fork funziona su 3060 12GB.",
  "tags": [],
  "summary": "18.4 t/s medi su 4 tipi di prompt (core-speed v1), 18.4 t/s mediana."
 }
