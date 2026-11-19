@@ -45,5 +45,6 @@
   "secondi_per_domanda": 4.4,
   "token_medi": 291
  },
- "notes": "Confronto appaiato con E8 (greedy T=0, 77.3%, 423 token, 6.3s). Il preset ufficiale Empero (temp0.6/top_p0.95/top_k20/min_p0) perde 6.8 pp, soprattutto su MMLU (71.4->50.0), ma genera il 31% di token in meno ed e 1.4x piu veloce. Per il nostro duro il greedy resta la scelta qualita; il preset ufficiale potrebbe essere utile come modalita speed."
+ "notes": "Confronto appaiato con E8 (greedy T=0, 77.3%, 423 token, 6.3s). Il preset ufficiale Empero (temp0.6/top_p0.95/top_k20/min_p0) perde 6.8 pp, soprattutto su MMLU (71.4->50.0), ma genera il 31% di token in meno ed e 1.4x piu veloce. Per il nostro duro il greedy resta la scelta qualita; il preset ufficiale potrebbe essere utile come modalita speed.",
+ "summary": "Preset sampler ufficiale Empero (temp 0.6) peggiora il duro: 70.5% vs 77.3% greedy, ma genera il 31% di token in meno. Greedy resta la scelta qualita su questo distill."
 }
