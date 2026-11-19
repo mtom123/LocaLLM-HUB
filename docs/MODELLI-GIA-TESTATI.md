@@ -15,6 +15,10 @@ Agents-A1 (42+ varianti: Q4_K_M, ONYX, 35B-A3B, i1, 4B, REAP176...), BAAI_AREX-T
 - ThinkPRM best-of-4: OOM con due server — archiviato
 - **SenseNova-Loop-9B 100K** (fork patched): 18,4 t/s, duro in corso — NUOVA ARCHITETTURA
 
+## Testati oggi 19 nov (secondo round)
+- **K2-Horizon-7B Q8_0** (IFM, 8,92 GB) — 34,9 t/s, duro in corso — NUOVO modello 7B dense settembre 2026
+- Router q35/q27 con gate: fallito (confidenza non separa, troncamento non si fixa) — router mode llama.cpp pero verificato senza OOM
+
 ## Novità 17-19 nov verificate ma NON ancora testate
 - DaisyRose-27B (18 nov, RL, SWE-Pro 94.7) — GGUF IQ2_XS 9 GB, 0 download, rischio 2-bit
 - pi-adapted LoRA (16 nov, +25 pp) — serve base Q8_0 29GB, non entra in 12GB
