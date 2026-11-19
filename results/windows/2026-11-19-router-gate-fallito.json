@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "id": "2026-11-19-router-gate-fallito",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "category": "harness",
+ "status": "failed",
+ "reference": false,
+ "title": "Router q35/q27 con gate a confidenza e troncamento - fallito",
+ "model": {
+  "name": "Qwen35B+Qwen27B router",
+  "quant": "IQ2_M + UD-IQ2_XS",
+  "size_gb": 18.8
+ },
+ "engine": {
+  "name": "llama.cpp b12141 router --models-max 1",
+  "version": "b12141",
+  "args": "--models-preset router-preset.ini --models-max 1"
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "router_step1.py + step2.py",
+  "params": {
+   "sets": "math",
+   "n": 12
+  }
+ },
+ "metrics": {
+  "q35_pct": 75.0,
+  "router_pct": 75.0,
+  "n": 12,
+  "corretti_conf": 0.9566,
+  "sbagliati_conf": 0.9829,
+  "fix_troncamento": 0
+ },
+ "notes": "Router mode llama.cpp funziona (/models load/unload, un solo modello in VRAM alla volta, niente OOM). MA gate a confidenza NON separa corretti (0.957) da sbagliati (0.983): overconfidence dei quant 2-bit. Gate su troncamento: i 2 casi escalati a q27 sono troncati ANCHE li (4096 token), fix=0. Il router non migliora: serve budget piu grande, non modello piu smart.",
+ "summary": "Router q35/q27: gate a confidenza e troncamento falliti (75% -> 75%), ma router mode llama.cpp verificato senza OOM."
+}

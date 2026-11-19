@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "id": "2026-11-19-k2-horizon-7b-q8_0",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "category": "speed",
+ "status": "ok",
+ "title": "K2-Horizon-7B Q8_0",
+ "reference": false,
+ "model": {
+  "name": "K2-Horizon-7B",
+  "repo": null,
+  "quant": "Q8_0",
+  "size_gb": null
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "8192",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 34.9,
+  "tps_media": 34.9,
+  "tps_by_type": {
+   "codice": 34.9,
+   "storia": 34.9,
+   "ragionamento": 34.8,
+   "json": 34.9
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "34.9 t/s medi su 4 tipi di prompt (core-speed v1), 34.9 t/s mediana."
+}

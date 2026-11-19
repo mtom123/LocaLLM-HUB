@@ -1,7 +1,7 @@
 {
  "platform": "windows",
- "count": 155,
- "hidden_failed": 51,
+ "count": 156,
+ "hidden_failed": 52,
  "experiments": [
   {
    "id": "2026-11-19-sensenova-loop-9b-100k-fork-patched",
@@ -47,6 +47,29 @@
     "tps_media": 20.7
    },
    "ctx": 6144,
+   "tags": []
+  },
+  {
+   "id": "2026-11-19-k2-horizon-7b-q8_0",
+   "file": "results/windows/2026-11-19-k2-horizon-7b-q8_0.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "speed",
+   "status": "ok",
+   "title": "K2-Horizon-7B Q8_0",
+   "summary": "34.9 t/s medi su 4 tipi di prompt (core-speed v1), 34.9 t/s mediana.",
+   "model": "K2-Horizon-7B",
+   "repo": null,
+   "quant": "Q8_0",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 34.9,
+    "tps_media": 34.9
+   },
+   "ctx": 8192,
    "tags": []
   },
   {
