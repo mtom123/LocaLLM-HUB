@@ -1,7 +1,7 @@
 {
  "platform": "windows",
  "count": 153,
- "hidden_failed": 50,
+ "hidden_failed": 51,
  "experiments": [
   {
    "id": "2026-11-19-qwen3.8-27b-gsq-rco-iq2_xs",
