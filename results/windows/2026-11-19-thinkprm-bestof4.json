@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "id": "2026-11-19-thinkprm-bestof4",
+ "category": "speculative",
+ "status": "failed",
+ "title": "Verifier ThinkPRM best-of-4 non valido per OOM su 16GB",
+ "summary": "Verifier ThinkPRM best-of-4 non valido per OOM su 16GB",
+ "model": {
+  "name": "ThinkPRM-1.5B + Qwen3.8-35B-A3B",
+  "quant": "Q4_K_M + IQ2_M",
+  "size_gb": 1.04
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "due server :8083 (gen) + :8081 (prm)"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "thinkprm_bestof.py",
+  "params": {
+   "sets": "math",
+   "n": 8,
+   "votes": 4
+  }
+ },
+ "metrics": {
+  "maj_ok": 6,
+  "prm_ok": 6,
+  "first_ok": 6,
+  "n": 8
+ },
+ "notes": "Tentativo con due server paralleli su 16GB RAM: PowerShell in OutOfMemoryException al 3° item, verifier non ha emesso verdetto nei primi 2 (tutti False). Con prompt ufficiale e max_tokens 2048 il verifier emette boxed{yes} in 4.5s su un caso semplice, ma su risposte lunghe esaurisce il budget. Da ripetere con verifier su CPU o caricamento sequenziale (un solo server alla volta), non in parallelo."
+}

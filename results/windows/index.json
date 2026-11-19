@@ -1,8 +1,31 @@
 {
  "platform": "windows",
- "count": 152,
- "hidden_failed": 47,
+ "count": 153,
+ "hidden_failed": 49,
  "experiments": [
+  {
+   "id": "2026-11-19-qwen3.8-27b-gsq-rco-iq2_xs",
+   "file": "results/windows/2026-11-19-qwen3.8-27b-gsq-rco-iq2_xs.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-19",
+   "category": "speed",
+   "status": "ok",
+   "title": "Qwen3.8-27B GSQ-RCO IQ2_XS",
+   "summary": "20.7 t/s medi su 4 tipi di prompt (core-speed v1), 20.7 t/s mediana.",
+   "model": "Qwen3.8-27B",
+   "repo": null,
+   "quant": "GSQ-RCO-IQ2_XS",
+   "size_gb": null,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 20.7,
+    "tps_media": 20.7
+   },
+   "ctx": 6144,
+   "tags": []
+  },
   {
    "id": "2026-11-19-e9-qwen35b-nothink",
    "file": "results/windows/2026-11-19-e9-qwen35b-nothink.json",

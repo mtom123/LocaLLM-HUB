@@ -1,0 +1,50 @@
+{
+ "schema": 1,
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-19",
+ "reference": false,
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11",
+  "cpu": "Ryzen 5 5600G"
+ },
+ "id": "2026-11-19-e13-gsq-rco-qwen27b",
+ "category": "quality-tiny",
+ "status": "failed",
+ "title": "GSQ-RCO IQ2_XS peggiora di UD-IQ2_XS sul duro",
+ "summary": "GSQ-RCO IQ2_XS peggiora di UD-IQ2_XS sul duro",
+ "model": {
+  "name": "Qwen3.8-27B",
+  "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "quant": "IQ2_XS",
+  "size_gb": 7.84
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12141",
+  "args": "-ngl 99 -fa on -c 4608 -np 1 --no-cache-prompt -ctk q4_0 -ctv q4_0 -t 6"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "harness": "duro.py --votes=1",
+  "params": {
+   "sets": "math,code,mmlu",
+   "n": 15,
+   "budget": 4096
+  }
+ },
+ "metrics": {
+  "duro_pct": 75.0,
+  "corrette": "33/44",
+  "per_categoria_pct": {
+   "code": 86.7,
+   "math": 80.0,
+   "mmlu": 57.1
+  },
+  "n": 44,
+  "secondi_per_domanda": 28.1
+ },
+ "notes": "Confronto appaiato con E12 (UD-IQ2_XS, 84.1%). GSQ-RCO -9.1 pp. Primo tentativo crashato per CUDA illegal memory access durante eviction prompt cache; ripetuto con --no-cache-prompt e -c 4608. La community (ISTA) dichiara GSQ superiore su AIME/GPQA ma qui non regge: il nostro duro e piu MMLU/code-oriented. UD-IQ2_XS resta campione qualita."
+}
