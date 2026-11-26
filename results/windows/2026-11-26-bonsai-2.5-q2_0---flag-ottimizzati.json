@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-bonsai-2.5-q2_0---flag-ottimizzati",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "Bonsai 2.5 Q2_0 - flag ottimizzati",
+ "reference": false,
+ "model": {
+  "name": "Ternary-Bonsai-2.5-27B",
+  "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+  "quant": "Q2_0-tuned",
+  "size_gb": 7.15
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "32768",
+   "-np",
+   "1",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "-b",
+   "512",
+   "-ub",
+   "32"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 29.0,
+  "tps_media": 28.9,
+  "tps_by_type": {
+   "codice": 28.7,
+   "storia": 28.7,
+   "ragionamento": 29.1,
+   "json": 28.9
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "28.9 t/s medi su 4 tipi di prompt (core-speed v1), 29.0 t/s mediana."
+}
