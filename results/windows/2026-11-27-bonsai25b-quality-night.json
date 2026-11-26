@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-bonsai25b-quality-night",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "Ternary-Bonsai-2.5-27B Q2_0 - quality notte",
+ "reference": false,
+ "model": {
+  "name": "Ternary-Bonsai-2.5-27B",
+  "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+  "quant": "Q2_0",
+  "size_gb": 7.15
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "inkling-night-v1",
+  "version": 1,
+  "harness": "suite100.ps1"
+ },
+ "metrics": {
+  "n": 56,
+  "ok": 56,
+  "correttezza_base": 100.0,
+  "math_391": "6/6",
+  "fact_canberra": "6/6",
+  "json_strutturato": "6/6",
+  "troncati_pct": 39.3,
+  "ms_medio_risposta": 5727
+ },
+ "summary": "56 test brevi su Ternary-Bonsai-2.5-27B Q2_0: Base corretta 6/6, Canberra 6/6, JSON 6/6. Troncamenti 39% con reasoning 0.1.",
+ "notes": "Suite casalinga di notte: 9 prompt x 6 livelli di sforzo x 2 KV (q8_0/q4_0). Non confrontare con duro-v1 o Suite S. I valori 12/12 sono saturi: il test discrimina poco.",
+ "tags": [
+  "inkling2-mini",
+  "notte",
+  "qualita-base"
+ ]
+}

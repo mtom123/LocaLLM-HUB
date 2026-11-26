@@ -1,0 +1,54 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-dspark-rallenta-12gb",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "speculative",
+ "status": "ok",
+ "title": "DSpark su Inkling 2 Mini 12GB: rallenta",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini-Uncensored",
+  "repo": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+  "quant": "AD-IQ2_M",
+  "size_gb": 8.07
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "dspark-ab",
+  "version": 1,
+  "harness": "dsptest.ps1"
+ },
+ "metrics": {
+  "decode_tps_1": 45.0,
+  "no_draft_tps": 45.0,
+  "draft_n2_tps": 38.0,
+  "draft_n3_tps": 36.9
+ },
+ "summary": "DSpark (drafter Q8_0, 0,47GB) peggiora le prestazioni su RTX 3060 12GB: 45 -> 38 (n=2) -> 36,9 (n=3) tok/s.",
+ "notes": "5 ripetizioni per configurazione, 256 token, temp 0. Cresce il costo del verify e probabilmente eviction esperti. Non usare come default su 12GB.",
+ "tags": [
+  "dspark",
+  "negativo",
+  "12gb"
+ ]
+}

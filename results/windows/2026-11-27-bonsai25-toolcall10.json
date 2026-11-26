@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-bonsai25-toolcall10",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "agent",
+ "status": "ok",
+ "title": "Ternary-Bonsai-2.5-27B Q2_0 - 10 tool call",
+ "reference": false,
+ "model": {
+  "name": "Ternary-Bonsai-2.5-27B",
+  "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+  "quant": "Q2_0",
+  "size_gb": 7.15
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "tool10-it",
+  "version": 1,
+  "harness": "tooltest.ps1"
+ },
+ "metrics": {
+  "tool_call_corretti": 10,
+  "n": 10
+ },
+ "summary": "10/10 tool call corretti con argomenti validi (10 funzioni in italiano, temperatura 0.6, reasoning 0.1).",
+ "notes": "Eseguito con llama.cpp b12676 --jinja, server OpenAI-compatible.",
+ "tags": [
+  "tool-calling",
+  "notte"
+ ]
+}

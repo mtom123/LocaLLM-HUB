@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-u-q2kxl-toolcall10",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "agent",
+ "status": "ok",
+ "title": "Inkling-2-Mini UD-Q2_K_XL - 10 tool call",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini",
+  "repo": "unsloth/Inkling-2-Mini-GGUF",
+  "quant": "UD-Q2_K_XL",
+  "size_gb": 8.51
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "tool10-it",
+  "version": 1,
+  "harness": "tooltest.ps1"
+ },
+ "metrics": {
+  "tool_call_corretti": 0,
+  "n": 10
+ },
+ "summary": "0/10 tool call corretti con argomenti validi (10 funzioni in italiano, temperatura 0.6, reasoning 0.1).",
+ "notes": "I quant base Unsloth non hanno emesso tool call nel nostro test (finish_reason=stop, risposta testuale). Gli abliterated (Unbound, AtomicChat) e Bonsai 2.5 hanno emesso 10/10 tool call con finish_reason=tool_calls.",
+ "tags": [
+  "tool-calling",
+  "notte"
+ ]
+}

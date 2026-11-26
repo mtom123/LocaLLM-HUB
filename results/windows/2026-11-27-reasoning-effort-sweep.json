@@ -1,0 +1,65 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-reasoning-effort-sweep",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "armature",
+ "status": "ok",
+ "title": "Sweep reasoning_effort: 0.1 ottimale",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini-Uncensored",
+  "repo": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+  "quant": "AD-IQ2_M",
+  "size_gb": 8.07
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "effort-sweep",
+  "version": 1,
+  "harness": "suite100.ps1"
+ },
+ "metrics": {
+  "troncati_pct": {
+   "0.0": 53,
+   "0.1": 19,
+   "0.2": 28,
+   "0.35": 40,
+   "0.7": 46,
+   "0.9": 58
+  },
+  "ms_medio": {
+   "0.0": 5071,
+   "0.1": 4256,
+   "0.2": 4319,
+   "0.35": 4552,
+   "0.7": 4776,
+   "0.9": 5046
+  }
+ },
+ "summary": "reasoning_effort=0.1 dimezza i troncamenti (19% vs 58% a 0.9) ed e il piu veloce (4256 ms medi).",
+ "notes": "Il default 0.9 e il peggiore. 0.0 e controintuitivamente peggio di 0.1: il minimo pensiero evita loop. 72 campioni per livello.",
+ "tags": [
+  "reasoning-effort",
+  "armature"
+ ]
+}

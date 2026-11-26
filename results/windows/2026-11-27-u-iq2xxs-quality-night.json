@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-u-iq2xxs-quality-night",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "quality-tiny",
+ "status": "ok",
+ "title": "Inkling-2-Mini UD-IQ2_XXS - quality notte",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini",
+  "repo": "unsloth/Inkling-2-Mini-GGUF",
+  "quant": "UD-IQ2_XXS",
+  "size_gb": 7.9
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "inkling-night-v1",
+  "version": 1,
+  "harness": "suite100.ps1"
+ },
+ "metrics": {
+  "n": 110,
+  "ok": 110,
+  "correttezza_base": 100.0,
+  "math_391": "12/12",
+  "fact_canberra": "12/12",
+  "json_strutturato": "12/12",
+  "troncati_pct": 38.2,
+  "ms_medio_risposta": 4654
+ },
+ "summary": "110 test brevi su Inkling-2-Mini UD-IQ2_XXS: Base corretta 12/12, Canberra 12/12, JSON 12/12. Troncamenti 38% con reasoning 0.1.",
+ "notes": "Suite casalinga di notte: 9 prompt x 6 livelli di sforzo x 2 KV (q8_0/q4_0). Non confrontare con duro-v1 o Suite S. I valori 12/12 sono saturi: il test discrimina poco.",
+ "tags": [
+  "inkling2-mini",
+  "notte",
+  "qualita-base"
+ ]
+}

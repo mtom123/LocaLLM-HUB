@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "id": "2026-11-27-262k-contesto-q4-3060",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-27",
+ "category": "other",
+ "status": "ok",
+ "title": "262K di contesto su RTX 3060 con KV q4_0",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini-Uncensored",
+  "repo": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+  "quant": "AD-IQ2_M",
+  "size_gb": 8.07
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-np",
+   "1"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "ctx-max",
+  "version": 1,
+  "harness": "maxtest.ps1"
+ },
+ "metrics": {
+  "ctx_max": 262144,
+  "decode_tps_1": 44.2,
+  "vram_mib_262k": 10942,
+  "ctx_ok": {
+   "32768": 44.2,
+   "65536": 44.3,
+   "131072": 44.1,
+   "262144": 44.2
+  }
+ },
+ "summary": "Contesto 262.144 token raggiunto su RTX 3060 12GB con KV cache q4_0, -ub 16: 44,2 tok/s e 10,9GB VRAM.",
+ "notes": "1M resta impossibile (serve ~9GB di sola KV in q4_0 piu i pesi). I valori sono a contesto impostato ma prompt brevi: il costo reale del prefill a 262K non e misurato qui.",
+ "tags": [
+  "contesto-lungo",
+  "262k"
+ ]
+}
