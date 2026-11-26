@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-unbound-v21-hard10",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "quality-suite-s",
+ "status": "partial",
+ "title": "Inkling-2-Mini-Unbound-v2.1 IQ2_M - hard10 (18 prove)",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini-Unbound-v2.1",
+  "repo": "nokeepai/Inkling-2-Mini-Unbound-GGUF",
+  "quant": "IQ2_M",
+  "size_gb": 10.39
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "--no-reasoning-preserve",
+   "-c",
+   "16384"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "hard10-custom",
+  "version": 1,
+  "harness": "hard10.py"
+ },
+ "metrics": {
+  "hard10_totale": 9.0,
+  "n": 18,
+  "gpqa": 1,
+  "code": 2.0,
+  "bfcl": 2.0,
+  "tool_like": 4
+ },
+ "summary": "18 prove dure discriminatorie (GPQA, ARC, matematica, codice con assert, BFCL, needle 8K, logica italiana): 9.0/18.",
+ "notes": "status=partial: alcuni item hanno risposto vuoto (token di ragionamento che esauriscono il budget), soprattutto su Bonsai con effort stringa. Usare duro-v1 per il confronto di qualita affidabile. Il punteggio discipline GPQA e basso per tutti: campione di 3 domande, non significativo.",
+ "tags": [
+  "hard10",
+  "qualita",
+  "parziale"
+ ]
+}

@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 179,
+ "count": 183,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -313,6 +313,54 @@
    ]
   },
   {
+   "id": "2026-11-26-unbound-v21-hard10",
+   "file": "results/windows/2026-11-26-unbound-v21-hard10.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "partial",
+   "title": "Inkling-2-Mini-Unbound-v2.1 IQ2_M - hard10 (18 prove)",
+   "summary": "18 prove dure discriminatorie (GPQA, ARC, matematica, codice con assert, BFCL, needle 8K, logica italiana): 9.0/18.",
+   "model": "Inkling-2-Mini-Unbound-v2.1",
+   "repo": "nokeepai/Inkling-2-Mini-Unbound-GGUF",
+   "quant": "IQ2_M",
+   "size_gb": 10.39,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 16384,
+   "tags": [
+    "hard10",
+    "qualita",
+    "parziale"
+   ]
+  },
+  {
+   "id": "2026-11-26-ud-q2kxl-hard10",
+   "file": "results/windows/2026-11-26-ud-q2kxl-hard10.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "partial",
+   "title": "Inkling-2-Mini UD-Q2_K_XL - hard10 (18 prove)",
+   "summary": "18 prove dure discriminatorie (GPQA, ARC, matematica, codice con assert, BFCL, needle 8K, logica italiana): 8.33/18.",
+   "model": "Inkling-2-Mini",
+   "repo": "unsloth/Inkling-2-Mini-GGUF",
+   "quant": "UD-Q2_K_XL",
+   "size_gb": 8.51,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 16384,
+   "tags": [
+    "hard10",
+    "qualita",
+    "parziale"
+   ]
+  },
+  {
    "id": "2026-11-26-ud-q2-k-xl-duro-v1",
    "file": "results/windows/2026-11-26-ud-q2-k-xl-duro-v1.json",
    "platform": "windows",
@@ -522,6 +570,54 @@
    },
    "ctx": 8192,
    "tags": []
+  },
+  {
+   "id": "2026-11-26-bonsai25b-hard10",
+   "file": "results/windows/2026-11-26-bonsai25b-hard10.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "partial",
+   "title": "Ternary-Bonsai-2.5-27B Q2_0 - hard10 (18 prove)",
+   "summary": "18 prove dure discriminatorie (GPQA, ARC, matematica, codice con assert, BFCL, needle 8K, logica italiana): 7.0/18.",
+   "model": "Ternary-Bonsai-2.5-27B",
+   "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+   "quant": "Q2_0",
+   "size_gb": 7.15,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 16384,
+   "tags": [
+    "hard10",
+    "qualita",
+    "parziale"
+   ]
+  },
+  {
+   "id": "2026-11-26-atomic-unc-hard10",
+   "file": "results/windows/2026-11-26-atomic-unc-hard10.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "partial",
+   "title": "Inkling-2-Mini-Uncensored AD-IQ2_M - hard10 (18 prove)",
+   "summary": "18 prove dure discriminatorie (GPQA, ARC, matematica, codice con assert, BFCL, needle 8K, logica italiana): 8.0/18.",
+   "model": "Inkling-2-Mini-Uncensored",
+   "repo": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+   "quant": "AD-IQ2_M",
+   "size_gb": 8.07,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 16384,
+   "tags": [
+    "hard10",
+    "qualita",
+    "parziale"
+   ]
   },
   {
    "id": "2026-11-26-ad-iq2-m-duro-v1",
