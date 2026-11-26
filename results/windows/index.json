@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 186,
+ "count": 187,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -453,6 +453,29 @@
     "duro-v1",
     "qualita",
     "confronto"
+   ]
+  },
+  {
+   "id": "2026-11-26-iq3-xs-duro-v1",
+   "file": "results/windows/2026-11-26-iq3-xs-duro-v1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "ok",
+   "title": "Inkling-2-Mini-GSQ-RCO IQ3_XS - duro-v1",
+   "summary": "duro-v1: 73.7% (28/38). code 87.5, math 62.5, mbpp 62.5, mmlu 78.6. Troncate 31.6%.",
+   "model": "Inkling-2-Mini-GSQ-RCO",
+   "repo": "abenzerps/Inkling-2-Mini-GSQ-RCO-GGUF",
+   "quant": "IQ3_XS",
+   "size_gb": 9.86,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 32768,
+   "tags": [
+    "duro-v1",
+    "qualita"
    ]
   },
   {
