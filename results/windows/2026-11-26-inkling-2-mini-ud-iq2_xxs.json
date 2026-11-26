@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-inkling-2-mini-ud-iq2_xxs",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "Inkling-2-Mini UD-IQ2_XXS",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini",
+  "repo": "unsloth/Inkling-2-Mini-GGUF",
+  "quant": "UD-IQ2_XXS",
+  "size_gb": 7.9
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 46.0,
+  "tps_media": 45.8,
+  "tps_by_type": {
+   "codice": 45.8,
+   "storia": 45.3,
+   "ragionamento": 46.1,
+   "json": 45.9
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "45.8 t/s medi su 4 tipi di prompt (core-speed v1), 46.0 t/s mediana."
+}

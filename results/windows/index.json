@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 169,
+ "count": 174,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -311,6 +311,121 @@
     "contesto-lungo",
     "262k"
    ]
+  },
+  {
+   "id": "2026-11-26-ternary-bonsai-2.5-27b-q2_0",
+   "file": "results/windows/2026-11-26-ternary-bonsai-2.5-27b-q2_0.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Ternary-Bonsai-2.5-27B Q2_0",
+   "summary": "29.1 t/s medi su 4 tipi di prompt (core-speed v1), 29.4 t/s mediana.",
+   "model": "Ternary-Bonsai-2.5-27B",
+   "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+   "quant": "Q2_0",
+   "size_gb": 7.15,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 29.4,
+    "tps_media": 29.1
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-26-inkling-2-mini-uncensored-ad-iq2_m",
+   "file": "results/windows/2026-11-26-inkling-2-mini-uncensored-ad-iq2_m.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Inkling-2-Mini-Uncensored AD-IQ2_M",
+   "summary": "44.9 t/s medi su 4 tipi di prompt (core-speed v1), 45.1 t/s mediana.",
+   "model": "Inkling-2-Mini-Uncensored",
+   "repo": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+   "quant": "AD-IQ2_M",
+   "size_gb": 8.07,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 45.1,
+    "tps_media": 44.9
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-26-inkling-2-mini-unbound-v2.1-iq2_m",
+   "file": "results/windows/2026-11-26-inkling-2-mini-unbound-v2.1-iq2_m.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Inkling-2-Mini-Unbound-v2.1 IQ2_M",
+   "summary": "41.9 t/s medi su 4 tipi di prompt (core-speed v1), 42.2 t/s mediana.",
+   "model": "Inkling-2-Mini-Unbound-v2.1",
+   "repo": "nokeepai/Inkling-2-Mini-Unbound-GGUF",
+   "quant": "IQ2_M",
+   "size_gb": 10.39,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 42.2,
+    "tps_media": 41.9
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-26-inkling-2-mini-ud-q2_k_xl",
+   "file": "results/windows/2026-11-26-inkling-2-mini-ud-q2_k_xl.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Inkling-2-Mini UD-Q2_K_XL",
+   "summary": "43.3 t/s medi su 4 tipi di prompt (core-speed v1), 43.8 t/s mediana.",
+   "model": "Inkling-2-Mini",
+   "repo": "unsloth/Inkling-2-Mini-GGUF",
+   "quant": "UD-Q2_K_XL",
+   "size_gb": 8.51,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 43.8,
+    "tps_media": 43.3
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-26-inkling-2-mini-ud-iq2_xxs",
+   "file": "results/windows/2026-11-26-inkling-2-mini-ud-iq2_xxs.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Inkling-2-Mini UD-IQ2_XXS",
+   "summary": "45.8 t/s medi su 4 tipi di prompt (core-speed v1), 46.0 t/s mediana.",
+   "model": "Inkling-2-Mini",
+   "repo": "unsloth/Inkling-2-Mini-GGUF",
+   "quant": "UD-IQ2_XXS",
+   "size_gb": 7.9,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 46.0,
+    "tps_media": 45.8
+   },
+   "ctx": 8192,
+   "tags": []
   },
   {
    "id": "2026-11-19-sensenova-loop-9b-100k-fork-patched",

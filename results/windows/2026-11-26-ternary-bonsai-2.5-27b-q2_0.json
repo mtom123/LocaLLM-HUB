@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-ternary-bonsai-2.5-27b-q2_0",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "Ternary-Bonsai-2.5-27B Q2_0",
+ "reference": false,
+ "model": {
+  "name": "Ternary-Bonsai-2.5-27B",
+  "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+  "quant": "Q2_0",
+  "size_gb": 7.15
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 29.4,
+  "tps_media": 29.1,
+  "tps_by_type": {
+   "codice": 29.4,
+   "storia": 28.8,
+   "ragionamento": 29.2,
+   "json": 29.1
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "29.1 t/s medi su 4 tipi di prompt (core-speed v1), 29.4 t/s mediana."
+}
