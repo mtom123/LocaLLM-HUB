@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 187,
+ "count": 188,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -430,6 +430,33 @@
    },
    "ctx": 8192,
    "tags": []
+  },
+  {
+   "id": "2026-11-26-rustingstrata-iq2xxs-core",
+   "file": "results/windows/2026-11-26-rustingstrata-iq2xxs-core.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Inkling-2-Mini UD-IQ2_XXS - RustingStrata CUDA",
+   "summary": "RustingStrata su RTX 3060: 54.4 t/s a 512 token e 46.7 a 4096, prefill 496.7/343.5 t/s. +19% vs llama.cpp sullo stesso GGUF.",
+   "model": "Inkling-2-Mini",
+   "repo": "unsloth/Inkling-2-Mini-GGUF",
+   "quant": "UD-IQ2_XXS",
+   "size_gb": 7.9,
+   "engine": "RustingStrata",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 54.4,
+    "prompt_tps": 496.7
+   },
+   "ctx": null,
+   "tags": [
+    "rustingstrata",
+    "velocita",
+    "confronto-motori"
+   ]
   },
   {
    "id": "2026-11-26-q2-0-duro-v1",
