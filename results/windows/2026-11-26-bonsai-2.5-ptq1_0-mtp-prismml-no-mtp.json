@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-bonsai-2.5-ptq1_0-mtp-prismml-no-mtp",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "Bonsai 2.5 PTQ1_0-mtp PrismML no-mtp",
+ "reference": false,
+ "model": {
+  "name": "Ternary-Bonsai-2.5-27B",
+  "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+  "quant": "PTQ1_0-mtp-no-mtp",
+  "size_gb": 5.8
+ },
+ "engine": {
+  "name": "llama.cpp PrismML",
+  "version": "prism-b12232",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "32768",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "no-mtp"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 43.2,
+  "tps_media": 42.9,
+  "tps_by_type": {
+   "codice": 43.1,
+   "storia": 42.5,
+   "ragionamento": 43.3,
+   "json": 42.9
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "42.9 t/s medi su 4 tipi di prompt (core-speed v1), 43.2 t/s mediana."
+}

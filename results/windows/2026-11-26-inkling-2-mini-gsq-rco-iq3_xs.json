@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-inkling-2-mini-gsq-rco-iq3_xs",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "Inkling-2-Mini-GSQ-RCO IQ3_XS",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini-GSQ-RCO",
+  "repo": "abenzerps/Inkling-2-Mini-GSQ-RCO-GGUF",
+  "quant": "IQ3_XS",
+  "size_gb": 9.86
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 43.1,
+  "tps_media": 42.5,
+  "tps_by_type": {
+   "codice": 42.0,
+   "storia": 42.2,
+   "ragionamento": 43.1,
+   "json": 42.7
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "42.5 t/s medi su 4 tipi di prompt (core-speed v1), 43.1 t/s mediana."
+}

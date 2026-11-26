@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-bonsai-2.5-ptq1_0-mtp-prismml-mtp3",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "Bonsai 2.5 PTQ1_0-mtp PrismML mtp3",
+ "reference": false,
+ "model": {
+  "name": "Ternary-Bonsai-2.5-27B",
+  "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+  "quant": "PTQ1_0-mtp-mtp3",
+  "size_gb": 5.8
+ },
+ "engine": {
+  "name": "llama.cpp PrismML",
+  "version": "prism-b12232",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "32768",
+   "-ctk",
+   "q4_0",
+   "-ctv",
+   "q4_0",
+   "mtp3"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 63.4,
+  "tps_media": 64.2,
+  "tps_by_type": {
+   "codice": 57.7,
+   "storia": 53.9,
+   "ragionamento": 67.9,
+   "json": 77.3
+  },
+  "tps_method": "timings",
+  "draft_acceptance_pct": 59.4
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "64.2 t/s medi su 4 tipi di prompt (core-speed v1), 63.4 t/s mediana. Accettazione drafter 59.4%."
+}

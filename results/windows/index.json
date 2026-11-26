@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 183,
+ "count": 186,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -572,6 +572,29 @@
    "tags": []
   },
   {
+   "id": "2026-11-26-inkling-2-mini-gsq-rco-iq3_xs",
+   "file": "results/windows/2026-11-26-inkling-2-mini-gsq-rco-iq3_xs.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Inkling-2-Mini-GSQ-RCO IQ3_XS",
+   "summary": "42.5 t/s medi su 4 tipi di prompt (core-speed v1), 43.1 t/s mediana.",
+   "model": "Inkling-2-Mini-GSQ-RCO",
+   "repo": "abenzerps/Inkling-2-Mini-GSQ-RCO-GGUF",
+   "quant": "IQ3_XS",
+   "size_gb": 9.86,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 43.1,
+    "tps_media": 42.5
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
    "id": "2026-11-26-bonsai25b-hard10",
    "file": "results/windows/2026-11-26-bonsai25b-hard10.json",
    "platform": "windows",
@@ -594,6 +617,53 @@
     "qualita",
     "parziale"
    ]
+  },
+  {
+   "id": "2026-11-26-bonsai-2.5-ptq1_0-mtp-prismml-no-mtp",
+   "file": "results/windows/2026-11-26-bonsai-2.5-ptq1_0-mtp-prismml-no-mtp.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Bonsai 2.5 PTQ1_0-mtp PrismML no-mtp",
+   "summary": "42.9 t/s medi su 4 tipi di prompt (core-speed v1), 43.2 t/s mediana.",
+   "model": "Ternary-Bonsai-2.5-27B",
+   "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+   "quant": "PTQ1_0-mtp-no-mtp",
+   "size_gb": 5.8,
+   "engine": "llama.cpp PrismML",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 43.2,
+    "tps_media": 42.9
+   },
+   "ctx": 32768,
+   "tags": []
+  },
+  {
+   "id": "2026-11-26-bonsai-2.5-ptq1_0-mtp-prismml-mtp3",
+   "file": "results/windows/2026-11-26-bonsai-2.5-ptq1_0-mtp-prismml-mtp3.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "Bonsai 2.5 PTQ1_0-mtp PrismML mtp3",
+   "summary": "64.2 t/s medi su 4 tipi di prompt (core-speed v1), 63.4 t/s mediana. Accettazione drafter 59.4%.",
+   "model": "Ternary-Bonsai-2.5-27B",
+   "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+   "quant": "PTQ1_0-mtp-mtp3",
+   "size_gb": 5.8,
+   "engine": "llama.cpp PrismML",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 63.4,
+    "tps_media": 64.2,
+    "draft_acceptance_pct": 59.4
+   },
+   "ctx": 32768,
+   "tags": []
   },
   {
    "id": "2026-11-26-atomic-unc-hard10",
