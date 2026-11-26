@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 189,
+ "count": 190,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -640,6 +640,29 @@
    "headline": {
     "decode_tps_1": 43.1,
     "tps_media": 42.5
+   },
+   "ctx": 8192,
+   "tags": []
+  },
+  {
+   "id": "2026-11-26-deepseek-v4.1-flash-distill-qwen9b-q4_k_m",
+   "file": "results/windows/2026-11-26-deepseek-v4.1-flash-distill-qwen9b-q4_k_m.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "speed",
+   "status": "ok",
+   "title": "DeepSeek V4.1 Flash Distill Qwen9B Q4_K_M",
+   "summary": "50.9 t/s medi su 4 tipi di prompt (core-speed v1), 51.2 t/s mediana.",
+   "model": "DeepSeek-V4.1-Flash-Distill-Qwen-9B",
+   "repo": "Jackrong/DeepSeek-V4.1-Flash-1017-Distill-Qwen-9B-GGUF",
+   "quant": "Q4_K_M",
+   "size_gb": 5.38,
+   "engine": "llama.cpp",
+   "ref": false,
+   "headline": {
+    "decode_tps_1": 51.2,
+    "tps_media": 50.9
    },
    "ctx": 8192,
    "tags": []

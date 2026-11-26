@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-deepseek-v4.1-flash-distill-qwen9b-q4_k_m",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "speed",
+ "status": "ok",
+ "title": "DeepSeek V4.1 Flash Distill Qwen9B Q4_K_M",
+ "reference": false,
+ "model": {
+  "name": "DeepSeek-V4.1-Flash-Distill-Qwen-9B",
+  "repo": "Jackrong/DeepSeek-V4.1-Flash-1017-Distill-Qwen-9B-GGUF",
+  "quant": "Q4_K_M",
+  "size_gb": 5.38
+ },
+ "engine": {
+  "name": "llama.cpp",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "-c",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "gpu": "RTX 3060 12GB",
+  "ram_gb": 16.0,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "core-speed",
+  "version": 1,
+  "harness": "tools/speedtest.py"
+ },
+ "metrics": {
+  "decode_tps_1": 51.2,
+  "tps_media": 50.9,
+  "tps_by_type": {
+   "codice": 50.5,
+   "storia": 50.6,
+   "ragionamento": 51.3,
+   "json": 51.2
+  },
+  "tps_method": "timings"
+ },
+ "notes": "",
+ "tags": [],
+ "summary": "50.9 t/s medi su 4 tipi di prompt (core-speed v1), 51.2 t/s mediana."
+}
