@@ -1,6 +1,6 @@
 {
  "platform": "windows",
- "count": 174,
+ "count": 179,
  "hidden_failed": 52,
  "experiments": [
   {
@@ -313,6 +313,54 @@
    ]
   },
   {
+   "id": "2026-11-26-ud-q2-k-xl-duro-v1",
+   "file": "results/windows/2026-11-26-ud-q2-k-xl-duro-v1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "ok",
+   "title": "Inkling-2-Mini UD-Q2_K_XL - duro-v1",
+   "summary": "duro-v1 (stesso protocollo della dashboard): 71.1% (27/38) con code 87.5%, math 50.0%, mbpp 75.0%, mmlu 71.4%. Troncate 26.3%.",
+   "model": "Inkling-2-Mini",
+   "repo": "unsloth/Inkling-2-Mini-GGUF",
+   "quant": "UD-Q2_K_XL",
+   "size_gb": 8.51,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 8192,
+   "tags": [
+    "duro-v1",
+    "qualita",
+    "confronto"
+   ]
+  },
+  {
+   "id": "2026-11-26-ud-iq2-xxs-duro-v1",
+   "file": "results/windows/2026-11-26-ud-iq2-xxs-duro-v1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "ok",
+   "title": "Inkling-2-Mini UD-IQ2_XXS - duro-v1",
+   "summary": "duro-v1 (stesso protocollo della dashboard): 71.1% (27/38) con code 75.0%, math 50.0%, mbpp 75.0%, mmlu 78.6%. Troncate 26.3%.",
+   "model": "Inkling-2-Mini",
+   "repo": "unsloth/Inkling-2-Mini-GGUF",
+   "quant": "UD-IQ2_XXS",
+   "size_gb": 7.9,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 8192,
+   "tags": [
+    "duro-v1",
+    "qualita",
+    "confronto"
+   ]
+  },
+  {
    "id": "2026-11-26-ternary-bonsai-2.5-27b-q2_0",
    "file": "results/windows/2026-11-26-ternary-bonsai-2.5-27b-q2_0.json",
    "platform": "windows",
@@ -334,6 +382,54 @@
    },
    "ctx": 8192,
    "tags": []
+  },
+  {
+   "id": "2026-11-26-q2-0-duro-v1",
+   "file": "results/windows/2026-11-26-q2-0-duro-v1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "ok",
+   "title": "Ternary-Bonsai-2.5-27B Q2_0 - duro-v1",
+   "summary": "duro-v1 (stesso protocollo della dashboard): 84.2% (32/38) con code 87.5%, math 75.0%, mbpp 87.5%, mmlu 85.7%. Troncate 7.9%.",
+   "model": "Ternary-Bonsai-2.5-27B",
+   "repo": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+   "quant": "Q2_0",
+   "size_gb": 7.15,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 8192,
+   "tags": [
+    "duro-v1",
+    "qualita",
+    "confronto"
+   ]
+  },
+  {
+   "id": "2026-11-26-iq2-m-duro-v1",
+   "file": "results/windows/2026-11-26-iq2-m-duro-v1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "ok",
+   "title": "Inkling-2-Mini-Unbound-v2.1 IQ2_M - duro-v1",
+   "summary": "duro-v1 (stesso protocollo della dashboard): 68.4% (26/38) con code 75.0%, math 50.0%, mbpp 62.5%, mmlu 78.6%. Troncate 28.9%.",
+   "model": "Inkling-2-Mini-Unbound-v2.1",
+   "repo": "nokeepai/Inkling-2-Mini-Unbound-GGUF",
+   "quant": "IQ2_M",
+   "size_gb": 10.39,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 8192,
+   "tags": [
+    "duro-v1",
+    "qualita",
+    "confronto"
+   ]
   },
   {
    "id": "2026-11-26-inkling-2-mini-uncensored-ad-iq2_m",
@@ -426,6 +522,30 @@
    },
    "ctx": 8192,
    "tags": []
+  },
+  {
+   "id": "2026-11-26-ad-iq2-m-duro-v1",
+   "file": "results/windows/2026-11-26-ad-iq2-m-duro-v1.json",
+   "platform": "windows",
+   "author": "Motti",
+   "date": "2026-11-26",
+   "category": "quality-suite-s",
+   "status": "ok",
+   "title": "Inkling-2-Mini-Uncensored AD-IQ2_M - duro-v1",
+   "summary": "duro-v1 (stesso protocollo della dashboard): 65.8% (25/38) con code 62.5%, math 50.0%, mbpp 75.0%, mmlu 71.4%. Troncate 31.6%.",
+   "model": "Inkling-2-Mini-Uncensored",
+   "repo": "AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+   "quant": "AD-IQ2_M",
+   "size_gb": 8.07,
+   "engine": "llama.cpp Unsloth",
+   "ref": false,
+   "headline": {},
+   "ctx": 8192,
+   "tags": [
+    "duro-v1",
+    "qualita",
+    "confronto"
+   ]
   },
   {
    "id": "2026-11-19-sensenova-loop-9b-100k-fork-patched",

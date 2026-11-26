@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "id": "2026-11-26-iq2-m-duro-v1",
+ "platform": "windows",
+ "author": "Motti",
+ "date": "2026-11-26",
+ "category": "quality-suite-s",
+ "status": "ok",
+ "title": "Inkling-2-Mini-Unbound-v2.1 IQ2_M - duro-v1",
+ "reference": false,
+ "model": {
+  "name": "Inkling-2-Mini-Unbound-v2.1",
+  "repo": "nokeepai/Inkling-2-Mini-Unbound-GGUF",
+  "quant": "IQ2_M",
+  "size_gb": 10.39
+ },
+ "engine": {
+  "name": "llama.cpp Unsloth",
+  "version": "b12676",
+  "args": [
+   "-ngl",
+   "99",
+   "-fa",
+   "on",
+   "--jinja",
+   "-c",
+   "8192"
+  ]
+ },
+ "hardware": {
+  "gpu": "NVIDIA RTX 3060 12GB",
+  "ram_gb": 16,
+  "os": "Windows 11"
+ },
+ "benchmark": {
+  "suite": "duro-v1",
+  "version": 1,
+  "harness": "benchmarks/windows-fabbrica/duro/duro.py"
+ },
+ "metrics": {
+  "duro_totale_pct": 68.4,
+  "duro_corrette": "26/38",
+  "duro_code_pct": 75.0,
+  "duro_math_pct": 50.0,
+  "duro_mbpp_pct": 62.5,
+  "duro_mmlu_pct": 78.6,
+  "troncate_pct": 28.9,
+  "token_medi": 897,
+  "secondi_per_domanda": 22.8,
+  "n": 8
+ },
+ "summary": "duro-v1 (stesso protocollo della dashboard): 68.4% (26/38) con code 75.0%, math 50.0%, mbpp 62.5%, mmlu 78.6%. Troncate 28.9%.",
+ "notes": "n=8 per set, jobs=1, reasoning_effort 0.1, budget 1500. Confronto con vecchi risultati a 44 item solo indicativo (rumore +/-20 punti con n=8).",
+ "tags": [
+  "duro-v1",
+  "qualita",
+  "confronto"
+ ]
+}
